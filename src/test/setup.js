@@ -37,6 +37,7 @@ const constantsMockValue = {
     BFS: 'bfs',
     DIJKSTRA: 'dijkstra',
     A_STAR: 'aStar',
+    BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
   },
   ELEMENT_STATES: {
     DEFAULT: 'default',
@@ -50,8 +51,8 @@ const constantsMockValue = {
     START: 'start',
     END: 'end',
     OPEN: 'open',
+    CLOSED: 'closed',
     PATH: 'path',
-    VISITED: 'visited',
     WALL: 'wall',
   },
   GRID_SIZES: {

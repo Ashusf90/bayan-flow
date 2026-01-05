@@ -43,7 +43,8 @@
     "pathfinding": {
       "bfs": "Parcours en Largeur",
       "dijkstra": "Algorithme de Dijkstra",
-      "aStar": "Recherche A*"
+      "aStar": "Recherche A*",
+      "bidirectionalSearch": "Recherche Bidirectionnelle"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -56,7 +57,8 @@
       "radixSort": "Démarrage du Tri Radix",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
-      "aStar": "Démarrage de la Recherche A*"
+      "aStar": "Démarrage de la Recherche A*",
+      "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle"
     }
   },
   "complexity": {
@@ -70,7 +72,8 @@
     "radixSort": "O(nk)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
-    "aStar": "O(b^d)"
+    "aStar": "O(b^d)",
+    "bidirectionalSearch": "O(b^(d/2))"
   },
   "speeds": {
     "slow": "Lent",
@@ -197,7 +200,11 @@
     "placedRemaining": "{{value}} restant placé à la position {{position}}",
     "mergedSection": "Section fusionnée [{{start}}...{{end}}]",
     "exploring": "Exploration de la cellule ({{row}}, {{col}})",
+    "exploringForward": "Recherche avant explorant la cellule ({{row}}, {{col}})",
+    "exploringBackward": "Recherche arrière explorant la cellule ({{row}}, {{col}})",
     "addedToQueue": "{{count}} cellules ajoutées à la file",
+    "bidirectionalProgress": "Progression de la recherche {{direction}} - File avant: {{forwardQueue}}, File arrière: {{backwardQueue}}",
+    "bidirectionalMeeting": "Les recherches se rencontrent à ({{row}}, {{col}})! Longueur du chemin: {{pathLength}} cellules",
     "pathFound": "Chemin trouvé ! Longueur : {{length}} cellules",
     "noPath": "Aucun chemin trouvé",
     "selectionFindingMin": "Recherche du minimum dans la région non triée commençant à la position {{position}}",
@@ -254,7 +261,7 @@
       "pathfinding": {
         "title": "Algorithmes de Recherche de Chemin",
         "description": "Voyez comment les algorithmes de recherche de chemin naviguent à travers les grilles pour trouver le chemin le plus court entre deux points.",
-        "algorithms": "BFS, Dijkstra, Recherche A*"
+        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle"
       }
     },
     "features": {

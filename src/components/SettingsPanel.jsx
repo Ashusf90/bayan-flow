@@ -104,6 +104,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.aStar'),
       complexity: t('complexity.aStar'),
     },
+    {
+      value: 'bidirectionalSearch',
+      label: t('algorithms.pathfinding.bidirectionalSearch'),
+      complexity: t('complexity.bidirectionalSearch'),
+    },
   ];
 
   const algorithms =

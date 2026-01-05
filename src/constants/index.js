@@ -24,6 +24,7 @@ export const PATHFINDING_ALGORITHMS = {
   BFS: 'bfs',
   DIJKSTRA: 'dijkstra',
   A_STAR: 'aStar',
+  BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -271,6 +272,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Robot navigation',
       'Map-based applications',
       'Puzzle solving (e.g., 8-puzzle)',
+    ],
+  },
+  bidirectionalSearch: {
+    name: 'Bidirectional Search',
+    timeComplexity: {
+      best: 'O(b^(d/2))',
+      average: 'O(b^(d/2))',
+      worst: 'O(b^(d/2))',
+    },
+    spaceComplexity: 'O(b^(d/2))',
+    description:
+      'Bidirectional search runs two simultaneous BFS searches from both start and end points. When the searches meet, the shortest path is found. Significantly reduces search space compared to single-direction search.',
+    useCases: [
+      'Shortest path in large unweighted graphs',
+      'Route planning with known start and end',
+      'Network routing optimization',
+      'Game AI pathfinding in large maps',
     ],
   },
 };

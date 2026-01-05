@@ -14,6 +14,7 @@ import shellSortPython from './shell_sort.py?raw';
 import bfsPython from './bfs.py?raw';
 import dijkstraPython from './dijkstra.py?raw';
 import astarPython from './astar.py?raw';
+import bidirectionalSearchPython from './bidirectional_search.py?raw';
 import radixSortPython from './radix_sort.py?raw';
 
 export const pythonAlgorithms = {
@@ -28,6 +29,7 @@ export const pythonAlgorithms = {
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
+  bidirectionalSearch: bidirectionalSearchPython,
 };
 
 export const algorithmDisplayNames = {
@@ -42,6 +44,7 @@ export const algorithmDisplayNames = {
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',
+  bidirectionalSearch: 'Bidirectional Search',
 };
 
 export function getPythonCode(algorithmName) {

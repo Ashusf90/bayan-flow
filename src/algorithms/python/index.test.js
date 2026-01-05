@@ -38,6 +38,11 @@ vi.mock('./astar.py?raw', () => ({
     'def astar(grid, start, end):\n    """A* Search Algorithm"""\n    return []',
 }));
 
+vi.mock('./bidirectional_search.py?raw', () => ({
+  default:
+    'def bidirectional_search(grid, start, end):\n    """Bidirectional Search Algorithm"""\n    return []',
+}));
+
 describe('Python Algorithms Index', () => {
   describe('getPythonCode', () => {
     it('returns Python code for bubble sort', () => {
@@ -74,6 +79,12 @@ describe('Python Algorithms Index', () => {
       const code = getPythonCode('aStar');
       expect(code).toContain('def astar');
       expect(code).toContain('A* Search');
+    });
+
+    it('returns Python code for Bidirectional Search', () => {
+      const code = getPythonCode('bidirectionalSearch');
+      expect(code).toContain('def bidirectional_search');
+      expect(code).toContain('Bidirectional Search');
     });
 
     it('returns null for unknown algorithm', () => {
@@ -123,6 +134,11 @@ describe('Python Algorithms Index', () => {
       expect(name).toBe('A* Search');
     });
 
+    it('returns correct display name for Bidirectional Search', () => {
+      const name = getAlgorithmDisplayName('bidirectionalSearch');
+      expect(name).toBe('Bidirectional Search');
+    });
+
     it('returns algorithm name as fallback for unknown algorithm', () => {
       const name = getAlgorithmDisplayName('unknownSort');
       expect(name).toBe('unknownSort');
@@ -148,6 +164,7 @@ describe('Python Algorithms Index', () => {
         'bfs',
         'dijkstra',
         'aStar',
+        'bidirectionalSearch',
       ];
 
       supportedAlgorithms.forEach(algorithm => {

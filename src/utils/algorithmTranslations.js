@@ -67,7 +67,11 @@ export const ALGORITHM_STEPS = {
 
   // Pathfinding
   EXPLORING: 'exploring',
+  EXPLORING_FORWARD: 'exploringForward',
+  EXPLORING_BACKWARD: 'exploringBackward',
   ADDED_TO_QUEUE: 'addedToQueue',
+  BIDIRECTIONAL_PROGRESS: 'bidirectionalProgress',
+  BIDIRECTIONAL_MEETING: 'bidirectionalMeeting',
   PATH_FOUND: 'pathFound',
   NO_PATH: 'noPath',
 

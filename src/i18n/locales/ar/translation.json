@@ -43,7 +43,8 @@
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
       "dijkstra": "خوارزمية ديكسترا",
-      "aStar": "خوارزمية A*"
+      "aStar": "خوارزمية A*",
+      "bidirectionalSearch": "البحث ثنائي الاتجاه"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -56,7 +57,8 @@
       "radixSort": "بدء ترتيب التجذير",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
-      "aStar": "بدء خوارزمية A*"
+      "aStar": "بدء خوارزمية A*",
+      "bidirectionalSearch": "بدء البحث ثنائي الاتجاه"
     }
   },
   "complexity": {
@@ -66,6 +68,7 @@
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
+    "bidirectionalSearch": "O(b^(d/2))",
     "selectionSort": "O(n²)",
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
@@ -197,7 +200,11 @@
     "placedRemaining": "وضع {{value}} المتبقي في الموضع {{position}}",
     "mergedSection": "تم دمج القسم [{{start}}...{{end}}]",
     "exploring": "استكشاف الخلية ({{row}}, {{col}})",
+    "exploringForward": "البحث الأمامي يستكشف الخلية ({{row}}, {{col}})",
+    "exploringBackward": "البحث الخلفي يستكشف الخلية ({{row}}, {{col}})",
     "addedToQueue": "تمت إضافة {{count}} خلايا إلى قائمة الانتظار",
+    "bidirectionalProgress": "تقدم البحث {{direction}} - قائمة الانتظار الأمامية: {{forwardQueue}}، قائمة الانتظار الخلفية: {{backwardQueue}}",
+    "bidirectionalMeeting": "التقيا البحثان عند ({{row}}, {{col}})! طول المسار: {{pathLength}} خلية",
     "pathFound": "تم العثور على المسار! الطول: {{length}} خلية",
     "noPath": "لم يتم العثور على مسار",
     "selectionFindingMin": "البحث عن الحد الأدنى في المنطقة غير المرتبة بدءاً من الموضع {{position}}",
@@ -254,7 +261,7 @@
       "pathfinding": {
         "title": "خوارزميات إيجاد المسار",
         "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
-        "algorithms": "BFS، ديكسترا، بحث A*"
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه"
       }
     },
     "features": {

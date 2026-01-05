@@ -5,6 +5,10 @@
  */
 
 import { GRID_ELEMENT_STATES } from '../../constants';
+import {
+  getAlgorithmDescription,
+  ALGORITHM_STEPS,
+} from '../../utils/algorithmTranslations';
 
 /**
  * Dijkstra's Pathfinding Algorithm
@@ -164,7 +168,7 @@ export function dijkstra(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: 'No path found',
+      description: getAlgorithmDescription(ALGORITHM_STEPS.NO_PATH),
     });
   }
 
