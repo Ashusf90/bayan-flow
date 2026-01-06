@@ -44,7 +44,8 @@
       "bfs": "البحث بالعرض أولاً",
       "dijkstra": "خوارزمية ديكسترا",
       "aStar": "خوارزمية A*",
-      "bidirectionalSearch": "البحث ثنائي الاتجاه"
+      "bidirectionalSearch": "البحث ثنائي الاتجاه",
+      "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -58,7 +59,8 @@
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
-      "bidirectionalSearch": "بدء البحث ثنائي الاتجاه"
+      "bidirectionalSearch": "بدء البحث ثنائي الاتجاه",
+      "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً"
     }
   },
   "complexity": {
@@ -69,6 +71,7 @@
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
+    "greedyBestFirstSearch": "O(b^d)",
     "selectionSort": "O(n²)",
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
@@ -202,11 +205,12 @@
     "exploring": "استكشاف الخلية ({{row}}, {{col}})",
     "exploringForward": "البحث الأمامي يستكشف الخلية ({{row}}, {{col}})",
     "exploringBackward": "البحث الخلفي يستكشف الخلية ({{row}}, {{col}})",
-    "addedToQueue": "تمت إضافة {{count}} خلايا إلى قائمة الانتظار",
-    "bidirectionalProgress": "تقدم البحث {{direction}} - قائمة الانتظار الأمامية: {{forwardQueue}}، قائمة الانتظار الخلفية: {{backwardQueue}}",
-    "bidirectionalMeeting": "التقيا البحثان عند ({{row}}, {{col}})! طول المسار: {{pathLength}} خلية",
+    "addedToQueue": "إضافة {{count}} خلايا إلى الطابور",
+    "bidirectionalProgress": "تقدم البحث {{direction}} - الطابور الأمامي: {{forwardQueue}}, الطابور الخلفي: {{backwardQueue}}",
+    "bidirectionalMeeting": "التقيت البحثان عند ({{row}}, {{col}})! طول المسار: {{pathLength}} خلية",
     "pathFound": "تم العثور على المسار! الطول: {{length}} خلية",
     "noPath": "لم يتم العثور على مسار",
+    "greedyExploring": "استكشاف ({{row}}, {{col}} | h={{heuristic}})",
     "selectionFindingMin": "البحث عن الحد الأدنى في المنطقة غير المرتبة بدءاً من الموضع {{position}}",
     "selectionNewMin": "تم العثور على حد أدنى جديد: {{value}} في الموضع {{position}}",
     "selectionPlaced": "تم وضع {{value}} في الموضع الصحيح {{position}}",

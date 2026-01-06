@@ -11,12 +11,17 @@ import {
   bidirectionalSearch,
   bidirectionalSearchPure,
 } from './bidirectionalSearch';
+import {
+  greedyBestFirstSearch,
+  greedyBestFirstSearchPure,
+} from './greedyBestFirstSearch';
 
 export const pathfindingAlgorithms = {
   bfs,
   dijkstra,
   aStar,
   bidirectionalSearch,
+  greedyBestFirstSearch,
 };
 
 export const purePathfindingAlgorithms = {
@@ -24,7 +29,14 @@ export const purePathfindingAlgorithms = {
   dijkstra: dijkstraPure,
   aStar: aStarPure,
   bidirectionalSearch: bidirectionalSearchPure,
+  greedyBestFirstSearch: greedyBestFirstSearchPure,
 };
 
-export { bfs, dijkstra, aStar, bidirectionalSearch };
-export { bfsPure, dijkstraPure, aStarPure, bidirectionalSearchPure };
+export { bfs, dijkstra, aStar, bidirectionalSearch, greedyBestFirstSearch };
+export {
+  bfsPure,
+  dijkstraPure,
+  aStarPure,
+  bidirectionalSearchPure,
+  greedyBestFirstSearchPure,
+};

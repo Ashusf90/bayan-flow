@@ -25,6 +25,7 @@ export const PATHFINDING_ALGORITHMS = {
   DIJKSTRA: 'dijkstra',
   A_STAR: 'aStar',
   BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
+  GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -289,6 +290,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Route planning with known start and end',
       'Network routing optimization',
       'Game AI pathfinding in large maps',
+    ],
+  },
+  greedyBestFirstSearch: {
+    name: 'Greedy Best-First Search',
+    timeComplexity: {
+      best: 'O(b^d)',
+      average: 'O(b^d)',
+      worst: 'O(b^d)',
+    },
+    spaceComplexity: 'O(b^d)',
+    description:
+      "Greedy Best-First Search uses heuristics to guide its search towards the goal. Unlike A*, it only considers the heuristic distance h(n) and ignores the path cost g(n). This makes it faster but doesn't guarantee the shortest path.",
+    useCases: [
+      'When speed is more important than optimality',
+      'Real-time pathfinding where quick decisions matter',
+      'Navigation in large spaces with clear goals',
+      'Game AI for simple pathfinding needs',
     ],
   },
 };

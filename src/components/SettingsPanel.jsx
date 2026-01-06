@@ -109,6 +109,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.bidirectionalSearch'),
       complexity: t('complexity.bidirectionalSearch'),
     },
+    {
+      value: 'greedyBestFirstSearch',
+      label: t('algorithms.pathfinding.greedyBestFirstSearch'),
+      complexity: t('complexity.greedyBestFirstSearch'),
+    },
   ];
 
   const algorithms =

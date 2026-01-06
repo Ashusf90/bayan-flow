@@ -9,10 +9,12 @@ import { bfsPure } from './bfs';
 import { dijkstraPure } from './dijkstra';
 import { aStarPure } from './aStar';
 import { bidirectionalSearchPure } from './bidirectionalSearch';
+import { greedyBestFirstSearchPure } from './greedyBestFirstSearch';
 import { bfs } from './bfs';
 import { dijkstra } from './dijkstra';
 import { aStar } from './aStar';
 import { bidirectionalSearch } from './bidirectionalSearch';
+import { greedyBestFirstSearch } from './greedyBestFirstSearch';
 
 describe('Pathfinding Algorithms - Pure Versions', () => {
   const start = { row: 0, col: 0 };
@@ -147,16 +149,51 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
     });
   });
 
+  describe('Greedy Best-First Search Pure', () => {
+    it('should find a path from start to end', () => {
+      const path = greedyBestFirstSearchPure(start, end, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBeGreaterThan(0);
+      expect(path[0]).toEqual(start);
+      expect(path[path.length - 1]).toEqual(end);
+    });
+
+    it('should handle start and end being the same', () => {
+      const path = greedyBestFirstSearchPure(start, start, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBe(1);
+      expect(path[0]).toEqual(start);
+    });
+
+    it('should handle adjacent cells', () => {
+      const adjacentEnd = { row: 0, col: 1 };
+      const path = greedyBestFirstSearchPure(start, adjacentEnd, rows, cols);
+      expect(path.length).toBe(2);
+    });
+
+    it('should find a path (may not be optimal)', () => {
+      const path = greedyBestFirstSearchPure(start, end, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBeGreaterThan(0);
+      // Greedy algorithm may not find the shortest path, but should find a valid path
+      expect(path[0]).toEqual(start);
+      expect(path[path.length - 1]).toEqual(end);
+    });
+  });
+
   describe('Algorithm Consistency', () => {
     it('all algorithms should find paths of same length', () => {
       const bfsPath = bfsPure(start, end, rows, cols);
       const dijkstraPath = dijkstraPure(start, end, rows, cols);
       const aStarPath = aStarPure(start, end, rows, cols);
       const bidirectionalPath = bidirectionalSearchPure(start, end, rows, cols);
+      const greedyPath = greedyBestFirstSearchPure(start, end, rows, cols);
 
       expect(bfsPath.length).toBe(dijkstraPath.length);
       expect(dijkstraPath.length).toBe(aStarPath.length);
       expect(aStarPath.length).toBe(bidirectionalPath.length);
+      // Note: Greedy Best-First Search may find longer paths since it's not optimal
+      expect(greedyPath.length).toBeGreaterThan(0);
     });
 
     it('all algorithms should have same start and end', () => {
@@ -164,16 +201,19 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
       const dijkstraPath = dijkstraPure(start, end, rows, cols);
       const aStarPath = aStarPure(start, end, rows, cols);
       const bidirectionalPath = bidirectionalSearchPure(start, end, rows, cols);
+      const greedyPath = greedyBestFirstSearchPure(start, end, rows, cols);
 
       expect(bfsPath[0]).toEqual(start);
       expect(dijkstraPath[0]).toEqual(start);
       expect(aStarPath[0]).toEqual(start);
       expect(bidirectionalPath[0]).toEqual(start);
+      expect(greedyPath[0]).toEqual(start);
 
       expect(bfsPath[bfsPath.length - 1]).toEqual(end);
       expect(dijkstraPath[dijkstraPath.length - 1]).toEqual(end);
       expect(aStarPath[aStarPath.length - 1]).toEqual(end);
       expect(bidirectionalPath[bidirectionalPath.length - 1]).toEqual(end);
+      expect(greedyPath[greedyPath.length - 1]).toEqual(end);
     });
   });
 });
@@ -303,6 +343,50 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('should handle same start and end positions', () => {
       const sameSteps = bidirectionalSearch(grid, start, start, rows, cols);
+      expect(sameSteps.length).toBeGreaterThan(0);
+      expect(
+        sameSteps[sameSteps.length - 1].description.toLowerCase()
+      ).toContain('path');
+    });
+  });
+
+  describe('Greedy Best-First Search Visualization', () => {
+    it('should generate steps array', () => {
+      const steps = greedyBestFirstSearch(grid, start, end, rows, cols);
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+    });
+
+    it('each step should have required properties', () => {
+      const steps = greedyBestFirstSearch(grid, start, end, rows, cols);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('grid');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(Array.isArray(step.grid)).toBe(true);
+        expect(Array.isArray(step.states)).toBe(true);
+        expect(typeof step.description).toBe('string');
+      });
+    });
+
+    it('should mark start and end in states', () => {
+      const steps = greedyBestFirstSearch(grid, start, end, rows, cols);
+      const firstStep = steps[0];
+      expect(firstStep.states[start.row][start.col]).toBe('start');
+      expect(firstStep.states[end.row][end.col]).toBe('end');
+    });
+
+    it('should include heuristic information in descriptions', () => {
+      const steps = greedyBestFirstSearch(grid, start, end, rows, cols);
+      // Should have heuristic values in descriptions
+      const hasHeuristicInfo = steps.some(step =>
+        step.description.match(/h=/i)
+      );
+      expect(hasHeuristicInfo).toBe(true);
+    });
+
+    it('should handle same start and end positions', () => {
+      const sameSteps = greedyBestFirstSearch(grid, start, start, rows, cols);
       expect(sameSteps.length).toBeGreaterThan(0);
       expect(
         sameSteps[sameSteps.length - 1].description.toLowerCase()

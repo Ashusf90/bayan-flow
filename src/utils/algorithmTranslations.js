@@ -74,6 +74,7 @@ export const ALGORITHM_STEPS = {
   BIDIRECTIONAL_MEETING: 'bidirectionalMeeting',
   PATH_FOUND: 'pathFound',
   NO_PATH: 'noPath',
+  GREEDY_EXPLORING: 'greedyExploring',
 
   // Radix Sort
   RADIX_BUCKET_PUSH: 'radixBucketPush',

@@ -38,6 +38,7 @@ const constantsMockValue = {
     DIJKSTRA: 'dijkstra',
     A_STAR: 'aStar',
     BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
+    GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
   },
   ELEMENT_STATES: {
     DEFAULT: 'default',

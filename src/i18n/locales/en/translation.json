@@ -44,7 +44,8 @@
       "bfs": "Breadth-First Search",
       "dijkstra": "Dijkstra's Algorithm",
       "aStar": "A* Search",
-      "bidirectionalSearch": "Bidirectional Search"
+      "bidirectionalSearch": "Bidirectional Search",
+      "greedyBestFirstSearch": "Greedy Best-First Search"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
@@ -58,7 +59,8 @@
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
-      "bidirectionalSearch": "Starting Bidirectional Search"
+      "bidirectionalSearch": "Starting Bidirectional Search",
+      "greedyBestFirstSearch": "Starting Greedy Best-First Search"
     }
   },
   "complexity": {
@@ -73,7 +75,8 @@
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
-    "bidirectionalSearch": "O(b^(d/2))"
+    "bidirectionalSearch": "O(b^(d/2))",
+    "greedyBestFirstSearch": "O(b^d)"
   },
   "speeds": {
     "slow": "Slow",
@@ -206,6 +209,7 @@
     "bidirectionalMeeting": "Searches met at ({{row}}, {{col}})! Path length: {{pathLength}} cells",
     "pathFound": "Path found! Length: {{length}} cells",
     "noPath": "No path found",
+    "greedyExploring": "Exploring ({{row}}, {{col}} | h={{heuristic}})",
     "selectionFindingMin": "Finding minimum in unsorted region starting at position {{position}}",
     "selectionNewMin": "New minimum found: {{value}} at position {{position}}",
     "selectionPlaced": "Placed {{value}} at correct position {{position}}",

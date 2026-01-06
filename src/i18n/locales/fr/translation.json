@@ -44,7 +44,8 @@
       "bfs": "Parcours en Largeur",
       "dijkstra": "Algorithme de Dijkstra",
       "aStar": "Recherche A*",
-      "bidirectionalSearch": "Recherche Bidirectionnelle"
+      "bidirectionalSearch": "Recherche Bidirectionnelle",
+      "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -58,7 +59,8 @@
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
-      "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle"
+      "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle",
+      "greedyBestFirstSearch": "Démarrage de la Recherche Gloutonne du Meilleur d'Abord"
     }
   },
   "complexity": {
@@ -73,7 +75,8 @@
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
-    "bidirectionalSearch": "O(b^(d/2))"
+    "bidirectionalSearch": "O(b^(d/2))",
+    "greedyBestFirstSearch": "O(b^d)"
   },
   "speeds": {
     "slow": "Lent",
@@ -202,11 +205,12 @@
     "exploring": "Exploration de la cellule ({{row}}, {{col}})",
     "exploringForward": "Recherche avant explorant la cellule ({{row}}, {{col}})",
     "exploringBackward": "Recherche arrière explorant la cellule ({{row}}, {{col}})",
-    "addedToQueue": "{{count}} cellules ajoutées à la file",
-    "bidirectionalProgress": "Progression de la recherche {{direction}} - File avant: {{forwardQueue}}, File arrière: {{backwardQueue}}",
+    "addedToQueue": "Ajouté {{count}} cellules à la file d'attente",
+    "bidirectionalProgress": "Progression de recherche {{direction}} - File avant: {{forwardQueue}}, File arrière: {{backwardQueue}}",
     "bidirectionalMeeting": "Les recherches se rencontrent à ({{row}}, {{col}})! Longueur du chemin: {{pathLength}} cellules",
-    "pathFound": "Chemin trouvé ! Longueur : {{length}} cellules",
+    "pathFound": "Chemin trouvé! Longueur: {{length}} cellules",
     "noPath": "Aucun chemin trouvé",
+    "greedyExploring": "Exploration ({{row}}, {{col}} | h={{heuristic}})",
     "selectionFindingMin": "Recherche du minimum dans la région non triée commençant à la position {{position}}",
     "selectionNewMin": "Nouveau minimum trouvé : {{value}} à la position {{position}}",
     "selectionPlaced": "{{value}} placé à la position correcte {{position}}",
