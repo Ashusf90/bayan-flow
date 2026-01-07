@@ -45,7 +45,8 @@
       "dijkstra": "خوارزمية ديكسترا",
       "aStar": "خوارزمية A*",
       "bidirectionalSearch": "البحث ثنائي الاتجاه",
-      "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً"
+      "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً",
+      "jumpPointSearch": "البحث بنقاط القفز"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -60,7 +61,8 @@
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
       "bidirectionalSearch": "بدء البحث ثنائي الاتجاه",
-      "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً"
+      "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً",
+      "jumpPointSearch": "بدء البحث بنقاط القفز"
     }
   },
   "complexity": {
@@ -72,6 +74,7 @@
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
+    "jumpPointSearch": "O(E)",
     "selectionSort": "O(n²)",
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
@@ -211,6 +214,9 @@
     "pathFound": "تم العثور على المسار! الطول: {{length}} خلية",
     "noPath": "لم يتم العثور على مسار",
     "greedyExploring": "استكشاف ({{row}}, {{col}} | h={{heuristic}})",
+    "jpsJumpPointFound": "تم العثور على نقطة القفز عند ({{row}}, {{col}})",
+    "jpsJumping": "القفز من ({{row}}, {{col}}) في الاتجاه ({{dx}}, {{dy}})",
+    "jpsJumpPointsDiscovered": "تم اكتشاف {{count}} نقطة/نقاط قفز في المجموعة المفتوحة",
     "selectionFindingMin": "البحث عن الحد الأدنى في المنطقة غير المرتبة بدءاً من الموضع {{position}}",
     "selectionNewMin": "تم العثور على حد أدنى جديد: {{value}} في الموضع {{position}}",
     "selectionPlaced": "تم وضع {{value}} في الموضع الصحيح {{position}}",
@@ -265,7 +271,7 @@
       "pathfinding": {
         "title": "خوارزميات إيجاد المسار",
         "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
-        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه"
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز"
       }
     },
     "features": {

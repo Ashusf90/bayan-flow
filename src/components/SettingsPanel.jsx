@@ -114,6 +114,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.greedyBestFirstSearch'),
       complexity: t('complexity.greedyBestFirstSearch'),
     },
+    {
+      value: 'jumpPointSearch',
+      label: t('algorithms.pathfinding.jumpPointSearch'),
+      complexity: t('complexity.jumpPointSearch'),
+    },
   ];
 
   const algorithms =

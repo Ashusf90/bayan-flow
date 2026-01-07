@@ -39,6 +39,7 @@ const constantsMockValue = {
     A_STAR: 'aStar',
     BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
     GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
+    JUMP_POINT_SEARCH: 'jumpPointSearch',
   },
   ELEMENT_STATES: {
     DEFAULT: 'default',

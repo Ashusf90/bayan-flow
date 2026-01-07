@@ -26,6 +26,7 @@ export const PATHFINDING_ALGORITHMS = {
   A_STAR: 'aStar',
   BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
   GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
+  JUMP_POINT_SEARCH: 'jumpPointSearch',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -307,6 +308,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Real-time pathfinding where quick decisions matter',
       'Navigation in large spaces with clear goals',
       'Game AI for simple pathfinding needs',
+    ],
+  },
+  jumpPointSearch: {
+    name: 'Jump Point Search',
+    timeComplexity: {
+      best: 'O(E)',
+      average: 'O(E)',
+      worst: 'O(E)',
+    },
+    spaceComplexity: 'O(V)',
+    description:
+      "Jump Point Search optimizes A* by eliminating symmetric paths on uniform-cost grids. It only explores 'jump points' - nodes that could improve the path, dramatically reducing the search space compared to A*.",
+    useCases: [
+      'Game AI pathfinding (RTS, strategy games)',
+      'Robotic navigation in grid environments',
+      'Large-scale pathfinding with many agents',
+      'Real-time pathfinding where speed matters',
     ],
   },
 };

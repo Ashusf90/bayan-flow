@@ -15,6 +15,7 @@ import {
   greedyBestFirstSearch,
   greedyBestFirstSearchPure,
 } from './greedyBestFirstSearch';
+import { jumpPointSearch, jumpPointSearchPure } from './jumpPointSearch';
 
 export const pathfindingAlgorithms = {
   bfs,
@@ -22,6 +23,7 @@ export const pathfindingAlgorithms = {
   aStar,
   bidirectionalSearch,
   greedyBestFirstSearch,
+  jumpPointSearch,
 };
 
 export const purePathfindingAlgorithms = {
@@ -30,13 +32,22 @@ export const purePathfindingAlgorithms = {
   aStar: aStarPure,
   bidirectionalSearch: bidirectionalSearchPure,
   greedyBestFirstSearch: greedyBestFirstSearchPure,
+  jumpPointSearch: jumpPointSearchPure,
 };
 
-export { bfs, dijkstra, aStar, bidirectionalSearch, greedyBestFirstSearch };
+export {
+  bfs,
+  dijkstra,
+  aStar,
+  bidirectionalSearch,
+  greedyBestFirstSearch,
+  jumpPointSearch,
+};
 export {
   bfsPure,
   dijkstraPure,
   aStarPure,
   bidirectionalSearchPure,
   greedyBestFirstSearchPure,
+  jumpPointSearchPure,
 };

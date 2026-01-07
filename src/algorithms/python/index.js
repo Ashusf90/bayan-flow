@@ -17,6 +17,7 @@ import astarPython from './astar.py?raw';
 import bidirectionalSearchPython from './bidirectional_search.py?raw';
 import greedyBestFirstSearchPython from './greedy_best_first_search.py?raw';
 import radixSortPython from './radix_sort.py?raw';
+import jumpPointSearchPython from './jump_point_search.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -32,6 +33,7 @@ export const pythonAlgorithms = {
   aStar: astarPython,
   bidirectionalSearch: bidirectionalSearchPython,
   greedyBestFirstSearch: greedyBestFirstSearchPython,
+  jumpPointSearch: jumpPointSearchPython,
 };
 
 export const algorithmDisplayNames = {
@@ -48,6 +50,7 @@ export const algorithmDisplayNames = {
   aStar: 'A* Search',
   bidirectionalSearch: 'Bidirectional Search',
   greedyBestFirstSearch: 'Greedy Best-First Search',
+  jumpPointSearch: 'Jump Point Search',
 };
 
 export function getPythonCode(algorithmName) {

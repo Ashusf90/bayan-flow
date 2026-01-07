@@ -45,7 +45,8 @@
       "dijkstra": "Dijkstra's Algorithm",
       "aStar": "A* Search",
       "bidirectionalSearch": "Bidirectional Search",
-      "greedyBestFirstSearch": "Greedy Best-First Search"
+      "greedyBestFirstSearch": "Greedy Best-First Search",
+      "jumpPointSearch": "Jump Point Search"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
@@ -60,7 +61,8 @@
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
       "bidirectionalSearch": "Starting Bidirectional Search",
-      "greedyBestFirstSearch": "Starting Greedy Best-First Search"
+      "greedyBestFirstSearch": "Starting Greedy Best-First Search",
+      "jumpPointSearch": "Starting Jump Point Search"
     }
   },
   "complexity": {
@@ -76,7 +78,8 @@
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
-    "greedyBestFirstSearch": "O(b^d)"
+    "greedyBestFirstSearch": "O(b^d)",
+    "jumpPointSearch": "O(E)"
   },
   "speeds": {
     "slow": "Slow",
@@ -210,6 +213,9 @@
     "pathFound": "Path found! Length: {{length}} cells",
     "noPath": "No path found",
     "greedyExploring": "Exploring ({{row}}, {{col}} | h={{heuristic}})",
+    "jpsJumpPointFound": "Jump point found at ({{row}}, {{col}})",
+    "jpsJumping": "Jumping from ({{row}}, {{col}}) in direction ({{dx}}, {{dy}})",
+    "jpsJumpPointsDiscovered": "Discovered {{count}} jump point(s) in open set",
     "selectionFindingMin": "Finding minimum in unsorted region starting at position {{position}}",
     "selectionNewMin": "New minimum found: {{value}} at position {{position}}",
     "selectionPlaced": "Placed {{value}} at correct position {{position}}",
@@ -264,7 +270,7 @@
       "pathfinding": {
         "title": "Pathfinding Algorithms",
         "description": "See how pathfinding algorithms navigate through grids to find the shortest path between two points.",
-        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search"
+        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search"
       }
     },
     "features": {

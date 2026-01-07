@@ -43,6 +43,16 @@ vi.mock('./bidirectional_search.py?raw', () => ({
     'def bidirectional_search(grid, start, end):\n    """Bidirectional Search Algorithm"""\n    return []',
 }));
 
+vi.mock('./greedy_best_first_search.py?raw', () => ({
+  default:
+    'def greedy_best_first_search(grid, start, end):\n    """Greedy Best-First Search Algorithm"""\n    return []',
+}));
+
+vi.mock('./jump_point_search.py?raw', () => ({
+  default:
+    'def jump_point_search(grid, start, end):\n    """Jump Point Search Algorithm"""\n    return []',
+}));
+
 describe('Python Algorithms Index', () => {
   describe('getPythonCode', () => {
     it('returns Python code for bubble sort', () => {
@@ -85,6 +95,18 @@ describe('Python Algorithms Index', () => {
       const code = getPythonCode('bidirectionalSearch');
       expect(code).toContain('def bidirectional_search');
       expect(code).toContain('Bidirectional Search');
+    });
+
+    it('returns Python code for Greedy Best-First Search', () => {
+      const code = getPythonCode('greedyBestFirstSearch');
+      expect(code).toContain('def greedy_best_first_search');
+      expect(code).toContain('Greedy Best-First Search');
+    });
+
+    it('returns Python code for Jump Point Search', () => {
+      const code = getPythonCode('jumpPointSearch');
+      expect(code).toContain('def jump_point_search');
+      expect(code).toContain('Jump Point Search');
     });
 
     it('returns null for unknown algorithm', () => {
@@ -139,6 +161,16 @@ describe('Python Algorithms Index', () => {
       expect(name).toBe('Bidirectional Search');
     });
 
+    it('returns correct display name for Greedy Best-First Search', () => {
+      const name = getAlgorithmDisplayName('greedyBestFirstSearch');
+      expect(name).toBe('Greedy Best-First Search');
+    });
+
+    it('returns correct display name for Jump Point Search', () => {
+      const name = getAlgorithmDisplayName('jumpPointSearch');
+      expect(name).toBe('Jump Point Search');
+    });
+
     it('returns algorithm name as fallback for unknown algorithm', () => {
       const name = getAlgorithmDisplayName('unknownSort');
       expect(name).toBe('unknownSort');
@@ -165,6 +197,8 @@ describe('Python Algorithms Index', () => {
         'dijkstra',
         'aStar',
         'bidirectionalSearch',
+        'greedyBestFirstSearch',
+        'jumpPointSearch',
       ];
 
       supportedAlgorithms.forEach(algorithm => {

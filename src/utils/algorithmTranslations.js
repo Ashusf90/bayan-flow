@@ -75,6 +75,9 @@ export const ALGORITHM_STEPS = {
   PATH_FOUND: 'pathFound',
   NO_PATH: 'noPath',
   GREEDY_EXPLORING: 'greedyExploring',
+  JPS_JUMP_POINT_FOUND: 'jpsJumpPointFound',
+  JPS_JUMPING: 'jpsJumping',
+  JPS_JUMP_POINTS_DISCOVERED: 'jpsJumpPointsDiscovered',
 
   // Radix Sort
   RADIX_BUCKET_PUSH: 'radixBucketPush',

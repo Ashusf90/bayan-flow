@@ -45,7 +45,8 @@
       "dijkstra": "Algorithme de Dijkstra",
       "aStar": "Recherche A*",
       "bidirectionalSearch": "Recherche Bidirectionnelle",
-      "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord"
+      "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord",
+      "jumpPointSearch": "Recherche par Points de Saut"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -60,7 +61,8 @@
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
       "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle",
-      "greedyBestFirstSearch": "Démarrage de la Recherche Gloutonne du Meilleur d'Abord"
+      "greedyBestFirstSearch": "Démarrage de la Recherche Gloutonne du Meilleur d'Abord",
+      "jumpPointSearch": "Démarrage de la Recherche par Points de Saut"
     }
   },
   "complexity": {
@@ -76,7 +78,8 @@
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
-    "greedyBestFirstSearch": "O(b^d)"
+    "greedyBestFirstSearch": "O(b^d)",
+    "jumpPointSearch": "O(E)"
   },
   "speeds": {
     "slow": "Lent",
@@ -211,6 +214,9 @@
     "pathFound": "Chemin trouvé! Longueur: {{length}} cellules",
     "noPath": "Aucun chemin trouvé",
     "greedyExploring": "Exploration ({{row}}, {{col}} | h={{heuristic}})",
+    "jpsJumpPointFound": "Point de saut trouvé à ({{row}}, {{col}})",
+    "jpsJumping": "Saut depuis ({{row}}, {{col}}) en direction ({{dx}}, {{dy}})",
+    "jpsJumpPointsDiscovered": "{{count}} point(s) de saut découvert(s) dans l'ensemble ouvert",
     "selectionFindingMin": "Recherche du minimum dans la région non triée commençant à la position {{position}}",
     "selectionNewMin": "Nouveau minimum trouvé : {{value}} à la position {{position}}",
     "selectionPlaced": "{{value}} placé à la position correcte {{position}}",
@@ -265,7 +271,7 @@
       "pathfinding": {
         "title": "Algorithmes de Recherche de Chemin",
         "description": "Voyez comment les algorithmes de recherche de chemin naviguent à travers les grilles pour trouver le chemin le plus court entre deux points.",
-        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle"
+        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut"
       }
     },
     "features": {
