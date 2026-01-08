@@ -83,4 +83,9 @@ export const ALGORITHM_STEPS = {
   RADIX_BUCKET_PUSH: 'radixBucketPush',
   RADIX_COLLECT: 'radixCollect',
   RADIX_PASS_COMPLETE: 'radixPassComplete',
+
+  // Bellman-Ford
+  BELLMAN_ITERATION: 'bellmanIteration',
+  BELLMAN_RELAXATION: 'bellmanRelaxation',
+  BELLMAN_NO_UPDATES: 'bellmanNoUpdates',
 };

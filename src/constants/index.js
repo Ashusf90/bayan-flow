@@ -27,6 +27,7 @@ export const PATHFINDING_ALGORITHMS = {
   BIDIRECTIONAL_SEARCH: 'bidirectionalSearch',
   GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
   JUMP_POINT_SEARCH: 'jumpPointSearch',
+  BELLMAN_FORD: 'bellmanFord',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -208,6 +209,7 @@ export const COMPLEXITY_FUNCTIONS = {
   'O(V + E)': n => n + n * 4, // Approximation: V vertices + E edges (grid has ~4 edges per vertex)
   'O((V + E) log V)': n => (n + n * 4) * Math.log2(n),
   'O(E)': n => n * 4, // Approximation for grid edges
+  'O(VE)': n => n * n * 4, // Approximation: V vertices × E edges per vertex (~4)
   'O(b^d)': n => Math.pow(4, Math.log2(n)), // Approximation: branching factor 4, depth log(n)
   'O(nk)': n => n * Math.log10(n), // Approximation: k ≈ log10(n) for distinct numbers
 };
@@ -325,6 +327,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Robotic navigation in grid environments',
       'Large-scale pathfinding with many agents',
       'Real-time pathfinding where speed matters',
+    ],
+  },
+  bellmanFord: {
+    name: 'Bellman-Ford Algorithm',
+    timeComplexity: {
+      best: 'O(VE)',
+      average: 'O(VE)',
+      worst: 'O(VE)',
+    },
+    spaceComplexity: 'O(V)',
+    description:
+      'Single-source shortest path algorithm using iterative relaxation. Can handle negative edge weights and detect negative cycles. Runs V-1 iterations, relaxing all edges in each iteration.',
+    useCases: [
+      'Graphs with negative edge weights',
+      'Detecting negative cycles',
+      'When you need to find shortest paths from a single source',
+      'Educational purposes to understand dynamic programming approach',
     ],
   },
 };

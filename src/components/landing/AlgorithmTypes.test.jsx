@@ -98,7 +98,9 @@ describe('AlgorithmTypes', () => {
 
     it('should display pathfinding algorithms list', () => {
       renderComponent();
-      expect(screen.getByText(/BFS|Dijkstra|A\*/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/BFS|Dijkstra|A\*|Bellman-Ford/i)
+      ).toBeInTheDocument();
     });
 
     it('should display descriptions for both modes', () => {

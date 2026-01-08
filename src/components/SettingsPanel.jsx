@@ -119,6 +119,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.jumpPointSearch'),
       complexity: t('complexity.jumpPointSearch'),
     },
+    {
+      value: 'bellmanFord',
+      label: t('algorithms.pathfinding.bellmanFord'),
+      complexity: t('complexity.bellmanFord'),
+    },
   ];
 
   const algorithms =

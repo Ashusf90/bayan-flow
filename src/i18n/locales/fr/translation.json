@@ -46,7 +46,8 @@
       "aStar": "Recherche A*",
       "bidirectionalSearch": "Recherche Bidirectionnelle",
       "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord",
-      "jumpPointSearch": "Recherche par Points de Saut"
+      "jumpPointSearch": "Recherche par Points de Saut",
+      "bellmanFord": "Bellman-Ford"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -62,7 +63,8 @@
       "aStar": "Démarrage de la Recherche A*",
       "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle",
       "greedyBestFirstSearch": "Démarrage de la Recherche Gloutonne du Meilleur d'Abord",
-      "jumpPointSearch": "Démarrage de la Recherche par Points de Saut"
+      "jumpPointSearch": "Démarrage de la Recherche par Points de Saut",
+      "bellmanFord": "Démarrage de l'algorithme de Bellman-Ford"
     }
   },
   "complexity": {
@@ -79,7 +81,8 @@
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
-    "jumpPointSearch": "O(E)"
+    "jumpPointSearch": "O(E)",
+    "bellmanFord": "O(VE)"
   },
   "speeds": {
     "slow": "Lent",
@@ -235,7 +238,10 @@
     "shellGapComplete": "Passage avec écart-{{gap}} terminé. Le tableau est maintenant {{gap}}-trié, passage à un écart plus petit.",
     "radixBucketPush": "Ajout de {{val}} au seau {{bucket}} (chiffre : {{digit}})",
     "radixCollect": "Collecte de {{val}} du seau {{bucket}} vers la position {{position}}",
-    "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)"
+    "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)",
+    "bellmanIteration": "Itération {{iteration}}/{{maxIterations}} | Relaxations : {{relaxations}} | Distance à la cible : {{distance}}",
+    "bellmanRelaxation": "Relaxation de l'arête vers ({{row}}, {{col}}) | Nouvelle distance : {{newDist}}",
+    "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme."
   },
   "landing": {
     "hero": {
@@ -271,7 +277,7 @@
       "pathfinding": {
         "title": "Algorithmes de Recherche de Chemin",
         "description": "Voyez comment les algorithmes de recherche de chemin naviguent à travers les grilles pour trouver le chemin le plus court entre deux points.",
-        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut"
+        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut, Bellman-Ford"
       }
     },
     "features": {

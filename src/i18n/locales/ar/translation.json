@@ -46,7 +46,8 @@
       "aStar": "خوارزمية A*",
       "bidirectionalSearch": "البحث ثنائي الاتجاه",
       "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً",
-      "jumpPointSearch": "البحث بنقاط القفز"
+      "jumpPointSearch": "البحث بنقاط القفز",
+      "bellmanFord": "خوارزمية بيلمان-فورد"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -62,7 +63,8 @@
       "aStar": "بدء خوارزمية A*",
       "bidirectionalSearch": "بدء البحث ثنائي الاتجاه",
       "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً",
-      "jumpPointSearch": "بدء البحث بنقاط القفز"
+      "jumpPointSearch": "بدء البحث بنقاط القفز",
+      "bellmanFord": "بدء خوارزمية بيلمان-فورد"
     }
   },
   "complexity": {
@@ -75,6 +77,7 @@
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
+    "bellmanFord": "O(VE)",
     "selectionSort": "O(n²)",
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
@@ -235,7 +238,10 @@
     "shellGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. المصفوفة الآن مرتبة بفجوة-{{gap}}، الانتقال إلى فجوة أصغر.",
     "radixBucketPush": "إضافة {{val}} إلى الدلو {{bucket}} (الرقم: {{digit}})",
     "radixCollect": "جمع {{val}} من الدلو {{bucket}} إلى الموضع {{position}}",
-    "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)"
+    "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",
+    "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
+    "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
+    "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية."
   },
   "landing": {
     "hero": {
@@ -271,7 +277,7 @@
       "pathfinding": {
         "title": "خوارزميات إيجاد المسار",
         "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
-        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز"
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد"
       }
     },
     "features": {

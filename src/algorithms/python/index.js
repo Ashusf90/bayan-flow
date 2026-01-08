@@ -18,6 +18,7 @@ import bidirectionalSearchPython from './bidirectional_search.py?raw';
 import greedyBestFirstSearchPython from './greedy_best_first_search.py?raw';
 import radixSortPython from './radix_sort.py?raw';
 import jumpPointSearchPython from './jump_point_search.py?raw';
+import bellmanFordPython from './bellman_ford.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -34,6 +35,7 @@ export const pythonAlgorithms = {
   bidirectionalSearch: bidirectionalSearchPython,
   greedyBestFirstSearch: greedyBestFirstSearchPython,
   jumpPointSearch: jumpPointSearchPython,
+  bellmanFord: bellmanFordPython,
 };
 
 export const algorithmDisplayNames = {
@@ -51,6 +53,7 @@ export const algorithmDisplayNames = {
   bidirectionalSearch: 'Bidirectional Search',
   greedyBestFirstSearch: 'Greedy Best-First Search',
   jumpPointSearch: 'Jump Point Search',
+  bellmanFord: 'Bellman-Ford Algorithm',
 };
 
 export function getPythonCode(algorithmName) {

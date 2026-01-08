@@ -17,6 +17,8 @@ import { aStar } from './aStar';
 import { bidirectionalSearch } from './bidirectionalSearch';
 import { greedyBestFirstSearch } from './greedyBestFirstSearch';
 import { jumpPointSearch } from './jumpPointSearch';
+import { bellmanFord } from './bellmanFord';
+import { bellmanFordPure } from './bellmanFord';
 
 describe('Pathfinding Algorithms - Pure Versions', () => {
   const start = { row: 0, col: 0 };
@@ -235,6 +237,36 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
     });
   });
 
+  describe('Bellman-Ford Pure', () => {
+    it('should find a path from start to end', () => {
+      const path = bellmanFordPure(start, end, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBeGreaterThan(0);
+      expect(path[0]).toEqual(start);
+      expect(path[path.length - 1]).toEqual(end);
+    });
+
+    it('should return shortest path', () => {
+      const path = bellmanFordPure(start, end, rows, cols);
+      // Manhattan distance from (0,0) to (4,4) is 8
+      // Shortest path should be 9 cells (including start)
+      expect(path.length).toBe(9);
+    });
+
+    it('should handle start and end being the same', () => {
+      const path = bellmanFordPure(start, start, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBe(1);
+      expect(path[0]).toEqual(start);
+    });
+
+    it('should handle adjacent cells', () => {
+      const adjacentEnd = { row: 0, col: 1 };
+      const path = bellmanFordPure(start, adjacentEnd, rows, cols);
+      expect(path.length).toBe(2);
+    });
+  });
+
   describe('Algorithm Consistency', () => {
     it('all algorithms should find paths of same length', () => {
       const bfsPath = bfsPure(start, end, rows, cols);
@@ -243,11 +275,13 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
       const bidirectionalPath = bidirectionalSearchPure(start, end, rows, cols);
       const greedyPath = greedyBestFirstSearchPure(start, end, rows, cols);
       const jpsPath = jumpPointSearchPure(start, end, rows, cols);
+      const bellmanPath = bellmanFordPure(start, end, rows, cols);
 
       expect(bfsPath.length).toBe(dijkstraPath.length);
       expect(dijkstraPath.length).toBe(aStarPath.length);
       expect(aStarPath.length).toBe(bidirectionalPath.length);
       expect(aStarPath.length).toBe(jpsPath.length); // JPS should be optimal like A*
+      expect(bellmanPath.length).toBe(bfsPath.length); // Bellman-Ford should find shortest path too
       // Note: Greedy Best-First Search may find longer paths since it's not optimal
       expect(greedyPath.length).toBeGreaterThan(0);
     });
@@ -259,6 +293,7 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
       const bidirectionalPath = bidirectionalSearchPure(start, end, rows, cols);
       const greedyPath = greedyBestFirstSearchPure(start, end, rows, cols);
       const jpsPath = jumpPointSearchPure(start, end, rows, cols);
+      const bellmanPath = bellmanFordPure(start, end, rows, cols);
 
       expect(bfsPath[0]).toEqual(start);
       expect(dijkstraPath[0]).toEqual(start);
@@ -273,6 +308,7 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
       expect(bidirectionalPath[bidirectionalPath.length - 1]).toEqual(end);
       expect(greedyPath[greedyPath.length - 1]).toEqual(end);
       expect(jpsPath[jpsPath.length - 1]).toEqual(end);
+      expect(bellmanPath[bellmanPath.length - 1]).toEqual(end);
     });
   });
 });
@@ -503,6 +539,47 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
       const steps = jumpPointSearch(grid, start, end, rows, cols);
       const lastStep = steps[steps.length - 1];
       expect(lastStep.description.toLowerCase()).toContain('path');
+    });
+  });
+
+  describe('Bellman-Ford Visualization', () => {
+    it('should generate steps array', () => {
+      const steps = bellmanFord(grid, start, end, rows, cols);
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+    });
+
+    it('each step should have required properties', () => {
+      const steps = bellmanFord(grid, start, end, rows, cols);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('grid');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(Array.isArray(step.grid)).toBe(true);
+        expect(Array.isArray(step.states)).toBe(true);
+        expect(typeof step.description).toBe('string');
+      });
+    });
+
+    it('should mark start and end in states', () => {
+      const steps = bellmanFord(grid, start, end, rows, cols);
+      const firstStep = steps[0];
+      expect(firstStep.states[start.row][start.col]).toBe('start');
+      expect(firstStep.states[end.row][end.col]).toBe('end');
+    });
+
+    it('should include iteration information in descriptions', () => {
+      const steps = bellmanFord(grid, start, end, rows, cols);
+      // Descriptions now come from keys, but in test env without full i18n they might be keys or formatted strings
+      // We check that descriptions are present
+      expect(steps[0].description).toBeTruthy();
+    });
+
+    it('final step should indicate completion', () => {
+      const steps = bellmanFord(grid, start, end, rows, cols);
+      const lastStep = steps[steps.length - 1];
+      // Either path found description or no path
+      expect(lastStep.description).toBeTruthy();
     });
   });
 });

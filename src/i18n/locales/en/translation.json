@@ -46,7 +46,8 @@
       "aStar": "A* Search",
       "bidirectionalSearch": "Bidirectional Search",
       "greedyBestFirstSearch": "Greedy Best-First Search",
-      "jumpPointSearch": "Jump Point Search"
+      "jumpPointSearch": "Jump Point Search",
+      "bellmanFord": "Bellman-Ford"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
@@ -62,7 +63,8 @@
       "aStar": "Starting A* Search",
       "bidirectionalSearch": "Starting Bidirectional Search",
       "greedyBestFirstSearch": "Starting Greedy Best-First Search",
-      "jumpPointSearch": "Starting Jump Point Search"
+      "jumpPointSearch": "Starting Jump Point Search",
+      "bellmanFord": "Starting Bellman-Ford algorithm"
     }
   },
   "complexity": {
@@ -79,7 +81,8 @@
     "aStar": "O(b^d)",
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
-    "jumpPointSearch": "O(E)"
+    "jumpPointSearch": "O(E)",
+    "bellmanFord": "O(VE)"
   },
   "speeds": {
     "slow": "Slow",
@@ -232,9 +235,11 @@
     "shellShifting": "Shifting {{value}} from position {{from}} to {{to}}",
     "shellPlaced": "Placed {{value}} at its correct position {{position}} for this gap",
     "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
-    "radixBucketPush": "Pushing {{val}} to bucket {{bucket}} (digit: {{digit}})",
     "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
-    "radixPassComplete": "Pass {{pass}} complete (processed digit position)"
+    "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
+    "bellmanIteration": "Iteration {{iteration}}/{{maxIterations}} | Relaxations: {{relaxations}} | Distance to goal: {{distance}}",
+    "bellmanRelaxation": "Relaxing edge to ({{row}}, {{col}}) | New distance: {{newDist}}",
+    "bellmanNoUpdates": "No updates in this iteration. Algorithm terminates early."
   },
   "landing": {
     "hero": {
@@ -270,7 +275,7 @@
       "pathfinding": {
         "title": "Pathfinding Algorithms",
         "description": "See how pathfinding algorithms navigate through grids to find the shortest path between two points.",
-        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search"
+        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search, Bellman-Ford"
       }
     },
     "features": {
