@@ -47,7 +47,8 @@
       "bidirectionalSearch": "Bidirectional Search",
       "greedyBestFirstSearch": "Greedy Best-First Search",
       "jumpPointSearch": "Jump Point Search",
-      "bellmanFord": "Bellman-Ford"
+      "bellmanFord": "Bellman-Ford",
+      "idaStar": "Iterative Deepening A* (IDA*)"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
@@ -64,7 +65,8 @@
       "bidirectionalSearch": "Starting Bidirectional Search",
       "greedyBestFirstSearch": "Starting Greedy Best-First Search",
       "jumpPointSearch": "Starting Jump Point Search",
-      "bellmanFord": "Starting Bellman-Ford algorithm"
+      "bellmanFord": "Starting Bellman-Ford algorithm",
+      "idaStar": "IDA* Search"
     }
   },
   "complexity": {
@@ -82,7 +84,8 @@
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
-    "bellmanFord": "O(VE)"
+    "bellmanFord": "O(VE)",
+    "idaStar": "O(b^d)"
   },
   "speeds": {
     "slow": "Slow",
@@ -237,9 +240,12 @@
     "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
     "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
     "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
-    "bellmanIteration": "Iteration {{iteration}}/{{maxIterations}} | Relaxations: {{relaxations}} | Distance to goal: {{distance}}",
-    "bellmanRelaxation": "Relaxing edge to ({{row}}, {{col}}) | New distance: {{newDist}}",
-    "bellmanNoUpdates": "No updates in this iteration. Algorithm terminates early."
+    "bellmanIteration": "Iteration {{iteration}}: Relaxing edges",
+    "bellmanRelaxation": "Updated distance to ({{x}}, {{y}}): {{dist}}",
+    "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",
+    "idaNewThreshold": "New Threshold: {{threshold}}",
+    "idaVisiting": "Visiting ({{x}}, {{y}}) | Threshold: {{threshold}}",
+    "idaBacktracking": "Backtracking from ({{x}}, {{y}})"
   },
   "landing": {
     "hero": {

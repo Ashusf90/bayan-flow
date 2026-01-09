@@ -124,6 +124,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.bellmanFord'),
       complexity: t('complexity.bellmanFord'),
     },
+    {
+      value: 'idaStar',
+      label: t('algorithms.pathfinding.idaStar'),
+      complexity: t('complexity.idaStar'),
+    },
   ];
 
   const algorithms =

@@ -47,7 +47,8 @@
       "bidirectionalSearch": "Recherche Bidirectionnelle",
       "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord",
       "jumpPointSearch": "Recherche par Points de Saut",
-      "bellmanFord": "Bellman-Ford"
+      "bellmanFord": "Bellman-Ford",
+      "idaStar": "Recherche IDA*"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -82,7 +83,8 @@
     "bidirectionalSearch": "O(b^(d/2))",
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
-    "bellmanFord": "O(VE)"
+    "bellmanFord": "O(VE)",
+    "idaStar": "O(b^d)"
   },
   "speeds": {
     "slow": "Lent",
@@ -241,7 +243,10 @@
     "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)",
     "bellmanIteration": "Itération {{iteration}}/{{maxIterations}} | Relaxations : {{relaxations}} | Distance à la cible : {{distance}}",
     "bellmanRelaxation": "Relaxation de l'arête vers ({{row}}, {{col}}) | Nouvelle distance : {{newDist}}",
-    "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme."
+    "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme.",
+    "idaNewThreshold": "Nouveau seuil : {{threshold}}",
+    "idaVisiting": "Visite de ({{x}}, {{y}}) | Seuil : {{threshold}}",
+    "idaBacktracking": "Retour en arrière depuis ({{x}}, {{y}})"
   },
   "landing": {
     "hero": {
@@ -277,7 +282,7 @@
       "pathfinding": {
         "title": "Algorithmes de Recherche de Chemin",
         "description": "Voyez comment les algorithmes de recherche de chemin naviguent à travers les grilles pour trouver le chemin le plus court entre deux points.",
-        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut, Bellman-Ford"
+        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut, Bellman-Ford, IDA*"
       }
     },
     "features": {

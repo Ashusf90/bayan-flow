@@ -53,6 +53,16 @@ vi.mock('./jump_point_search.py?raw', () => ({
     'def jump_point_search(grid, start, end):\n    """Jump Point Search Algorithm"""\n    return []',
 }));
 
+vi.mock('./bellman_ford.py?raw', () => ({
+  default:
+    'def bellman_ford(grid, start, end):\n    """Bellman-Ford Algorithm"""\n    return []',
+}));
+
+vi.mock('./ida_star.py?raw', () => ({
+  default:
+    'def ida_star(grid, start, end):\n    """IDA* Search Algorithm"""\n    return []',
+}));
+
 describe('Python Algorithms Index', () => {
   describe('getPythonCode', () => {
     it('returns Python code for bubble sort', () => {
@@ -107,6 +117,18 @@ describe('Python Algorithms Index', () => {
       const code = getPythonCode('jumpPointSearch');
       expect(code).toContain('def jump_point_search');
       expect(code).toContain('Jump Point Search');
+    });
+
+    it('returns Python code for Bellman-Ford', () => {
+      const code = getPythonCode('bellmanFord');
+      expect(code).toContain('def bellman_ford');
+      expect(code).toContain('Bellman-Ford');
+    });
+
+    it('returns Python code for IDA*', () => {
+      const code = getPythonCode('idaStar');
+      expect(code).toContain('def ida_star');
+      expect(code).toContain('IDA* Search');
     });
 
     it('returns null for unknown algorithm', () => {
@@ -171,6 +193,16 @@ describe('Python Algorithms Index', () => {
       expect(name).toBe('Jump Point Search');
     });
 
+    it('returns correct display name for Bellman-Ford', () => {
+      const name = getAlgorithmDisplayName('bellmanFord');
+      expect(name).toBe('Bellman-Ford Algorithm');
+    });
+
+    it('returns correct display name for IDA*', () => {
+      const name = getAlgorithmDisplayName('idaStar');
+      expect(name).toBe('Iterative Deepening A* (IDA*)');
+    });
+
     it('returns algorithm name as fallback for unknown algorithm', () => {
       const name = getAlgorithmDisplayName('unknownSort');
       expect(name).toBe('unknownSort');
@@ -199,6 +231,8 @@ describe('Python Algorithms Index', () => {
         'bidirectionalSearch',
         'greedyBestFirstSearch',
         'jumpPointSearch',
+        'bellmanFord',
+        'idaStar',
       ];
 
       supportedAlgorithms.forEach(algorithm => {

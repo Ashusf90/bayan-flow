@@ -19,6 +19,7 @@ import greedyBestFirstSearchPython from './greedy_best_first_search.py?raw';
 import radixSortPython from './radix_sort.py?raw';
 import jumpPointSearchPython from './jump_point_search.py?raw';
 import bellmanFordPython from './bellman_ford.py?raw';
+import idaStarPython from './ida_star.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -36,6 +37,7 @@ export const pythonAlgorithms = {
   greedyBestFirstSearch: greedyBestFirstSearchPython,
   jumpPointSearch: jumpPointSearchPython,
   bellmanFord: bellmanFordPython,
+  idaStar: idaStarPython,
 };
 
 export const algorithmDisplayNames = {
@@ -54,6 +56,7 @@ export const algorithmDisplayNames = {
   greedyBestFirstSearch: 'Greedy Best-First Search',
   jumpPointSearch: 'Jump Point Search',
   bellmanFord: 'Bellman-Ford Algorithm',
+  idaStar: 'Iterative Deepening A* (IDA*)',
 };
 
 export function getPythonCode(algorithmName) {

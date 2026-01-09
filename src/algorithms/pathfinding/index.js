@@ -17,6 +17,7 @@ import {
 } from './greedyBestFirstSearch';
 import { jumpPointSearch, jumpPointSearchPure } from './jumpPointSearch';
 import { bellmanFord, bellmanFordPure } from './bellmanFord';
+import { idaStar, idaStarPure } from './idaStar';
 
 export const pathfindingAlgorithms = {
   bfs,
@@ -26,6 +27,7 @@ export const pathfindingAlgorithms = {
   greedyBestFirstSearch,
   jumpPointSearch,
   bellmanFord,
+  idaStar,
 };
 
 export const purePathfindingAlgorithms = {
@@ -36,6 +38,7 @@ export const purePathfindingAlgorithms = {
   greedyBestFirstSearch: greedyBestFirstSearchPure,
   jumpPointSearch: jumpPointSearchPure,
   bellmanFord: bellmanFordPure,
+  idaStar: idaStarPure,
 };
 
 export {
@@ -46,6 +49,7 @@ export {
   greedyBestFirstSearch,
   jumpPointSearch,
   bellmanFord,
+  idaStar,
 };
 export {
   bfsPure,
@@ -55,4 +59,5 @@ export {
   greedyBestFirstSearchPure,
   jumpPointSearchPure,
   bellmanFordPure,
+  idaStarPure,
 };

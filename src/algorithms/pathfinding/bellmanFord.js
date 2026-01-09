@@ -141,12 +141,6 @@ export function bellmanFord(grid, start, end, rows, cols) {
     let relaxations = 0;
     let updated = false;
 
-    // Store previous states for visualization
-    // eslint-disable-next-line no-unused-vars
-    const prevStates = states.map(row => [...row]);
-    // eslint-disable-next-line no-unused-vars
-    const prevDistances = distances.map(row => [...row]);
-
     // Relax all edges in this iteration
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {

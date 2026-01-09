@@ -19,6 +19,8 @@ import { greedyBestFirstSearch } from './greedyBestFirstSearch';
 import { jumpPointSearch } from './jumpPointSearch';
 import { bellmanFord } from './bellmanFord';
 import { bellmanFordPure } from './bellmanFord';
+import { idaStar } from './idaStar';
+import { idaStarPure } from './idaStar';
 
 describe('Pathfinding Algorithms - Pure Versions', () => {
   const start = { row: 0, col: 0 };
@@ -263,6 +265,34 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
     it('should handle adjacent cells', () => {
       const adjacentEnd = { row: 0, col: 1 };
       const path = bellmanFordPure(start, adjacentEnd, rows, cols);
+      expect(path.length).toBe(2);
+    });
+  });
+
+  describe('IDA* Pure', () => {
+    it('should find a path from start to end', () => {
+      const path = idaStarPure(start, end, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBeGreaterThan(0);
+      expect(path[0]).toEqual(start);
+      expect(path[path.length - 1]).toEqual(end);
+    });
+
+    it('should return shortest path', () => {
+      const path = idaStarPure(start, end, rows, cols);
+      expect(path.length).toBe(9);
+    });
+
+    it('should handle start and end being the same', () => {
+      const path = idaStarPure(start, start, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBe(1);
+      expect(path[0]).toEqual(start);
+    });
+
+    it('should handle adjacent cells', () => {
+      const adjacentEnd = { row: 0, col: 1 };
+      const path = idaStarPure(start, adjacentEnd, rows, cols);
       expect(path.length).toBe(2);
     });
   });
@@ -579,6 +609,46 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
       const steps = bellmanFord(grid, start, end, rows, cols);
       const lastStep = steps[steps.length - 1];
       // Either path found description or no path
+      expect(lastStep.description).toBeTruthy();
+    });
+  });
+
+  describe('IDA* Visualization', () => {
+    it('should generate steps array', () => {
+      const steps = idaStar(grid, start, end, rows, cols);
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+    });
+
+    it('each step should have required properties', () => {
+      const steps = idaStar(grid, start, end, rows, cols);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('grid');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(Array.isArray(step.grid)).toBe(true);
+        expect(Array.isArray(step.states)).toBe(true);
+        expect(typeof step.description).toBe('string');
+      });
+    });
+
+    it('should mark start and end in states', () => {
+      const steps = idaStar(grid, start, end, rows, cols);
+      const firstStep = steps[0];
+      expect(Array.isArray(firstStep.states)).toBe(true);
+      expect(firstStep.states[start.row][start.col]).toBe('start');
+      expect(firstStep.states[end.row][end.col]).toBe('end');
+    });
+
+    it('should include threshold information in descriptions', () => {
+      const steps = idaStar(grid, start, end, rows, cols);
+      // We just check that description is generated/present
+      expect(steps[0].description).toBeTruthy();
+    });
+
+    it('final step should indicate completion', () => {
+      const steps = idaStar(grid, start, end, rows, cols);
+      const lastStep = steps[steps.length - 1];
       expect(lastStep.description).toBeTruthy();
     });
   });

@@ -88,4 +88,9 @@ export const ALGORITHM_STEPS = {
   BELLMAN_ITERATION: 'bellmanIteration',
   BELLMAN_RELAXATION: 'bellmanRelaxation',
   BELLMAN_NO_UPDATES: 'bellmanNoUpdates',
+
+  // IDA*
+  IDA_NEW_THRESHOLD: 'idaNewThreshold',
+  IDA_VISITING: 'idaVisiting',
+  IDA_BACKTRACKING: 'idaBacktracking',
 };

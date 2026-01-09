@@ -47,7 +47,8 @@
       "bidirectionalSearch": "البحث ثنائي الاتجاه",
       "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً",
       "jumpPointSearch": "البحث بنقاط القفز",
-      "bellmanFord": "خوارزمية بيلمان-فورد"
+      "bellmanFord": "خوارزمية بيلمان-فورد",
+      "idaStar": "البحث بالتعميق التكراري A*"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -78,6 +79,7 @@
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
     "bellmanFord": "O(VE)",
+    "idaStar": "O(b^d)",
     "selectionSort": "O(n²)",
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
@@ -241,7 +243,10 @@
     "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",
     "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
     "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
-    "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية."
+    "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",
+    "idaNewThreshold": "عتبة جديدة: {{threshold}}",
+    "idaVisiting": "زيارة ({{x}}, {{y}}) | العتبة: {{threshold}}",
+    "idaBacktracking": "تراجع من ({{x}}, {{y}})"
   },
   "landing": {
     "hero": {
@@ -277,7 +282,7 @@
       "pathfinding": {
         "title": "خوارزميات إيجاد المسار",
         "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
-        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد"
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد، IDA*"
       }
     },
     "features": {

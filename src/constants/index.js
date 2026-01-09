@@ -28,6 +28,7 @@ export const PATHFINDING_ALGORITHMS = {
   GREEDY_BEST_FIRST_SEARCH: 'greedyBestFirstSearch',
   JUMP_POINT_SEARCH: 'jumpPointSearch',
   BELLMAN_FORD: 'bellmanFord',
+  IDA_STAR: 'idaStar',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -212,6 +213,7 @@ export const COMPLEXITY_FUNCTIONS = {
   'O(VE)': n => n * n * 4, // Approximation: V vertices × E edges per vertex (~4)
   'O(b^d)': n => Math.pow(4, Math.log2(n)), // Approximation: branching factor 4, depth log(n)
   'O(nk)': n => n * Math.log10(n), // Approximation: k ≈ log10(n) for distinct numbers
+  'O(d)': n => Math.log2(n), // Approximation: d is depth, often log(n) in balanced trees/grids
 };
 
 export const DEFAULT_ARRAY_SIZE = 20;
@@ -344,6 +346,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Detecting negative cycles',
       'When you need to find shortest paths from a single source',
       'Educational purposes to understand dynamic programming approach',
+    ],
+  },
+  idaStar: {
+    name: 'Iterative Deepening A* (IDA*)',
+    timeComplexity: {
+      best: 'O(b^d)',
+      average: 'O(b^d)',
+      worst: 'O(b^d)',
+    },
+    spaceComplexity: 'O(d)',
+    description:
+      'IDA* is a depth-first search that uses the same heuristic function as A*. It performs a series of depth-first searches, effectively increasing the search depth (threshold) in each iteration. It uses less memory than A* but may visit the same nodes multiple times.',
+    useCases: [
+      'When memory is limited (uses linear space unlike A*)',
+      'Tree search problems',
+      'When path cost is uniform',
+      'Solving puzzles like 15-puzzle',
     ],
   },
 };
