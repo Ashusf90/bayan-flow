@@ -129,6 +129,11 @@ function SettingsPanel({
       label: t('algorithms.pathfinding.idaStar'),
       complexity: t('complexity.idaStar'),
     },
+    {
+      value: 'dStarLite',
+      label: t('algorithms.pathfinding.dStarLite'),
+      complexity: t('complexity.dStarLite'),
+    },
   ];
 
   const algorithms =

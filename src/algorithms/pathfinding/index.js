@@ -18,6 +18,7 @@ import {
 import { jumpPointSearch, jumpPointSearchPure } from './jumpPointSearch';
 import { bellmanFord, bellmanFordPure } from './bellmanFord';
 import { idaStar, idaStarPure } from './idaStar';
+import { dStarLite, dStarLitePure } from './dStarLite';
 
 export const pathfindingAlgorithms = {
   bfs,
@@ -28,6 +29,7 @@ export const pathfindingAlgorithms = {
   jumpPointSearch,
   bellmanFord,
   idaStar,
+  dStarLite,
 };
 
 export const purePathfindingAlgorithms = {
@@ -39,6 +41,7 @@ export const purePathfindingAlgorithms = {
   jumpPointSearch: jumpPointSearchPure,
   bellmanFord: bellmanFordPure,
   idaStar: idaStarPure,
+  dStarLite: dStarLitePure,
 };
 
 export {
@@ -50,6 +53,7 @@ export {
   jumpPointSearch,
   bellmanFord,
   idaStar,
+  dStarLite,
 };
 export {
   bfsPure,
@@ -60,4 +64,5 @@ export {
   jumpPointSearchPure,
   bellmanFordPure,
   idaStarPure,
+  dStarLitePure,
 };

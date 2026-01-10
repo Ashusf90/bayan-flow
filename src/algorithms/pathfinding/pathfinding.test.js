@@ -21,6 +21,8 @@ import { bellmanFord } from './bellmanFord';
 import { bellmanFordPure } from './bellmanFord';
 import { idaStar } from './idaStar';
 import { idaStarPure } from './idaStar';
+import { dStarLite } from './dStarLite';
+import { dStarLitePure } from './dStarLite';
 
 describe('Pathfinding Algorithms - Pure Versions', () => {
   const start = { row: 0, col: 0 };
@@ -293,6 +295,35 @@ describe('Pathfinding Algorithms - Pure Versions', () => {
     it('should handle adjacent cells', () => {
       const adjacentEnd = { row: 0, col: 1 };
       const path = idaStarPure(start, adjacentEnd, rows, cols);
+      expect(path.length).toBe(2);
+    });
+  });
+
+  describe('D* Lite Pure', () => {
+    it('should find a path from start to end', () => {
+      const path = dStarLitePure(start, end, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBeGreaterThan(0);
+      expect(path[0]).toEqual(start);
+      expect(path[path.length - 1]).toEqual(end);
+    });
+
+    it('should return shortest path', () => {
+      const path = dStarLitePure(start, end, rows, cols);
+      // D* Lite on static grid should be optimal (Manhattan distance 8, length 9)
+      expect(path.length).toBe(9);
+    });
+
+    it('should handle start and end being the same', () => {
+      const path = dStarLitePure(start, start, rows, cols);
+      expect(path).toBeTruthy();
+      expect(path.length).toBe(1);
+      expect(path[0]).toEqual(start);
+    });
+
+    it('should handle adjacent cells', () => {
+      const adjacentEnd = { row: 0, col: 1 };
+      const path = dStarLitePure(start, adjacentEnd, rows, cols);
       expect(path.length).toBe(2);
     });
   });
@@ -648,6 +679,44 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('final step should indicate completion', () => {
       const steps = idaStar(grid, start, end, rows, cols);
+      const lastStep = steps[steps.length - 1];
+      expect(lastStep.description).toBeTruthy();
+    });
+  });
+
+  describe('D* Lite Visualization', () => {
+    it('should generate steps array', () => {
+      const steps = dStarLite(grid, start, end, rows, cols);
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+    });
+
+    it('each step should have required properties', () => {
+      const steps = dStarLite(grid, start, end, rows, cols);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('grid');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(Array.isArray(step.grid)).toBe(true);
+        expect(Array.isArray(step.states)).toBe(true);
+        expect(typeof step.description).toBe('string');
+      });
+    });
+
+    it('should mark start and end in states', () => {
+      const steps = dStarLite(grid, start, end, rows, cols);
+      const firstStep = steps[0];
+      expect(firstStep.states[start.row][start.col]).toBe('start');
+      expect(firstStep.states[end.row][end.col]).toBe('end');
+    });
+
+    it('should include keys or expansion info in descriptions', () => {
+      const steps = dStarLite(grid, start, end, rows, cols);
+      expect(steps[0].description).toBeTruthy();
+    });
+
+    it('final step should indicate completion', () => {
+      const steps = dStarLite(grid, start, end, rows, cols);
       const lastStep = steps[steps.length - 1];
       expect(lastStep.description).toBeTruthy();
     });

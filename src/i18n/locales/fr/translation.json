@@ -48,7 +48,8 @@
       "greedyBestFirstSearch": "Recherche Gloutonne du Meilleur d'Abord",
       "jumpPointSearch": "Recherche par Points de Saut",
       "bellmanFord": "Bellman-Ford",
-      "idaStar": "Recherche IDA*"
+      "idaStar": "Recherche IDA*",
+      "dStarLite": "D* Lite"
     },
     "descriptions": {
       "bubbleSort": "Démarrage du Tri à Bulles",
@@ -65,7 +66,8 @@
       "bidirectionalSearch": "Démarrage de la Recherche Bidirectionnelle",
       "greedyBestFirstSearch": "Démarrage de la Recherche Gloutonne du Meilleur d'Abord",
       "jumpPointSearch": "Démarrage de la Recherche par Points de Saut",
-      "bellmanFord": "Démarrage de l'algorithme de Bellman-Ford"
+      "bellmanFord": "Démarrage de l'algorithme de Bellman-Ford",
+      "dStarLite": "Démarrage de la recherche D* Lite"
     }
   },
   "complexity": {
@@ -84,7 +86,8 @@
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
     "bellmanFord": "O(VE)",
-    "idaStar": "O(b^d)"
+    "idaStar": "O(b^d)",
+    "dStarLite": "O(log V)"
   },
   "speeds": {
     "slow": "Lent",
@@ -246,7 +249,9 @@
     "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme.",
     "idaNewThreshold": "Nouveau seuil : {{threshold}}",
     "idaVisiting": "Visite de ({{x}}, {{y}}) | Seuil : {{threshold}}",
-    "idaBacktracking": "Retour en arrière depuis ({{x}}, {{y}})"
+    "idaBacktracking": "Retour en arrière depuis ({{x}}, {{y}})",
+    "dStarLiteExpansion": "Expansion du Nœud ({{row}}, {{col}})",
+    "dStarLiteInconsistent": "Nœud ({{row}}, {{col}}) Incohérent - Réévaluation"
   },
   "landing": {
     "hero": {
@@ -282,7 +287,7 @@
       "pathfinding": {
         "title": "Algorithmes de Recherche de Chemin",
         "description": "Voyez comment les algorithmes de recherche de chemin naviguent à travers les grilles pour trouver le chemin le plus court entre deux points.",
-        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut, Bellman-Ford, IDA*"
+        "algorithms": "BFS, Dijkstra, Recherche A*, Recherche Bidirectionnelle, Recherche Gloutonne du Meilleur d'Abord, Recherche par Points de Saut, Bellman-Ford, IDA*, D* Lite"
       }
     },
     "features": {

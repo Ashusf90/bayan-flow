@@ -48,7 +48,8 @@
       "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً",
       "jumpPointSearch": "البحث بنقاط القفز",
       "bellmanFord": "خوارزمية بيلمان-فورد",
-      "idaStar": "البحث بالتعميق التكراري A*"
+      "idaStar": "البحث بالتعميق التكراري A*",
+      "dStarLite": "D* Lite"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
@@ -65,7 +66,8 @@
       "bidirectionalSearch": "بدء البحث ثنائي الاتجاه",
       "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً",
       "jumpPointSearch": "بدء البحث بنقاط القفز",
-      "bellmanFord": "بدء خوارزمية بيلمان-فورد"
+      "bellmanFord": "بدء خوارزمية بيلمان-فورد",
+      "dStarLite": "بدء خوارزمية D* Lite"
     }
   },
   "complexity": {
@@ -84,7 +86,8 @@
     "insertionSort": "O(n²)",
     "heapSort": "O(n log n)",
     "shellSort": "O(n^1.25)",
-    "radixSort": "O(nk)"
+    "radixSort": "O(nk)",
+    "dStarLite": "O(log V)"
   },
   "speeds": {
     "slow": "بطيء",
@@ -246,7 +249,9 @@
     "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",
     "idaNewThreshold": "عتبة جديدة: {{threshold}}",
     "idaVisiting": "زيارة ({{x}}, {{y}}) | العتبة: {{threshold}}",
-    "idaBacktracking": "تراجع من ({{x}}, {{y}})"
+    "idaBacktracking": "تراجع من ({{x}}, {{y}})",
+    "dStarLiteExpansion": "توسيع العقدة ({{row}}, {{col}})",
+    "dStarLiteInconsistent": "العقدة ({{row}}, {{col}}) غير متناسقة - إعادة تقييم"
   },
   "landing": {
     "hero": {
@@ -282,7 +287,7 @@
       "pathfinding": {
         "title": "خوارزميات إيجاد المسار",
         "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
-        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد، IDA*"
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد، IDA*، D* Lite"
       }
     },
     "features": {

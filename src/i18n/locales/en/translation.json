@@ -48,7 +48,8 @@
       "greedyBestFirstSearch": "Greedy Best-First Search",
       "jumpPointSearch": "Jump Point Search",
       "bellmanFord": "Bellman-Ford",
-      "idaStar": "Iterative Deepening A* (IDA*)"
+      "idaStar": "Iterative Deepening A* (IDA*)",
+      "dStarLite": "D* Lite"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
@@ -66,7 +67,8 @@
       "greedyBestFirstSearch": "Starting Greedy Best-First Search",
       "jumpPointSearch": "Starting Jump Point Search",
       "bellmanFord": "Starting Bellman-Ford algorithm",
-      "idaStar": "IDA* Search"
+      "idaStar": "IDA* Search",
+      "dStarLite": "Starting D* Lite Search"
     }
   },
   "complexity": {
@@ -85,7 +87,8 @@
     "greedyBestFirstSearch": "O(b^d)",
     "jumpPointSearch": "O(E)",
     "bellmanFord": "O(VE)",
-    "idaStar": "O(b^d)"
+    "idaStar": "O(b^d)",
+    "dStarLite": "O(log V)"
   },
   "speeds": {
     "slow": "Slow",
@@ -245,7 +248,9 @@
     "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",
     "idaNewThreshold": "New Threshold: {{threshold}}",
     "idaVisiting": "Visiting ({{x}}, {{y}}) | Threshold: {{threshold}}",
-    "idaBacktracking": "Backtracking from ({{x}}, {{y}})"
+    "idaBacktracking": "Backtracking from ({{x}}, {{y}})",
+    "dStarLiteExpansion": "Expanding Node ({{row}}, {{col}})",
+    "dStarLiteInconsistent": "Node ({{row}}, {{col}}) Inconsistent - Re-evaluating"
   },
   "landing": {
     "hero": {
@@ -281,7 +286,7 @@
       "pathfinding": {
         "title": "Pathfinding Algorithms",
         "description": "See how pathfinding algorithms navigate through grids to find the shortest path between two points.",
-        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search, Bellman-Ford"
+        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search, Bellman-Ford, IDA*, D* Lite"
       }
     },
     "features": {

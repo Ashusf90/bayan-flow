@@ -93,4 +93,8 @@ export const ALGORITHM_STEPS = {
   IDA_NEW_THRESHOLD: 'idaNewThreshold',
   IDA_VISITING: 'idaVisiting',
   IDA_BACKTRACKING: 'idaBacktracking',
+
+  // D* Lite
+  D_STAR_LITE_EXPANSION: 'dStarLiteExpansion',
+  D_STAR_LITE_INCONSISTENT: 'dStarLiteInconsistent',
 };

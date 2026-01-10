@@ -29,6 +29,7 @@ export const PATHFINDING_ALGORITHMS = {
   JUMP_POINT_SEARCH: 'jumpPointSearch',
   BELLMAN_FORD: 'bellmanFord',
   IDA_STAR: 'idaStar',
+  D_STAR_LITE: 'dStarLite',
 };
 
 export const ANIMATION_SPEEDS = {
@@ -363,6 +364,23 @@ export const PATHFINDING_COMPLEXITY = {
       'Tree search problems',
       'When path cost is uniform',
       'Solving puzzles like 15-puzzle',
+    ],
+  },
+  dStarLite: {
+    name: 'D* Lite',
+    timeComplexity: {
+      best: 'O(1)', // Incremental update
+      average: 'O(log V)', // Priority Queue ops
+      worst: 'O(b^d)', // Initial search same as A*
+    },
+    spaceComplexity: 'O(V)',
+    description:
+      'D* Lite is an incremental heuristic search algorithm. It is an optimized version of A* that efficiently updates the shortest path when the graph changes (e.g. dynamic obstacles). It maintains path consistency and re-plans only necessary parts.',
+    useCases: [
+      'Dynamic environments (moving robots)',
+      'Unknown terrain exploration',
+      'Real-time path re-planning',
+      'Planetary rovers (e.g. Mars rovers)',
     ],
   },
 };
