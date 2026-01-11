@@ -38,7 +38,8 @@
       "insertionSort": "Insertion Sort",
       "heapSort": "Heap Sort",
       "shellSort": "Shell Sort",
-      "radixSort": "Radix Sort"
+      "radixSort": "Radix Sort",
+      "countingSort": "Counting Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -60,6 +61,7 @@
       "heapSort": "Starting Heap Sort",
       "shellSort": "Starting Shell Sort",
       "radixSort": "Starting Radix Sort",
+      "countingSort": "Starting Counting Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -80,6 +82,7 @@
     "heapSort": "O(n log n)",
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
+    "countingSort": "O(n + k)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -243,6 +246,11 @@
     "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
     "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
     "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
+    "countingFindMax": "Found maximum value: {{max}}. Creating counting array of size {{max}} + 1.",
+    "countingCount": "Counting occurrence of {{value}}. Count array[{{value}}] = {{count}}",
+    "countingCountComplete": "Counting phase complete. Each value's occurrences have been counted.",
+    "countingCumulativeComplete": "Cumulative sum calculated. Count array now contains positions.",
+    "countingPlace": "Placing {{value}} at position {{position}} in output array",
     "bellmanIteration": "Iteration {{iteration}}: Relaxing edges",
     "bellmanRelaxation": "Updated distance to ({{x}}, {{y}}): {{dist}}",
     "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",

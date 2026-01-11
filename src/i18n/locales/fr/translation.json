@@ -38,7 +38,8 @@
       "insertionSort": "Tri par Insertion",
       "heapSort": "Tri par Tas",
       "shellSort": "Tri de Shell",
-      "radixSort": "Tri Radix"
+      "radixSort": "Tri Radix",
+      "countingSort": "Tri par Comptage"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -60,6 +61,7 @@
       "heapSort": "Démarrage du Tri par Tas",
       "shellSort": "Démarrage du Tri de Shell",
       "radixSort": "Démarrage du Tri Radix",
+      "countingSort": "Démarrage du Tri par Comptage",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -79,6 +81,7 @@
     "heapSort": "O(n log n)",
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
+    "countingSort": "O(n + k)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -244,6 +247,11 @@
     "radixBucketPush": "Ajout de {{val}} au seau {{bucket}} (chiffre : {{digit}})",
     "radixCollect": "Collecte de {{val}} du seau {{bucket}} vers la position {{position}}",
     "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)",
+    "countingFindMax": "Valeur maximale trouvée : {{max}}. Création d'un tableau de comptage de taille {{max}} + 1.",
+    "countingCount": "Comptage de l'occurrence de {{value}}. Tableau de comptage[{{value}}] = {{count}}",
+    "countingCountComplete": "Phase de comptage terminée. Les occurrences de chaque valeur ont été comptées.",
+    "countingCumulativeComplete": "Somme cumulative calculée. Le tableau de comptage contient maintenant les positions.",
+    "countingPlace": "Placement de {{value}} à la position {{position}} dans le tableau de sortie",
     "bellmanIteration": "Itération {{iteration}}/{{maxIterations}} | Relaxations : {{relaxations}} | Distance à la cible : {{distance}}",
     "bellmanRelaxation": "Relaxation de l'arête vers ({{row}}, {{col}}) | Nouvelle distance : {{newDist}}",
     "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme.",

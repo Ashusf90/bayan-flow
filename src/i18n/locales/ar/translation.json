@@ -38,7 +38,8 @@
       "insertionSort": "الترتيب بالإدراج",
       "heapSort": "ترتيب الكومة",
       "shellSort": "ترتيب شيل",
-      "radixSort": "ترتيب التجذير"
+      "radixSort": "ترتيب التجذير",
+      "countingSort": "الترتيب بالعد"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -60,6 +61,7 @@
       "heapSort": "بدء ترتيب الكومة",
       "shellSort": "بدء ترتيب شيل",
       "radixSort": "بدء ترتيب التجذير",
+      "countingSort": "بدء الترتيب بالعد",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -87,6 +89,7 @@
     "heapSort": "O(n log n)",
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
+    "countingSort": "O(n + k)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -244,6 +247,11 @@
     "radixBucketPush": "إضافة {{val}} إلى الدلو {{bucket}} (الرقم: {{digit}})",
     "radixCollect": "جمع {{val}} من الدلو {{bucket}} إلى الموضع {{position}}",
     "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",
+    "countingFindMax": "تم العثور على القيمة القصوى: {{max}}. إنشاء مصفوفة العد بحجم {{max}} + 1.",
+    "countingCount": "عد ظهور {{value}}. مصفوفة العد[{{value}}] = {{count}}",
+    "countingCountComplete": "اكتملت مرحلة العد. تم عد ظهور كل قيمة.",
+    "countingCumulativeComplete": "تم حساب المجموع التراكمي. مصفوفة العد تحتوي الآن على المواضع.",
+    "countingPlace": "وضع {{value}} في الموضع {{position}} في مصفوفة الإخراج",
     "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
     "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
     "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",

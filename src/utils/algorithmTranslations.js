@@ -84,6 +84,13 @@ export const ALGORITHM_STEPS = {
   RADIX_COLLECT: 'radixCollect',
   RADIX_PASS_COMPLETE: 'radixPassComplete',
 
+  // Counting Sort
+  COUNTING_FIND_MAX: 'countingFindMax',
+  COUNTING_COUNT: 'countingCount',
+  COUNTING_COUNT_COMPLETE: 'countingCountComplete',
+  COUNTING_CUMULATIVE_COMPLETE: 'countingCumulativeComplete',
+  COUNTING_PLACE: 'countingPlace',
+
   // Bellman-Ford
   BELLMAN_ITERATION: 'bellmanIteration',
   BELLMAN_RELAXATION: 'bellmanRelaxation',

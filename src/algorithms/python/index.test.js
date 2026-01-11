@@ -23,6 +23,11 @@ vi.mock('./merge_sort.py?raw', () => ({
     'def merge_sort(arr):\n    """Merge Sort Algorithm"""\n    return sorted(arr)',
 }));
 
+vi.mock('./counting_sort.py?raw', () => ({
+  default:
+    'def counting_sort(arr):\n    """Counting Sort Algorithm"""\n    return sorted(arr)',
+}));
+
 vi.mock('./bfs.py?raw', () => ({
   default:
     'def bfs(grid, start, end):\n    """Breadth-First Search Algorithm"""\n    return []',
@@ -81,6 +86,12 @@ describe('Python Algorithms Index', () => {
       const code = getPythonCode('mergeSort');
       expect(code).toContain('def merge_sort');
       expect(code).toContain('Merge Sort Algorithm');
+    });
+
+    it('returns Python code for Counting Sort', () => {
+      const code = getPythonCode('countingSort');
+      expect(code).toContain('def counting_sort');
+      expect(code).toContain('Counting Sort Algorithm');
     });
 
     it('returns Python code for BFS', () => {
@@ -163,6 +174,11 @@ describe('Python Algorithms Index', () => {
       expect(name).toBe('Merge Sort');
     });
 
+    it('returns correct display name for counting sort', () => {
+      const name = getAlgorithmDisplayName('countingSort');
+      expect(name).toBe('Counting Sort');
+    });
+
     it('returns correct display name for BFS', () => {
       const name = getAlgorithmDisplayName('bfs');
       expect(name).toBe('Breadth-First Search (BFS)');
@@ -225,6 +241,7 @@ describe('Python Algorithms Index', () => {
         'bubbleSort',
         'quickSort',
         'mergeSort',
+        'countingSort',
         'bfs',
         'dijkstra',
         'aStar',

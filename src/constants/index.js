@@ -18,6 +18,7 @@ export const SORTING_ALGORITHMS = {
   HEAP_SORT: 'heapSort',
   SHELL_SORT: 'shellSort',
   RADIX_SORT: 'radixSort',
+  COUNTING_SORT: 'countingSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -195,6 +196,24 @@ export const ALGORITHM_COMPLEXITY = {
       'Stable sorting requirements',
     ],
   },
+  countingSort: {
+    name: 'Counting Sort',
+    timeComplexity: {
+      best: 'O(n + k)',
+      average: 'O(n + k)',
+      worst: 'O(n + k)',
+    },
+    spaceComplexity: 'O(n + k)',
+    description:
+      'Counting Sort is a non-comparison sorting algorithm that works by counting the number of objects having distinct key values, then doing arithmetic to calculate the position of each object in the output sequence. It works only with non-negative integers.',
+    useCases: [
+      'Small range of integers (k is small relative to n)',
+      'When input values are non-negative integers',
+      'Stable sorting is required',
+      'Sorting characters or small integers',
+      'When O(n) time complexity is critical',
+    ],
+  },
 };
 
 export const COMPLEXITY_FUNCTIONS = {
@@ -215,6 +234,7 @@ export const COMPLEXITY_FUNCTIONS = {
   'O(b^d)': n => Math.pow(4, Math.log2(n)), // Approximation: branching factor 4, depth log(n)
   'O(nk)': n => n * Math.log10(n), // Approximation: k ≈ log10(n) for distinct numbers
   'O(d)': n => Math.log2(n), // Approximation: d is depth, often log(n) in balanced trees/grids
+  'O(n + k)': n => n + Math.log2(n) * 10, // Approximation: n + k where k ≈ log(n) * 10
 };
 
 export const DEFAULT_ARRAY_SIZE = 20;

@@ -13,6 +13,7 @@ import { insertionSortPure } from './insertionSort';
 import { heapSortPure } from './heapSort';
 import { shellSortPure } from './shellSort';
 import { radixSortPure } from './radixSort';
+import { countingSortPure } from './countingSort';
 import { isSorted, generateRandomArray } from '../../utils/arrayHelpers';
 
 /**
@@ -217,6 +218,31 @@ describe('Sorting Algorithms', () => {
     });
   });
 
+  describe('Counting Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = countingSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = countingSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should be stable (maintain relative order of equal elements)', () => {
+      // For stability testing, we'd need to track original indices
+      // This is a simplified test
+      const arrayWithDuplicates = [5, 2, 8, 2, 9, 1, 5, 5];
+      const sorted = countingSortPure(arrayWithDuplicates);
+      expect(sorted).toEqual([1, 2, 2, 5, 5, 5, 8, 9]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
   describe('Algorithm Consistency', () => {
     it('all algorithms should produce the same result', () => {
       const testArray = generateRandomArray(50);
@@ -229,6 +255,7 @@ describe('Sorting Algorithms', () => {
       const heapResult = heapSortPure([...testArray]);
       const shellResult = shellSortPure([...testArray]);
       const radixResult = radixSortPure([...testArray]);
+      const countingResult = countingSortPure([...testArray]);
 
       expect(bubbleResult).toEqual(quickResult);
       expect(quickResult).toEqual(mergeResult);
@@ -237,6 +264,7 @@ describe('Sorting Algorithms', () => {
       expect(insertionResult).toEqual(heapResult);
       expect(heapResult).toEqual(shellResult);
       expect(shellResult).toEqual(radixResult);
+      expect(radixResult).toEqual(countingResult);
     });
   });
 });

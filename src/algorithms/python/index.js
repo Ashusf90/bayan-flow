@@ -21,6 +21,7 @@ import jumpPointSearchPython from './jump_point_search.py?raw';
 import bellmanFordPython from './bellman_ford.py?raw';
 import idaStarPython from './ida_star.py?raw';
 import dStarLitePython from './d_star_lite.py?raw';
+import countingSortPython from './counting_sort.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -31,6 +32,7 @@ export const pythonAlgorithms = {
   heapSort: heapSortPython,
   shellSort: shellSortPython,
   radixSort: radixSortPython,
+  countingSort: countingSortPython,
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
@@ -51,6 +53,7 @@ export const algorithmDisplayNames = {
   heapSort: 'Heap Sort',
   shellSort: 'Shell Sort',
   radixSort: 'Radix Sort',
+  countingSort: 'Counting Sort',
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',

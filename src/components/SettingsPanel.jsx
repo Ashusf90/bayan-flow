@@ -86,6 +86,11 @@ function SettingsPanel({
       label: t('algorithms.sorting.radixSort'),
       complexity: t('complexity.radixSort'),
     },
+    {
+      value: 'countingSort',
+      label: t('algorithms.sorting.countingSort'),
+      complexity: t('complexity.countingSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [
