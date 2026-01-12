@@ -91,6 +91,11 @@ function SettingsPanel({
       label: t('algorithms.sorting.countingSort'),
       complexity: t('complexity.countingSort'),
     },
+    {
+      value: 'bucketSort',
+      label: t('algorithms.sorting.bucketSort'),
+      complexity: t('complexity.bucketSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [

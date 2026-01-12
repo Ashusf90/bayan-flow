@@ -22,6 +22,7 @@ import bellmanFordPython from './bellman_ford.py?raw';
 import idaStarPython from './ida_star.py?raw';
 import dStarLitePython from './d_star_lite.py?raw';
 import countingSortPython from './counting_sort.py?raw';
+import bucketSortPython from './bucket_sort.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -33,6 +34,7 @@ export const pythonAlgorithms = {
   shellSort: shellSortPython,
   radixSort: radixSortPython,
   countingSort: countingSortPython,
+  bucketSort: bucketSortPython,
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
@@ -54,6 +56,7 @@ export const algorithmDisplayNames = {
   shellSort: 'Shell Sort',
   radixSort: 'Radix Sort',
   countingSort: 'Counting Sort',
+  bucketSort: 'Bucket Sort',
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',

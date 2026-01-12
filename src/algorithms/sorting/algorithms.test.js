@@ -14,6 +14,7 @@ import { heapSortPure } from './heapSort';
 import { shellSortPure } from './shellSort';
 import { radixSortPure } from './radixSort';
 import { countingSortPure } from './countingSort';
+import { bucketSortPure } from './bucketSort';
 import { isSorted, generateRandomArray } from '../../utils/arrayHelpers';
 
 /**
@@ -243,6 +244,29 @@ describe('Sorting Algorithms', () => {
     });
   });
 
+  describe('Bucket Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = bucketSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = bucketSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should handle all identical elements', () => {
+      const identical = [7, 7, 7, 7, 7];
+      const sorted = bucketSortPure(identical);
+      expect(sorted).toEqual([7, 7, 7, 7, 7]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
   describe('Algorithm Consistency', () => {
     it('all algorithms should produce the same result', () => {
       const testArray = generateRandomArray(50);
@@ -256,6 +280,7 @@ describe('Sorting Algorithms', () => {
       const shellResult = shellSortPure([...testArray]);
       const radixResult = radixSortPure([...testArray]);
       const countingResult = countingSortPure([...testArray]);
+      const bucketResult = bucketSortPure([...testArray]);
 
       expect(bubbleResult).toEqual(quickResult);
       expect(quickResult).toEqual(mergeResult);
@@ -265,6 +290,7 @@ describe('Sorting Algorithms', () => {
       expect(heapResult).toEqual(shellResult);
       expect(shellResult).toEqual(radixResult);
       expect(radixResult).toEqual(countingResult);
+      expect(countingResult).toEqual(bucketResult);
     });
   });
 });

@@ -39,7 +39,8 @@
       "heapSort": "Tri par Tas",
       "shellSort": "Tri de Shell",
       "radixSort": "Tri Radix",
-      "countingSort": "Tri par Comptage"
+      "countingSort": "Tri par Comptage",
+      "bucketSort": "Tri par Seaux"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -62,6 +63,7 @@
       "shellSort": "Démarrage du Tri de Shell",
       "radixSort": "Démarrage du Tri Radix",
       "countingSort": "Démarrage du Tri par Comptage",
+      "bucketSort": "Démarrage du Tri par Seaux",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -82,6 +84,7 @@
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
+    "bucketSort": "O(n + k)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -252,6 +255,11 @@
     "countingCountComplete": "Phase de comptage terminée. Les occurrences de chaque valeur ont été comptées.",
     "countingCumulativeComplete": "Somme cumulative calculée. Le tableau de comptage contient maintenant les positions.",
     "countingPlace": "Placement de {{value}} à la position {{position}} dans le tableau de sortie",
+    "bucketDistributing": "Distribution de {{value}} dans le seau {{bucket}} sur {{bucketCount}}",
+    "bucketPlaced": "{{value}} placé dans le seau {{bucket}}",
+    "bucketDistributionComplete": "Distribution terminée : {{totalElements}} éléments dans {{bucketCount}} seaux",
+    "bucketSorted": "Seau {{bucket}} trié ({{size}} éléments)",
+    "bucketMerging": "Fusion de {{value}} du seau {{bucket}} à la position {{position}}",
     "bellmanIteration": "Itération {{iteration}}/{{maxIterations}} | Relaxations : {{relaxations}} | Distance à la cible : {{distance}}",
     "bellmanRelaxation": "Relaxation de l'arête vers ({{row}}, {{col}}) | Nouvelle distance : {{newDist}}",
     "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme.",

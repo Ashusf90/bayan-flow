@@ -39,7 +39,8 @@
       "heapSort": "ترتيب الكومة",
       "shellSort": "ترتيب شيل",
       "radixSort": "ترتيب التجذير",
-      "countingSort": "الترتيب بالعد"
+      "countingSort": "الترتيب بالعد",
+      "bucketSort": "الترتيب بالدلاء"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -62,6 +63,7 @@
       "shellSort": "بدء ترتيب شيل",
       "radixSort": "بدء ترتيب التجذير",
       "countingSort": "بدء الترتيب بالعد",
+      "bucketSort": "بدء الترتيب بالدلاء",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -90,6 +92,7 @@
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
+    "bucketSort": "O(n + k)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -252,6 +255,11 @@
     "countingCountComplete": "اكتملت مرحلة العد. تم عد ظهور كل قيمة.",
     "countingCumulativeComplete": "تم حساب المجموع التراكمي. مصفوفة العد تحتوي الآن على المواضع.",
     "countingPlace": "وضع {{value}} في الموضع {{position}} في مصفوفة الإخراج",
+    "bucketDistributing": "توزيع {{value}} في الدلو {{bucket}} من {{bucketCount}}",
+    "bucketPlaced": "تم وضع {{value}} في الدلو {{bucket}}",
+    "bucketDistributionComplete": "اكتمل التوزيع: {{totalElements}} عناصر في {{bucketCount}} دلاء",
+    "bucketSorted": "تم ترتيب الدلو {{bucket}} ({{size}} عناصر)",
+    "bucketMerging": "دمج {{value}} من الدلو {{bucket}} إلى الموضع {{position}}",
     "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
     "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
     "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",

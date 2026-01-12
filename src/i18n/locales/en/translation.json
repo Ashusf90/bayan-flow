@@ -39,7 +39,8 @@
       "heapSort": "Heap Sort",
       "shellSort": "Shell Sort",
       "radixSort": "Radix Sort",
-      "countingSort": "Counting Sort"
+      "countingSort": "Counting Sort",
+      "bucketSort": "Bucket Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -62,6 +63,7 @@
       "shellSort": "Starting Shell Sort",
       "radixSort": "Starting Radix Sort",
       "countingSort": "Starting Counting Sort",
+      "bucketSort": "Starting Bucket Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -83,6 +85,7 @@
     "shellSort": "O(n^1.25)",
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
+    "bucketSort": "O(n + k)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -251,6 +254,11 @@
     "countingCountComplete": "Counting phase complete. Each value's occurrences have been counted.",
     "countingCumulativeComplete": "Cumulative sum calculated. Count array now contains positions.",
     "countingPlace": "Placing {{value}} at position {{position}} in output array",
+    "bucketDistributing": "Distributing {{value}} into bucket {{bucket}} of {{bucketCount}}",
+    "bucketPlaced": "Placed {{value}} in bucket {{bucket}}",
+    "bucketDistributionComplete": "Distribution complete: {{totalElements}} elements in {{bucketCount}} buckets",
+    "bucketSorted": "Sorted bucket {{bucket}} ({{size}} elements)",
+    "bucketMerging": "Merging {{value}} from bucket {{bucket}} to position {{position}}",
     "bellmanIteration": "Iteration {{iteration}}: Relaxing edges",
     "bellmanRelaxation": "Updated distance to ({{x}}, {{y}}): {{dist}}",
     "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",

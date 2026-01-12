@@ -91,6 +91,13 @@ export const ALGORITHM_STEPS = {
   COUNTING_CUMULATIVE_COMPLETE: 'countingCumulativeComplete',
   COUNTING_PLACE: 'countingPlace',
 
+  // Bucket Sort
+  BUCKET_DISTRIBUTING: 'bucketDistributing',
+  BUCKET_PLACED: 'bucketPlaced',
+  BUCKET_DISTRIBUTION_COMPLETE: 'bucketDistributionComplete',
+  BUCKET_SORTED: 'bucketSorted',
+  BUCKET_MERGING: 'bucketMerging',
+
   // Bellman-Ford
   BELLMAN_ITERATION: 'bellmanIteration',
   BELLMAN_RELAXATION: 'bellmanRelaxation',

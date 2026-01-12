@@ -19,6 +19,7 @@ export const SORTING_ALGORITHMS = {
   SHELL_SORT: 'shellSort',
   RADIX_SORT: 'radixSort',
   COUNTING_SORT: 'countingSort',
+  BUCKET_SORT: 'bucketSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -212,6 +213,23 @@ export const ALGORITHM_COMPLEXITY = {
       'Stable sorting is required',
       'Sorting characters or small integers',
       'When O(n) time complexity is critical',
+    ],
+  },
+  bucketSort: {
+    name: 'Bucket Sort',
+    timeComplexity: {
+      best: 'O(n + k)',
+      average: 'O(n + k)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(n + k)',
+    description:
+      'Bucket Sort distributes elements into buckets based on their value range, sorts each bucket individually (typically with insertion sort), then concatenates the sorted buckets. Performance depends heavily on the input distribution.',
+    useCases: [
+      'Uniformly distributed data over a known range',
+      'Floating-point numbers in [0, 1)',
+      'When input is distributed across different ranges',
+      'External sorting with limited memory',
     ],
   },
 };
