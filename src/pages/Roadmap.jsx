@@ -6,7 +6,9 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { isRTL } from '../utils/rtlManager';
 import RoadmapHero from '../components/roadmap/RoadmapHero';
 import Timeline from '../components/roadmap/Timeline';
 import Footer from '../components/Footer';
@@ -14,6 +16,10 @@ import ThemeToggle from '../components/ThemeToggle';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 
 function Roadmap() {
+  const { t, i18n } = useTranslation();
+  const isRTLDirection = isRTL(i18n.language);
+  const BackIcon = isRTLDirection ? ArrowRight : ArrowLeft;
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -22,7 +28,7 @@ function Roadmap() {
     <div className="min-h-screen bg-bg flex flex-col overflow-x-hidden">
       {/* Theme Toggle & Language Switcher */}
       <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-3">
-        <LanguageSwitcher excludeLanguages={['ar']} />
+        <LanguageSwitcher />
         <ThemeToggle />
       </div>
 
@@ -32,11 +38,11 @@ function Roadmap() {
           to="/"
           className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-surface hover:bg-surface-elevated text-text-primary rounded-lg transition-colors border border-border text-sm"
         >
-          <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+          <BackIcon size={16} className="sm:w-5 sm:h-5" />
           <span className="text-xs sm:text-sm font-medium hidden xs:inline">
-            Back to Home
+            {t('common.backToHome')}
           </span>
-          <span className="text-xs sm:text-sm font-medium xs:hidden">Back</span>
+          <span className="text-xs sm:text-sm font-medium xs:hidden">{t('common.back')}</span>
         </Link>
       </div>
 

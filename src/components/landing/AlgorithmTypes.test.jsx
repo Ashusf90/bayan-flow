@@ -54,25 +54,26 @@ describe('AlgorithmTypes', () => {
 
     it('should render heading', () => {
       renderComponent();
-      expect(screen.getByText(/Two Powerful Modes/i)).toBeInTheDocument();
+      expect(screen.getByText(/Explore Algorithm Types/i)).toBeInTheDocument();
     });
 
     it('should render subheading', () => {
       renderComponent();
       expect(
-        screen.getByText(/Explore sorting and pathfinding/i)
+        screen.getByText(/Dive into different algorithm categories/i)
       ).toBeInTheDocument();
     });
 
     it('should render sorting mode card', () => {
       renderComponent();
-      const sortingElements = screen.getAllByText(/Sorting Algorithms/i);
-      expect(sortingElements.length).toBeGreaterThan(0);
+      // Look for the specific h3 title rather than all instances
+      expect(screen.getByRole('heading', { name: /Sorting Algorithms/i })).toBeInTheDocument();
     });
 
     it('should render pathfinding mode card', () => {
       renderComponent();
-      expect(screen.getAllByText(/Pathfinding Algorithms/i)).toHaveLength(3);
+      // Look for the specific h3 title rather than all instances
+      expect(screen.getByRole('heading', { name: /Pathfinding Algorithms/i })).toBeInTheDocument();
     });
 
     it('should render both icons', () => {

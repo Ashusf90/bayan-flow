@@ -1,4 +1,8 @@
 {
+  "common": {
+    "back": "Back",
+    "backToHome": "Back to Home"
+  },
   "header": {
     "title": "Bayan Flow",
     "subtitle": "Clarity in Algorithms",

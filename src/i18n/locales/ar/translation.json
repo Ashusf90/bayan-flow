@@ -1,4 +1,8 @@
 {
+  "common": {
+    "back": "عودة",
+    "backToHome": "عودة إلى الرئيسية"
+  },
   "header": {
     "title": "بيان Flow",
     "subtitle": "الوضوح في الخوارزميات",
