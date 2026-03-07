@@ -407,9 +407,14 @@ function SettingsPanel({
 
       {/* Sound Toggle */}
       <div>
-        <label className="block text-sm font-semibold text-text-primary mb-2">
-          {t('settings.sound')}
-        </label>
+        <div className="flex items-center gap-2 mb-2">
+          <label className="block text-sm font-semibold text-text-primary">
+            {t('settings.sound')}
+          </label>
+          <span className="px-2.5 py-1 bg-amber-500/10 text-amber-500 text-xs font-semibold rounded-full border border-amber-500/20 whitespace-nowrap shadow-sm">
+            Experimental
+          </span>
+        </div>
         <button
           onClick={handleSoundToggle}
           className={`flex items-center justify-center gap-2 w-full px-4 py-3 min-h-[44px] text-sm font-medium rounded-lg transition-all duration-200 touch-manipulation ${
