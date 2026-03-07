@@ -12,20 +12,18 @@ import Section from '../ui/Section';
 import { 
   ALGORITHM_TYPES, 
   SORTING_ALGORITHMS, 
-  PATHFINDING_ALGORITHMS,
-  ALGORITHM_COMPLEXITY,
-  PATHFINDING_COMPLEXITY 
+  PATHFINDING_ALGORITHMS
 } from '../../constants';
 
 function AlgorithmTypes() {
   const { t } = useTranslation();
 
-  // Generate dynamic algorithm lists from constants
-  const getAlgorithmList = (algorithms, complexityData) => {
+  // Generate dynamic algorithm lists from constants using translations
+  const getAlgorithmList = (algorithms, algorithmType) => {
     return Object.values(algorithms)
       .map(algoKey => {
-        const complexity = complexityData[algoKey];
-        return complexity ? complexity.name : algoKey;
+        // Use translation key for algorithm names
+        return t(`algorithms.${algorithmType}.${algoKey}`);
       })
       .join(', ');
   };
@@ -40,14 +38,14 @@ function AlgorithmTypes() {
       icon: ArrowUpDown,
       title: t('landing.algorithmTypes.sorting.title'),
       description: t('landing.algorithmTypes.sorting.description'),
-      algorithms: getAlgorithmList(SORTING_ALGORITHMS, ALGORITHM_COMPLEXITY),
+      algorithms: getAlgorithmList(SORTING_ALGORITHMS, 'sorting'),
       gradient: 'from-blue-500 via-cyan-500 to-blue-600',
     },
     {
       icon: Route,
       title: t('landing.algorithmTypes.pathfinding.title'),
       description: t('landing.algorithmTypes.pathfinding.description'),
-      algorithms: getAlgorithmList(PATHFINDING_ALGORITHMS, PATHFINDING_COMPLEXITY),
+      algorithms: getAlgorithmList(PATHFINDING_ALGORITHMS, 'pathfinding'),
       gradient: 'from-purple-500 via-pink-500 to-purple-600',
     },
   ];
