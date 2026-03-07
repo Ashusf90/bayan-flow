@@ -21,9 +21,10 @@
 ## Features
 
 ### Sorting Mode
-- **Multiple Sorting Algorithms**: Visualize Bubble Sort, Quick Sort, and Merge Sort
+- **14 Sorting Algorithms**: Visualize Bubble Sort, Quick Sort, Merge Sort, Counting Sort, Bucket Sort, Cycle Sort, Comb Sort, Tim Sort, Bogo Sort, and more
 - **Array Customization**: Adjust array size (5-100 elements) and generate new random arrays
 - **Visual Feedback**: Color-coded states for comparing, swapping, sorted elements
+- **Algorithm Diversity**: Comprehensive coverage including comparison-based, non-comparison, write-optimal, and hybrid algorithms
 
 ### Pathfinding Mode
 - **Multiple Pathfinding Algorithms**: Visualize BFS, Dijkstra's Algorithm, and A* Search
@@ -148,10 +149,16 @@ bayan-flow/
 ├── public/                 # Static assets
 ├── src/
 │   ├── algorithms/        # Algorithm implementations
-│   │   ├── sorting/       # Sorting algorithms
+│   │   ├── sorting/       # Sorting algorithms (14 total)
 │   │   │   ├── bubbleSort.js
 │   │   │   ├── quickSort.js
 │   │   │   ├── mergeSort.js
+│   │   │   ├── countingSort.js
+│   │   │   ├── bucketSort.js
+│   │   │   ├── cycleSort.js
+│   │   │   ├── combSort.js
+│   │   │   ├── timSort.js
+│   │   │   ├── bogoSort.js
 │   │   │   ├── index.js
 │   │   │   └── algorithms.test.js
 │   │   ├── pathfinding/   # Pathfinding algorithms
@@ -164,6 +171,12 @@ bayan-flow/
 │   │   │   ├── bubble_sort.py
 │   │   │   ├── quick_sort.py
 │   │   │   ├── merge_sort.py
+│   │   │   ├── counting_sort.py
+│   │   │   ├── bucket_sort.py
+│   │   │   ├── cycle_sort.py
+│   │   │   ├── comb_sort.py
+│   │   │   ├── tim_sort.py
+│   │   │   ├── bogo_sort.py
 │   │   │   ├── bfs.py
 │   │   │   ├── dijkstra.py
 │   │   │   ├── astar.py
@@ -297,6 +310,12 @@ The `useSortingVisualization` and `usePathfindingVisualization` custom hooks man
 5. Add Python implementation in `src/algorithms/python/[algorithm].py`
 6. Write tests in `src/algorithms/sorting/algorithms.test.js`
 7. Add translations in all language files
+8. Add algorithm step constants in `src/utils/algorithmTranslations.js`
+
+**Current Sorting Algorithms (14):**
+- **Comparison-based**: Bubble, Quick, Merge, Selection, Insertion, Heap, Shell, Comb, Tim, Bogo
+- **Non-comparison**: Radix, Counting, Bucket
+- **Write-optimal**: Cycle Sort
 
 See [DEVELOPMENT.md](./docs/DEVELOPMENT.md) for detailed instructions.
 
@@ -363,7 +382,7 @@ Translation files are located in `src/i18n/locales/[lang]/translation.json`.
 
 The project includes comprehensive tests for:
 
-- **Algorithm correctness**: Verify sorting produces correct results
+- **Algorithm correctness**: Verify sorting produces correct results (847 tests passing)
 - **Edge cases**: Empty arrays, single elements, duplicates
 - **Consistency**: All algorithms produce identical results
 - **Utility functions**: Array generation, grid helpers, sound manager
