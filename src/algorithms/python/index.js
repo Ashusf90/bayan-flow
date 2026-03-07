@@ -26,6 +26,7 @@ import bucketSortPython from './bucket_sort.py?raw';
 import cycleSortPython from './cycle_sort.py?raw';
 import combSortPython from './comb_sort.py?raw';
 import timSortPython from './timSort.py?raw';
+import bogoSortPython from './bogo_sort.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -41,6 +42,7 @@ export const pythonAlgorithms = {
   cycleSort: cycleSortPython,
   combSort: combSortPython,
   timSort: timSortPython,
+  bogoSort: bogoSortPython,
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
@@ -66,6 +68,7 @@ export const algorithmDisplayNames = {
   cycleSort: 'Cycle Sort',
   combSort: 'Comb Sort',
   timSort: 'Tim Sort',
+  bogoSort: 'Bogo Sort',
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',

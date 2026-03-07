@@ -125,4 +125,10 @@ export const ALGORITHM_STEPS = {
   // D* Lite
   D_STAR_LITE_EXPANSION: 'dStarLiteExpansion',
   D_STAR_LITE_INCONSISTENT: 'dStarLiteInconsistent',
+
+  // Bogo Sort
+  BOGO_CHECKING: 'bogoChecking',
+  BOGO_SHUFFLING: 'bogoShuffling',
+  BOGO_SUCCESS: 'bogoSuccess',
+  BOGO_FAILED: 'bogoFailed',
 };

@@ -43,7 +43,8 @@
       "bucketSort": "الترتيب بالدلاء",
       "cycleSort": "الترتيب الدوري",
       "combSort": "الترتيب المشطي",
-      "timSort": "ترتيب تيم"
+      "timSort": "ترتيب تيم",
+      "bogoSort": "ترتيب بوغو"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -70,6 +71,7 @@
       "cycleSort": "بدء الترتيب الدوري",
       "combSort": "بدء الترتيب المشطي",
       "timSort": "بدء ترتيب تيم",
+      "bogoSort": "بدء ترتيب بوغو",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -102,6 +104,7 @@
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
     "timSort": "O(n log n)",
+    "bogoSort": "O(n × n!)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -284,7 +287,11 @@
     "idaVisiting": "زيارة ({{x}}, {{y}}) | العتبة: {{threshold}}",
     "idaBacktracking": "تراجع من ({{x}}, {{y}})",
     "dStarLiteExpansion": "توسيع العقدة ({{row}}, {{col}})",
-    "dStarLiteInconsistent": "العقدة ({{row}}, {{col}}) غير متناسقة - إعادة تقييم"
+    "dStarLiteInconsistent": "العقدة ({{row}}, {{col}}) غير متناسقة - إعادة تقييم",
+    "bogoChecking": "المحاولة {{attempt}}: التحقق من ترتيب المصفوفة",
+    "bogoShuffling": "المحاولة {{attempt}}: خلط عشوائي للمصفوفة",
+    "bogoSuccess": "نجاح! تم ترتيب المصفوفة بعد {{attempts}} محاولة خلط",
+    "bogoFailed": "فشل الترتيب بعد {{maxAttempts}} محاولة. ترتيب بوغو غير فعال للغاية!"
   },
   "landing": {
     "hero": {

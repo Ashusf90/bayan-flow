@@ -23,6 +23,7 @@ export const SORTING_ALGORITHMS = {
   CYCLE_SORT: 'cycleSort',
   COMB_SORT: 'combSort',
   TIM_SORT: 'timSort',
+  BOGO_SORT: 'bogoSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -284,6 +285,23 @@ export const ALGORITHM_COMPLEXITY = {
       'Real-world data with partially sorted sequences',
       'When stability is required (preserves order of equal elements)',
       'Default choice for general-purpose sorting in modern languages',
+    ],
+  },
+  bogoSort: {
+    name: 'Bogo Sort',
+    timeComplexity: {
+      best: 'O(n)',
+      average: 'O(n × n!)',
+      worst: 'Unbounded',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Bogo Sort (also known as Permutation Sort or Stupid Sort) repeatedly randomly shuffles the array until it happens to be sorted. It is intentionally inefficient and mainly used for educational purposes to demonstrate the importance of algorithm analysis.',
+    useCases: [
+      'Educational demonstrations of inefficient algorithms',
+      'Humor and algorithm complexity awareness',
+      'Showing the importance of algorithmic thinking',
+      'Never use in production',
     ],
   },
 };

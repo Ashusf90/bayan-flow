@@ -18,6 +18,7 @@ import { bucketSortPure } from './bucketSort';
 import { cycleSortPure } from './cycleSort';
 import { combSortPure } from './combSort';
 import { timSortPure } from './timSort';
+import { bogoSortPure, bogoSort } from './bogoSort';
 import { isSorted, generateRandomArray } from '../../utils/arrayHelpers';
 
 /**
@@ -329,6 +330,57 @@ describe('Sorting Algorithms', () => {
       const sorted = timSortPure(nearlySorted);
       expect(sorted).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
       expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Bogo Sort', () => {
+    const smallTestCases = [
+      {
+        name: 'empty array',
+        input: [],
+        expected: [],
+      },
+      {
+        name: 'single element',
+        input: [42],
+        expected: [42],
+      },
+      {
+        name: 'already sorted',
+        input: [1, 2, 3],
+        expected: [1, 2, 3],
+      },
+      {
+        name: 'small random order',
+        input: [3, 1, 2],
+        expected: [1, 2, 3],
+      },
+      {
+        name: 'duplicates',
+        input: [2, 1, 2],
+        expected: [1, 2, 2],
+      },
+    ];
+
+    smallTestCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = bogoSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should respect maximum shuffle limit', () => {
+      const result = bogoSortPure([5, 4, 3, 2, 1]);
+      expect(isSorted(result)).toBe(true);
+    });
+
+    it('should generate valid visualization steps', () => {
+      const steps = bogoSort([3, 1, 2]);
+      expect(steps.length).toBeGreaterThan(0);
+      expect(steps[0]).toHaveProperty('array');
+      expect(steps[0]).toHaveProperty('states');
+      expect(steps[0]).toHaveProperty('description');
     });
   });
 

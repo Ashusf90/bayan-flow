@@ -43,7 +43,8 @@
       "bucketSort": "Tri par Seaux",
       "cycleSort": "Tri par Cycle",
       "combSort": "Tri à Peigne",
-      "timSort": "Tri de Tim"
+      "timSort": "Tri de Tim",
+      "bogoSort": "Tri Bogo"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -70,6 +71,7 @@
       "cycleSort": "Démarrage du Tri par Cycle",
       "combSort": "Démarrage du Tri à Peigne",
       "timSort": "Démarrage du Tri de Tim",
+      "bogoSort": "Démarrage du Tri Bogo",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -94,6 +96,7 @@
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
     "timSort": "O(n log n)",
+    "bogoSort": "O(n × n!)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -284,7 +287,11 @@
     "idaVisiting": "Visite de ({{x}}, {{y}}) | Seuil : {{threshold}}",
     "idaBacktracking": "Retour en arrière depuis ({{x}}, {{y}})",
     "dStarLiteExpansion": "Expansion du Nœud ({{row}}, {{col}})",
-    "dStarLiteInconsistent": "Nœud ({{row}}, {{col}}) Incohérent - Réévaluation"
+    "dStarLiteInconsistent": "Nœud ({{row}}, {{col}}) Incohérent - Réévaluation",
+    "bogoChecking": "Tentative {{attempt}} : Vérification si le tableau est trié",
+    "bogoShuffling": "Tentative {{attempt}} : Mélange aléatoire du tableau",
+    "bogoSuccess": "Succès ! Tableau trié après {{attempts}} tentatives de mélange",
+    "bogoFailed": "Échec du tri après {{maxAttempts}} tentatives. Le Tri Bogo est extrêmement inefficace !"
   },
   "landing": {
     "hero": {

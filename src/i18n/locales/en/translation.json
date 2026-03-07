@@ -43,7 +43,8 @@
       "bucketSort": "Bucket Sort",
       "cycleSort": "Cycle Sort",
       "combSort": "Comb Sort",
-      "timSort": "Tim Sort"
+      "timSort": "Tim Sort",
+      "bogoSort": "Bogo Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -70,6 +71,7 @@
       "cycleSort": "Starting Cycle Sort",
       "combSort": "Starting Comb Sort",
       "timSort": "Starting Tim Sort",
+      "bogoSort": "Starting Bogo Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -95,6 +97,7 @@
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
     "timSort": "O(n log n)",
+    "bogoSort": "O(n × n!)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -283,7 +286,11 @@
     "idaVisiting": "Visiting ({{x}}, {{y}}) | Threshold: {{threshold}}",
     "idaBacktracking": "Backtracking from ({{x}}, {{y}})",
     "dStarLiteExpansion": "Expanding Node ({{row}}, {{col}})",
-    "dStarLiteInconsistent": "Node ({{row}}, {{col}}) Inconsistent - Re-evaluating"
+    "dStarLiteInconsistent": "Node ({{row}}, {{col}}) Inconsistent - Re-evaluating",
+    "bogoChecking": "Attempt {{attempt}}: Checking if array is sorted",
+    "bogoShuffling": "Attempt {{attempt}}: Randomly shuffling array",
+    "bogoSuccess": "Success! Array sorted after {{attempts}} shuffle attempts",
+    "bogoFailed": "Failed to sort after {{maxAttempts}} attempts. Bogo Sort is extremely inefficient!"
   },
   "landing": {
     "hero": {

@@ -111,6 +111,11 @@ function SettingsPanel({
       label: t('algorithms.sorting.timSort'),
       complexity: t('complexity.timSort'),
     },
+    {
+      value: 'bogoSort',
+      label: t('algorithms.sorting.bogoSort'),
+      complexity: t('complexity.bogoSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [

@@ -17,6 +17,7 @@ import { bucketSort, bucketSortPure } from './sorting/bucketSort';
 import { cycleSort, cycleSortPure } from './sorting/cycleSort';
 import { combSort, combSortPure } from './sorting/combSort';
 import { timSort, timSortPure } from './sorting/timSort';
+import { bogoSort, bogoSortPure } from './sorting/bogoSort';
 
 export const algorithms = {
   bubbleSort,
@@ -32,6 +33,7 @@ export const algorithms = {
   cycleSort,
   combSort,
   timSort,
+  bogoSort,
 };
 
 export const pureAlgorithms = {
@@ -48,6 +50,7 @@ export const pureAlgorithms = {
   cycleSort: cycleSortPure,
   combSort: combSortPure,
   timSort: timSortPure,
+  bogoSort: bogoSortPure,
 };
 
 export {
@@ -64,6 +67,7 @@ export {
   cycleSort,
   combSort,
   timSort,
+  bogoSort,
 };
 export {
   bubbleSortPure,
@@ -79,4 +83,5 @@ export {
   cycleSortPure,
   combSortPure,
   timSortPure,
+  bogoSortPure,
 };
