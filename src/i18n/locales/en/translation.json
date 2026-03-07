@@ -41,7 +41,8 @@
       "radixSort": "Radix Sort",
       "countingSort": "Counting Sort",
       "bucketSort": "Bucket Sort",
-      "cycleSort": "Cycle Sort"
+      "cycleSort": "Cycle Sort",
+      "combSort": "Comb Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -66,6 +67,7 @@
       "countingSort": "Starting Counting Sort",
       "bucketSort": "Starting Bucket Sort",
       "cycleSort": "Starting Cycle Sort",
+      "combSort": "Starting Comb Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -89,6 +91,7 @@
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
+    "combSort": "O(n²)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -250,6 +253,8 @@
     "shellShifting": "Shifting {{value}} from position {{from}} to {{to}}",
     "shellPlaced": "Placed {{value}} at its correct position {{position}} for this gap",
     "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
+    "combGap": "Using gap size: {{gap}} (comparing elements {{gap}} positions apart)",
+    "combGapComplete": "Completed gap-{{gap}} pass. Moving to smaller gap.",
     "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
     "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
     "countingFindMax": "Found maximum value: {{max}}. Creating counting array of size {{max}} + 1.",

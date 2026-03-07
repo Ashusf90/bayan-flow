@@ -41,7 +41,8 @@
       "radixSort": "Tri Radix",
       "countingSort": "Tri par Comptage",
       "bucketSort": "Tri par Seaux",
-      "cycleSort": "Tri par Cycle"
+      "cycleSort": "Tri par Cycle",
+      "combSort": "Tri à Peigne"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -66,6 +67,7 @@
       "countingSort": "Démarrage du Tri par Comptage",
       "bucketSort": "Démarrage du Tri par Seaux",
       "cycleSort": "Démarrage du Tri par Cycle",
+      "combSort": "Démarrage du Tri à Peigne",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -88,6 +90,7 @@
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
+    "combSort": "O(n²)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -250,6 +253,8 @@
     "shellShifting": "Déplacement de {{value}} de la position {{from}} à {{to}}",
     "shellPlaced": "{{value}} placé à sa position correcte {{position}} pour cet écart",
     "shellGapComplete": "Passage avec écart-{{gap}} terminé. Le tableau est maintenant {{gap}}-trié, passage à un écart plus petit.",
+    "combGap": "Utilisation d'un écart de taille : {{gap}} (comparaison d'éléments espacés de {{gap}} positions)",
+    "combGapComplete": "Passage avec écart-{{gap}} terminé. Passage à un écart plus petit.",
     "radixBucketPush": "Ajout de {{val}} au seau {{bucket}} (chiffre : {{digit}})",
     "radixCollect": "Collecte de {{val}} du seau {{bucket}} vers la position {{position}}",
     "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)",

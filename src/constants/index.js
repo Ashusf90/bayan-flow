@@ -21,6 +21,7 @@ export const SORTING_ALGORITHMS = {
   COUNTING_SORT: 'countingSort',
   BUCKET_SORT: 'bucketSort',
   CYCLE_SORT: 'cycleSort',
+  COMB_SORT: 'combSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -248,6 +249,23 @@ export const ALGORITHM_COMPLEXITY = {
       'Write-expensive storage systems',
       'Embedded systems with limited write cycles',
       'Educational demonstrations of write optimization',
+    ],
+  },
+  combSort: {
+    name: 'Comb Sort',
+    timeComplexity: {
+      best: 'O(n log n)',
+      average: 'O(n²/2^p)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Comb Sort improves on Bubble Sort by comparing elements separated by a shrinking gap. The gap shrinks by a factor of 1.3 each iteration until it reaches 1, helping eliminate small values near the end of the array faster than Bubble Sort.',
+    useCases: [
+      'Better alternative to Bubble Sort for medium datasets',
+      'When in-place sorting with simple implementation is needed',
+      'Educational purposes to understand gap-based sorting',
+      'Situations where O(n log n) average case is acceptable',
     ],
   },
 };

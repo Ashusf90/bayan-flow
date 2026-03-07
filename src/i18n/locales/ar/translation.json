@@ -41,7 +41,8 @@
       "radixSort": "ترتيب التجذير",
       "countingSort": "الترتيب بالعد",
       "bucketSort": "الترتيب بالدلاء",
-      "cycleSort": "الترتيب الدوري"
+      "cycleSort": "الترتيب الدوري",
+      "combSort": "الترتيب المشطي"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -66,6 +67,7 @@
       "countingSort": "بدء الترتيب بالعد",
       "bucketSort": "بدء الترتيب بالدلاء",
       "cycleSort": "بدء الترتيب الدوري",
+      "combSort": "بدء الترتيب المشطي",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -96,6 +98,7 @@
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
+    "combSort": "O(n²)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -250,6 +253,8 @@
     "shellShifting": "نقل {{value}} من الموضع {{from}} إلى {{to}}",
     "shellPlaced": "تم وضع {{value}} في موضعه الصحيح {{position}} لهذه الفجوة",
     "shellGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. المصفوفة الآن مرتبة بفجوة-{{gap}}، الانتقال إلى فجوة أصغر.",
+    "combGap": "استخدام حجم فجوة: {{gap}} (مقارنة العناصر المتباعدة بـ {{gap}} موضع)",
+    "combGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. الانتقال إلى فجوة أصغر.",
     "radixBucketPush": "إضافة {{val}} إلى الدلو {{bucket}} (الرقم: {{digit}})",
     "radixCollect": "جمع {{val}} من الدلو {{bucket}} إلى الموضع {{position}}",
     "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",

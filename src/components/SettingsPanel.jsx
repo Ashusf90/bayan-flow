@@ -101,6 +101,11 @@ function SettingsPanel({
       label: t('algorithms.sorting.cycleSort'),
       complexity: t('complexity.cycleSort'),
     },
+    {
+      value: 'combSort',
+      label: t('algorithms.sorting.combSort'),
+      complexity: t('complexity.combSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [

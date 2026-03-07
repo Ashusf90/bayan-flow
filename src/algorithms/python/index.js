@@ -24,6 +24,7 @@ import dStarLitePython from './d_star_lite.py?raw';
 import countingSortPython from './counting_sort.py?raw';
 import bucketSortPython from './bucket_sort.py?raw';
 import cycleSortPython from './cycle_sort.py?raw';
+import combSortPython from './comb_sort.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -37,6 +38,7 @@ export const pythonAlgorithms = {
   countingSort: countingSortPython,
   bucketSort: bucketSortPython,
   cycleSort: cycleSortPython,
+  combSort: combSortPython,
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
@@ -60,6 +62,7 @@ export const algorithmDisplayNames = {
   countingSort: 'Counting Sort',
   bucketSort: 'Bucket Sort',
   cycleSort: 'Cycle Sort',
+  combSort: 'Comb Sort',
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',

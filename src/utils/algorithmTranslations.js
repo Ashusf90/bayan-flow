@@ -65,6 +65,10 @@ export const ALGORITHM_STEPS = {
   SHELL_PLACED: 'shellPlaced',
   SHELL_GAP_COMPLETE: 'shellGapComplete',
 
+  // Comb Sort
+  COMB_GAP: 'combGap',
+  COMB_GAP_COMPLETE: 'combGapComplete',
+
   // Pathfinding
   EXPLORING: 'exploring',
   EXPLORING_FORWARD: 'exploringForward',
