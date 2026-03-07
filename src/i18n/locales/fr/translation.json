@@ -316,8 +316,8 @@
       "description": "Bayan Flow élimine la complexité pour révéler la beauté des algorithmes. Interface épurée, explications claires et animations vives vous aident à voir ce qui se passe réellement."
     },
     "algorithmTypes": {
-      "heading": "Deux Modes Puissants",
-      "subheading": "Explorez les algorithmes de tri et de recherche de chemin avec des visualisations interactives",
+      "heading": "Explorez les Types d'Algorithmes",
+      "subheading": "Plongez dans différentes catégories d'algorithmes et voyez comment ils fonctionnent étape par étape",
       "available": "Algorithmes Disponibles :",
       "sorting": {
         "title": "Algorithmes de Tri",

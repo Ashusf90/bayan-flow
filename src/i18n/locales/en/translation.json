@@ -315,8 +315,8 @@
       "description": "Bayan Flow strips away complexity to reveal the beauty of algorithms. Clean interface, clear explanations, and vivid animations help you see what's really happening."
     },
     "algorithmTypes": {
-      "heading": "Two Powerful Modes",
-      "subheading": "Explore sorting and pathfinding algorithms with interactive visualizations",
+      "heading": "Explore Algorithm Types",
+      "subheading": "Dive into different algorithm categories and see how they work step by step",
       "available": "Available Algorithms:",
       "sorting": {
         "title": "Sorting Algorithms",

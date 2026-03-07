@@ -9,23 +9,45 @@ import { useTranslation } from 'react-i18next';
 import { ArrowUpDown, Route } from 'lucide-react';
 import Container from '../ui/Container';
 import Section from '../ui/Section';
+import { 
+  ALGORITHM_TYPES, 
+  SORTING_ALGORITHMS, 
+  PATHFINDING_ALGORITHMS,
+  ALGORITHM_COMPLEXITY,
+  PATHFINDING_COMPLEXITY 
+} from '../../constants';
 
 function AlgorithmTypes() {
   const { t } = useTranslation();
+
+  // Generate dynamic algorithm lists from constants
+  const getAlgorithmList = (algorithms, complexityData) => {
+    return Object.values(algorithms)
+      .map(algoKey => {
+        const complexity = complexityData[algoKey];
+        return complexity ? complexity.name : algoKey;
+      })
+      .join(', ');
+  };
+
+  // Get algorithm count for display
+  const getAlgorithmCount = (algorithms) => {
+    return Object.keys(algorithms).length;
+  };
 
   const modes = [
     {
       icon: ArrowUpDown,
       title: t('landing.algorithmTypes.sorting.title'),
       description: t('landing.algorithmTypes.sorting.description'),
-      algorithms: t('landing.algorithmTypes.sorting.algorithms'),
+      algorithms: getAlgorithmList(SORTING_ALGORITHMS, ALGORITHM_COMPLEXITY),
       gradient: 'from-blue-500 via-cyan-500 to-blue-600',
     },
     {
       icon: Route,
       title: t('landing.algorithmTypes.pathfinding.title'),
       description: t('landing.algorithmTypes.pathfinding.description'),
-      algorithms: t('landing.algorithmTypes.pathfinding.algorithms'),
+      algorithms: getAlgorithmList(PATHFINDING_ALGORITHMS, PATHFINDING_COMPLEXITY),
       gradient: 'from-purple-500 via-pink-500 to-purple-600',
     },
   ];
@@ -48,7 +70,7 @@ function AlgorithmTypes() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className={`grid gap-8 ${modes.length === 2 ? 'md:grid-cols-2' : modes.length === 3 ? 'lg:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
           {modes.map((mode, index) => (
             <motion.div
               key={mode.title}
@@ -103,12 +125,14 @@ function AlgorithmTypes() {
 
                   {/* Algorithms */}
                   <div className="pt-4 border-t border-white/10 dark:border-white/5">
-                    <p className="text-sm font-semibold text-text-secondary mb-2">
+                    <p className="text-sm font-semibold text-text-secondary mb-3">
                       {t('landing.algorithmTypes.available')}
                     </p>
-                    <p className="text-sm text-text-primary">
-                      {mode.algorithms}
-                    </p>
+                    <div className="max-h-32 overflow-y-auto scrollbar-thin pr-2">
+                      <p className="text-sm text-text-primary leading-relaxed">
+                        {mode.algorithms}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
