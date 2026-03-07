@@ -8,6 +8,7 @@ import { shellSort, shellSortPure } from './shellSort';
 import { radixSort, radixSortPure } from './radixSort';
 import { countingSort, countingSortPure } from './countingSort';
 import { bucketSort, bucketSortPure } from './bucketSort';
+import { cycleSort, cycleSortPure } from './cycleSort';
 
 export const sortingAlgorithms = {
   bubbleSort,
@@ -20,6 +21,7 @@ export const sortingAlgorithms = {
   radixSort,
   countingSort,
   bucketSort,
+  cycleSort,
 };
 
 export const pureSortingAlgorithms = {
@@ -33,6 +35,7 @@ export const pureSortingAlgorithms = {
   radixSort: radixSortPure,
   countingSort: countingSortPure,
   bucketSort: bucketSortPure,
+  cycleSort: cycleSortPure,
 };
 
 export {
@@ -46,6 +49,7 @@ export {
   radixSort,
   countingSort,
   bucketSort,
+  cycleSort,
 };
 export {
   bubbleSortPure,
@@ -58,4 +62,5 @@ export {
   radixSortPure,
   countingSortPure,
   bucketSortPure,
+  cycleSortPure,
 };

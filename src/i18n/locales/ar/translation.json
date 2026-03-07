@@ -40,7 +40,8 @@
       "shellSort": "ترتيب شيل",
       "radixSort": "ترتيب التجذير",
       "countingSort": "الترتيب بالعد",
-      "bucketSort": "الترتيب بالدلاء"
+      "bucketSort": "الترتيب بالدلاء",
+      "cycleSort": "الترتيب الدوري"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -64,6 +65,7 @@
       "radixSort": "بدء ترتيب التجذير",
       "countingSort": "بدء الترتيب بالعد",
       "bucketSort": "بدء الترتيب بالدلاء",
+      "cycleSort": "بدء الترتيب الدوري",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -93,6 +95,7 @@
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
+    "cycleSort": "O(n²)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -260,6 +263,9 @@
     "bucketDistributionComplete": "اكتمل التوزيع: {{totalElements}} عناصر في {{bucketCount}} دلاء",
     "bucketSorted": "تم ترتيب الدلو {{bucket}} ({{size}} عناصر)",
     "bucketMerging": "دمج {{value}} من الدلو {{bucket}} إلى الموضع {{position}}",
+    "cycleStart": "بدء الدورة مع العنصر {{item}} في الموضع {{position}}",
+    "cycleSkip": "العنصر {{item}} موجود بالفعل في الموضع الصحيح",
+    "cyclePlace": "تم وضع {{item}} في موضعه الصحيح {{position}}",
     "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
     "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
     "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",

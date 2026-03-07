@@ -98,6 +98,11 @@ export const ALGORITHM_STEPS = {
   BUCKET_SORTED: 'bucketSorted',
   BUCKET_MERGING: 'bucketMerging',
 
+  // Cycle Sort
+  CYCLE_START: 'cycleStart',
+  CYCLE_SKIP: 'cycleSkip',
+  CYCLE_PLACE: 'cyclePlace',
+
   // Bellman-Ford
   BELLMAN_ITERATION: 'bellmanIteration',
   BELLMAN_RELAXATION: 'bellmanRelaxation',

@@ -20,6 +20,7 @@ export const SORTING_ALGORITHMS = {
   RADIX_SORT: 'radixSort',
   COUNTING_SORT: 'countingSort',
   BUCKET_SORT: 'bucketSort',
+  CYCLE_SORT: 'cycleSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -230,6 +231,23 @@ export const ALGORITHM_COMPLEXITY = {
       'Floating-point numbers in [0, 1)',
       'When input is distributed across different ranges',
       'External sorting with limited memory',
+    ],
+  },
+  cycleSort: {
+    name: 'Cycle Sort',
+    timeComplexity: {
+      best: 'O(n²)',
+      average: 'O(n²)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Cycle Sort minimizes the number of memory writes by placing each element directly into its final sorted position. It performs at most n-1 writes, making it optimal for situations where write operations are expensive.',
+    useCases: [
+      'Flash memory or EEPROM where writes are costly',
+      'Write-expensive storage systems',
+      'Embedded systems with limited write cycles',
+      'Educational demonstrations of write optimization',
     ],
   },
 };

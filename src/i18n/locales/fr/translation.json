@@ -40,7 +40,8 @@
       "shellSort": "Tri de Shell",
       "radixSort": "Tri Radix",
       "countingSort": "Tri par Comptage",
-      "bucketSort": "Tri par Seaux"
+      "bucketSort": "Tri par Seaux",
+      "cycleSort": "Tri par Cycle"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -64,6 +65,7 @@
       "radixSort": "Démarrage du Tri Radix",
       "countingSort": "Démarrage du Tri par Comptage",
       "bucketSort": "Démarrage du Tri par Seaux",
+      "cycleSort": "Démarrage du Tri par Cycle",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -85,6 +87,7 @@
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
+    "cycleSort": "O(n²)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -260,6 +263,9 @@
     "bucketDistributionComplete": "Distribution terminée : {{totalElements}} éléments dans {{bucketCount}} seaux",
     "bucketSorted": "Seau {{bucket}} trié ({{size}} éléments)",
     "bucketMerging": "Fusion de {{value}} du seau {{bucket}} à la position {{position}}",
+    "cycleStart": "Début du cycle avec l'élément {{item}} à la position {{position}}",
+    "cycleSkip": "L'élément {{item}} est déjà à la bonne position",
+    "cyclePlace": "{{item}} placé à sa position correcte {{position}}",
     "bellmanIteration": "Itération {{iteration}}/{{maxIterations}} | Relaxations : {{relaxations}} | Distance à la cible : {{distance}}",
     "bellmanRelaxation": "Relaxation de l'arête vers ({{row}}, {{col}}) | Nouvelle distance : {{newDist}}",
     "bellmanNoUpdates": "Aucune mise à jour dans cette itération. Fin anticipée de l'algorithme.",

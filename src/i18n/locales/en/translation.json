@@ -40,7 +40,8 @@
       "shellSort": "Shell Sort",
       "radixSort": "Radix Sort",
       "countingSort": "Counting Sort",
-      "bucketSort": "Bucket Sort"
+      "bucketSort": "Bucket Sort",
+      "cycleSort": "Cycle Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -64,6 +65,7 @@
       "radixSort": "Starting Radix Sort",
       "countingSort": "Starting Counting Sort",
       "bucketSort": "Starting Bucket Sort",
+      "cycleSort": "Starting Cycle Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -86,6 +88,7 @@
     "radixSort": "O(nk)",
     "countingSort": "O(n + k)",
     "bucketSort": "O(n + k)",
+    "cycleSort": "O(n²)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -259,6 +262,9 @@
     "bucketDistributionComplete": "Distribution complete: {{totalElements}} elements in {{bucketCount}} buckets",
     "bucketSorted": "Sorted bucket {{bucket}} ({{size}} elements)",
     "bucketMerging": "Merging {{value}} from bucket {{bucket}} to position {{position}}",
+    "cycleStart": "Starting cycle with item {{item}} at position {{position}}",
+    "cycleSkip": "Item {{item}} is already in correct position",
+    "cyclePlace": "Placed {{item}} at its correct position {{position}}",
     "bellmanIteration": "Iteration {{iteration}}: Relaxing edges",
     "bellmanRelaxation": "Updated distance to ({{x}}, {{y}}): {{dist}}",
     "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",
