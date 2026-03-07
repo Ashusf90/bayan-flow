@@ -42,7 +42,8 @@
       "countingSort": "Counting Sort",
       "bucketSort": "Bucket Sort",
       "cycleSort": "Cycle Sort",
-      "combSort": "Comb Sort"
+      "combSort": "Comb Sort",
+      "timSort": "Tim Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
@@ -68,6 +69,7 @@
       "bucketSort": "Starting Bucket Sort",
       "cycleSort": "Starting Cycle Sort",
       "combSort": "Starting Comb Sort",
+      "timSort": "Starting Tim Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
       "aStar": "Starting A* Search",
@@ -92,6 +94,7 @@
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
+    "timSort": "O(n log n)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -255,6 +258,9 @@
     "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
     "combGap": "Using gap size: {{gap}} (comparing elements {{gap}} positions apart)",
     "combGapComplete": "Completed gap-{{gap}} pass. Moving to smaller gap.",
+    "timRunDetected": "Detected run from position {{start}} to {{end}} (size: {{size}})",
+    "timRunSorted": "Run sorted from position {{start}} to {{end}} using insertion sort",
+    "timMergingRuns": "Merging runs: [{{start}}...{{mid}}] and [{{mid}}...{{end}}]",
     "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
     "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
     "countingFindMax": "Found maximum value: {{max}}. Creating counting array of size {{max}} + 1.",

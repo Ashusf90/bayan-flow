@@ -42,7 +42,8 @@
       "countingSort": "الترتيب بالعد",
       "bucketSort": "الترتيب بالدلاء",
       "cycleSort": "الترتيب الدوري",
-      "combSort": "الترتيب المشطي"
+      "combSort": "الترتيب المشطي",
+      "timSort": "ترتيب تيم"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
@@ -68,6 +69,7 @@
       "bucketSort": "بدء الترتيب بالدلاء",
       "cycleSort": "بدء الترتيب الدوري",
       "combSort": "بدء الترتيب المشطي",
+      "timSort": "بدء ترتيب تيم",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
       "aStar": "بدء خوارزمية A*",
@@ -99,6 +101,7 @@
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
+    "timSort": "O(n log n)",
     "dStarLite": "O(log V)"
   },
   "speeds": {
@@ -255,6 +258,9 @@
     "shellGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. المصفوفة الآن مرتبة بفجوة-{{gap}}، الانتقال إلى فجوة أصغر.",
     "combGap": "استخدام حجم فجوة: {{gap}} (مقارنة العناصر المتباعدة بـ {{gap}} موضع)",
     "combGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. الانتقال إلى فجوة أصغر.",
+    "timRunDetected": "تم اكتشاف تسلسل من الموضع {{start}} إلى {{end}} (الحجم: {{size}})",
+    "timRunSorted": "تم ترتيب التسلسل من الموضع {{start}} إلى {{end}} باستخدام الترتيب بالإدراج",
+    "timMergingRuns": "دمج التسلسلات: [{{start}}...{{mid}}] و [{{mid}}...{{end}}]",
     "radixBucketPush": "إضافة {{val}} إلى الدلو {{bucket}} (الرقم: {{digit}})",
     "radixCollect": "جمع {{val}} من الدلو {{bucket}} إلى الموضع {{position}}",
     "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",

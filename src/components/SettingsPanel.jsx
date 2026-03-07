@@ -106,6 +106,11 @@ function SettingsPanel({
       label: t('algorithms.sorting.combSort'),
       complexity: t('complexity.combSort'),
     },
+    {
+      value: 'timSort',
+      label: t('algorithms.sorting.timSort'),
+      complexity: t('complexity.timSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [

@@ -69,6 +69,11 @@ export const ALGORITHM_STEPS = {
   COMB_GAP: 'combGap',
   COMB_GAP_COMPLETE: 'combGapComplete',
 
+  // Tim Sort
+  TIM_RUN_DETECTED: 'timRunDetected',
+  TIM_RUN_SORTED: 'timRunSorted',
+  TIM_MERGING_RUNS: 'timMergingRuns',
+
   // Pathfinding
   EXPLORING: 'exploring',
   EXPLORING_FORWARD: 'exploringForward',

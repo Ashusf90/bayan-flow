@@ -42,7 +42,8 @@
       "countingSort": "Tri par Comptage",
       "bucketSort": "Tri par Seaux",
       "cycleSort": "Tri par Cycle",
-      "combSort": "Tri à Peigne"
+      "combSort": "Tri à Peigne",
+      "timSort": "Tri de Tim"
     },
     "pathfinding": {
       "bfs": "Parcours en Largeur",
@@ -68,6 +69,7 @@
       "bucketSort": "Démarrage du Tri par Seaux",
       "cycleSort": "Démarrage du Tri par Cycle",
       "combSort": "Démarrage du Tri à Peigne",
+      "timSort": "Démarrage du Tri de Tim",
       "bfs": "Démarrage du Parcours en Largeur",
       "dijkstra": "Démarrage de l'Algorithme de Dijkstra",
       "aStar": "Démarrage de la Recherche A*",
@@ -91,6 +93,7 @@
     "bucketSort": "O(n + k)",
     "cycleSort": "O(n²)",
     "combSort": "O(n²)",
+    "timSort": "O(n log n)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
     "aStar": "O(b^d)",
@@ -255,6 +258,9 @@
     "shellGapComplete": "Passage avec écart-{{gap}} terminé. Le tableau est maintenant {{gap}}-trié, passage à un écart plus petit.",
     "combGap": "Utilisation d'un écart de taille : {{gap}} (comparaison d'éléments espacés de {{gap}} positions)",
     "combGapComplete": "Passage avec écart-{{gap}} terminé. Passage à un écart plus petit.",
+    "timRunDetected": "Séquence détectée de la position {{start}} à {{end}} (taille : {{size}})",
+    "timRunSorted": "Séquence triée de la position {{start}} à {{end}} avec tri par insertion",
+    "timMergingRuns": "Fusion des séquences : [{{start}}...{{mid}}] et [{{mid}}...{{end}}]",
     "radixBucketPush": "Ajout de {{val}} au seau {{bucket}} (chiffre : {{digit}})",
     "radixCollect": "Collecte de {{val}} du seau {{bucket}} vers la position {{position}}",
     "radixPassComplete": "Passe {{pass}} terminée (position du chiffre traitée)",

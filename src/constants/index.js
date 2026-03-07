@@ -22,6 +22,7 @@ export const SORTING_ALGORITHMS = {
   BUCKET_SORT: 'bucketSort',
   CYCLE_SORT: 'cycleSort',
   COMB_SORT: 'combSort',
+  TIM_SORT: 'timSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -266,6 +267,23 @@ export const ALGORITHM_COMPLEXITY = {
       'When in-place sorting with simple implementation is needed',
       'Educational purposes to understand gap-based sorting',
       'Situations where O(n log n) average case is acceptable',
+    ],
+  },
+  timSort: {
+    name: 'Tim Sort',
+    timeComplexity: {
+      best: 'O(n)',
+      average: 'O(n log n)',
+      worst: 'O(n log n)',
+    },
+    spaceComplexity: 'O(n)',
+    description:
+      'Tim Sort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It is the default sorting algorithm in Python, Java, Swift, and Android. It works by detecting natural runs in the data, extending small runs using insertion sort, and merging runs efficiently.',
+    useCases: [
+      'Production systems requiring stable, efficient sorting',
+      'Real-world data with partially sorted sequences',
+      'When stability is required (preserves order of equal elements)',
+      'Default choice for general-purpose sorting in modern languages',
     ],
   },
 };
