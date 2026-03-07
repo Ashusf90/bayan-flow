@@ -18,6 +18,12 @@ export const SORTING_ALGORITHMS = {
   HEAP_SORT: 'heapSort',
   SHELL_SORT: 'shellSort',
   RADIX_SORT: 'radixSort',
+  COUNTING_SORT: 'countingSort',
+  BUCKET_SORT: 'bucketSort',
+  CYCLE_SORT: 'cycleSort',
+  COMB_SORT: 'combSort',
+  TIM_SORT: 'timSort',
+  BOGO_SORT: 'bogoSort',
 };
 
 export const PATHFINDING_ALGORITHMS = {
@@ -195,6 +201,109 @@ export const ALGORITHM_COMPLEXITY = {
       'Stable sorting requirements',
     ],
   },
+  countingSort: {
+    name: 'Counting Sort',
+    timeComplexity: {
+      best: 'O(n + k)',
+      average: 'O(n + k)',
+      worst: 'O(n + k)',
+    },
+    spaceComplexity: 'O(n + k)',
+    description:
+      'Counting Sort is a non-comparison sorting algorithm that works by counting the number of objects having distinct key values, then doing arithmetic to calculate the position of each object in the output sequence. It works only with non-negative integers.',
+    useCases: [
+      'Small range of integers (k is small relative to n)',
+      'When input values are non-negative integers',
+      'Stable sorting is required',
+      'Sorting characters or small integers',
+      'When O(n) time complexity is critical',
+    ],
+  },
+  bucketSort: {
+    name: 'Bucket Sort',
+    timeComplexity: {
+      best: 'O(n + k)',
+      average: 'O(n + k)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(n + k)',
+    description:
+      'Bucket Sort distributes elements into buckets based on their value range, sorts each bucket individually (typically with insertion sort), then concatenates the sorted buckets. Performance depends heavily on the input distribution.',
+    useCases: [
+      'Uniformly distributed data over a known range',
+      'Floating-point numbers in [0, 1)',
+      'When input is distributed across different ranges',
+      'External sorting with limited memory',
+    ],
+  },
+  cycleSort: {
+    name: 'Cycle Sort',
+    timeComplexity: {
+      best: 'O(n²)',
+      average: 'O(n²)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Cycle Sort minimizes the number of memory writes by placing each element directly into its final sorted position. It performs at most n-1 writes, making it optimal for situations where write operations are expensive.',
+    useCases: [
+      'Flash memory or EEPROM where writes are costly',
+      'Write-expensive storage systems',
+      'Embedded systems with limited write cycles',
+      'Educational demonstrations of write optimization',
+    ],
+  },
+  combSort: {
+    name: 'Comb Sort',
+    timeComplexity: {
+      best: 'O(n log n)',
+      average: 'O(n²/2^p)',
+      worst: 'O(n²)',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Comb Sort improves on Bubble Sort by comparing elements separated by a shrinking gap. The gap shrinks by a factor of 1.3 each iteration until it reaches 1, helping eliminate small values near the end of the array faster than Bubble Sort.',
+    useCases: [
+      'Better alternative to Bubble Sort for medium datasets',
+      'When in-place sorting with simple implementation is needed',
+      'Educational purposes to understand gap-based sorting',
+      'Situations where O(n log n) average case is acceptable',
+    ],
+  },
+  timSort: {
+    name: 'Tim Sort',
+    timeComplexity: {
+      best: 'O(n)',
+      average: 'O(n log n)',
+      worst: 'O(n log n)',
+    },
+    spaceComplexity: 'O(n)',
+    description:
+      'Tim Sort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It is the default sorting algorithm in Python, Java, Swift, and Android. It works by detecting natural runs in the data, extending small runs using insertion sort, and merging runs efficiently.',
+    useCases: [
+      'Production systems requiring stable, efficient sorting',
+      'Real-world data with partially sorted sequences',
+      'When stability is required (preserves order of equal elements)',
+      'Default choice for general-purpose sorting in modern languages',
+    ],
+  },
+  bogoSort: {
+    name: 'Bogo Sort',
+    timeComplexity: {
+      best: 'O(n)',
+      average: 'O(n × n!)',
+      worst: 'Unbounded',
+    },
+    spaceComplexity: 'O(1)',
+    description:
+      'Bogo Sort (also known as Permutation Sort or Stupid Sort) repeatedly randomly shuffles the array until it happens to be sorted. It is intentionally inefficient and mainly used for educational purposes to demonstrate the importance of algorithm analysis.',
+    useCases: [
+      'Educational demonstrations of inefficient algorithms',
+      'Humor and algorithm complexity awareness',
+      'Showing the importance of algorithmic thinking',
+      'Never use in production',
+    ],
+  },
 };
 
 export const COMPLEXITY_FUNCTIONS = {
@@ -215,6 +324,7 @@ export const COMPLEXITY_FUNCTIONS = {
   'O(b^d)': n => Math.pow(4, Math.log2(n)), // Approximation: branching factor 4, depth log(n)
   'O(nk)': n => n * Math.log10(n), // Approximation: k ≈ log10(n) for distinct numbers
   'O(d)': n => Math.log2(n), // Approximation: d is depth, often log(n) in balanced trees/grids
+  'O(n + k)': n => n + Math.log2(n) * 10, // Approximation: n + k where k ≈ log(n) * 10
 };
 
 export const DEFAULT_ARRAY_SIZE = 20;

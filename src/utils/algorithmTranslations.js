@@ -65,6 +65,15 @@ export const ALGORITHM_STEPS = {
   SHELL_PLACED: 'shellPlaced',
   SHELL_GAP_COMPLETE: 'shellGapComplete',
 
+  // Comb Sort
+  COMB_GAP: 'combGap',
+  COMB_GAP_COMPLETE: 'combGapComplete',
+
+  // Tim Sort
+  TIM_RUN_DETECTED: 'timRunDetected',
+  TIM_RUN_SORTED: 'timRunSorted',
+  TIM_MERGING_RUNS: 'timMergingRuns',
+
   // Pathfinding
   EXPLORING: 'exploring',
   EXPLORING_FORWARD: 'exploringForward',
@@ -84,6 +93,25 @@ export const ALGORITHM_STEPS = {
   RADIX_COLLECT: 'radixCollect',
   RADIX_PASS_COMPLETE: 'radixPassComplete',
 
+  // Counting Sort
+  COUNTING_FIND_MAX: 'countingFindMax',
+  COUNTING_COUNT: 'countingCount',
+  COUNTING_COUNT_COMPLETE: 'countingCountComplete',
+  COUNTING_CUMULATIVE_COMPLETE: 'countingCumulativeComplete',
+  COUNTING_PLACE: 'countingPlace',
+
+  // Bucket Sort
+  BUCKET_DISTRIBUTING: 'bucketDistributing',
+  BUCKET_PLACED: 'bucketPlaced',
+  BUCKET_DISTRIBUTION_COMPLETE: 'bucketDistributionComplete',
+  BUCKET_SORTED: 'bucketSorted',
+  BUCKET_MERGING: 'bucketMerging',
+
+  // Cycle Sort
+  CYCLE_START: 'cycleStart',
+  CYCLE_SKIP: 'cycleSkip',
+  CYCLE_PLACE: 'cyclePlace',
+
   // Bellman-Ford
   BELLMAN_ITERATION: 'bellmanIteration',
   BELLMAN_RELAXATION: 'bellmanRelaxation',
@@ -97,4 +125,10 @@ export const ALGORITHM_STEPS = {
   // D* Lite
   D_STAR_LITE_EXPANSION: 'dStarLiteExpansion',
   D_STAR_LITE_INCONSISTENT: 'dStarLiteInconsistent',
+
+  // Bogo Sort
+  BOGO_CHECKING: 'bogoChecking',
+  BOGO_SHUFFLING: 'bogoShuffling',
+  BOGO_SUCCESS: 'bogoSuccess',
+  BOGO_FAILED: 'bogoFailed',
 };

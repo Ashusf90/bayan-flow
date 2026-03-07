@@ -487,11 +487,44 @@ describe('Insertion Sort', () => {
 });
 ```
 
-**Step 8: Test & Verify**
+**Step 8: Add Algorithm Step Constants**
+
+In `src/utils/algorithmTranslations.js`:
+```javascript
+export const ALGORITHM_STEPS = {
+  // Existing steps...
+  
+  // Add your algorithm-specific steps
+  YOUR_ALGORITHM_STEP: 'yourAlgorithmStep',
+  YOUR_OTHER_STEP: 'yourOtherStep',
+};
+```
+
+Add translations in all language files:
+```json
+{
+  "algorithmSteps": {
+    "yourAlgorithmStep": "Your step description with {{variables}}",
+    "yourOtherStep": "Another step description"
+  }
+}
+```
+
+**Step 9: Test & Verify**
 ```bash
 pnpm test:run
 pnpm dev
 ```
+
+**Example: Recently Added Algorithms**
+
+The following algorithms were recently added using this pattern:
+- **Counting Sort**: Non-comparison, O(n+k) time complexity
+- **Bucket Sort**: Distribution-based, optimal for uniform data
+- **Cycle Sort**: Write-optimal, minimizes memory writes
+- **Comb Sort**: Gap-based improvement over Bubble Sort
+- **Tim Sort**: Hybrid algorithm (Python/Java default)
+- **Bogo Sort**: Educational algorithm with shuffle limit
 
 ### Adding a New Pathfinding Algorithm
 
@@ -840,14 +873,15 @@ playNewSound() {
 
 - [ ] Run `pnpm lint:fix`
 - [ ] Run `pnpm format`
-- [ ] Run `pnpm test:run`
+- [ ] Run `pnpm test:run` (ensure 847+ tests pass)
 - [ ] Check console for warnings/errors
 - [ ] Test in light and dark mode
-- [ ] Test in all supported languages
+- [ ] Test in all supported languages (EN/FR/AR)
 - [ ] Test on mobile (responsive design)
 - [ ] Verify accessibility (keyboard navigation, ARIA labels)
 - [ ] Check performance (no janky animations)
 - [ ] Update relevant documentation
+- [ ] For new algorithms: Verify step translations work correctly
 
 ### Code Review Checklist
 
@@ -860,8 +894,11 @@ playNewSound() {
 - [ ] Theme-aware styling
 - [ ] Internationalization support
 - [ ] Performance optimizations (memo, callback)
-- [ ] Tests for new features
+- [ ] Tests for new features (aim for 100% coverage)
 - [ ] Documentation updated
+- [ ] Algorithm step constants added for new algorithms
+- [ ] Python implementations included
+- [ ] Sound integration considered
 
 ## Conclusion
 

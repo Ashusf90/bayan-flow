@@ -6,6 +6,12 @@ import { insertionSort, insertionSortPure } from './insertionSort';
 import { heapSort, heapSortPure } from './heapSort';
 import { shellSort, shellSortPure } from './shellSort';
 import { radixSort, radixSortPure } from './radixSort';
+import { countingSort, countingSortPure } from './countingSort';
+import { bucketSort, bucketSortPure } from './bucketSort';
+import { cycleSort, cycleSortPure } from './cycleSort';
+import { combSort, combSortPure } from './combSort';
+import { timSort, timSortPure } from './timSort';
+import { bogoSort, bogoSortPure } from './bogoSort';
 
 export const sortingAlgorithms = {
   bubbleSort,
@@ -16,6 +22,12 @@ export const sortingAlgorithms = {
   heapSort,
   shellSort,
   radixSort,
+  countingSort,
+  bucketSort,
+  cycleSort,
+  combSort,
+  timSort,
+  bogoSort,
 };
 
 export const pureSortingAlgorithms = {
@@ -27,6 +39,12 @@ export const pureSortingAlgorithms = {
   heapSort: heapSortPure,
   shellSort: shellSortPure,
   radixSort: radixSortPure,
+  countingSort: countingSortPure,
+  bucketSort: bucketSortPure,
+  cycleSort: cycleSortPure,
+  combSort: combSortPure,
+  timSort: timSortPure,
+  bogoSort: bogoSortPure,
 };
 
 export {
@@ -38,6 +56,12 @@ export {
   heapSort,
   shellSort,
   radixSort,
+  countingSort,
+  bucketSort,
+  cycleSort,
+  combSort,
+  timSort,
+  bogoSort,
 };
 export {
   bubbleSortPure,
@@ -48,4 +72,10 @@ export {
   heapSortPure,
   shellSortPure,
   radixSortPure,
+  countingSortPure,
+  bucketSortPure,
+  cycleSortPure,
+  combSortPure,
+  timSortPure,
+  bogoSortPure,
 };

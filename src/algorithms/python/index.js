@@ -21,6 +21,12 @@ import jumpPointSearchPython from './jump_point_search.py?raw';
 import bellmanFordPython from './bellman_ford.py?raw';
 import idaStarPython from './ida_star.py?raw';
 import dStarLitePython from './d_star_lite.py?raw';
+import countingSortPython from './counting_sort.py?raw';
+import bucketSortPython from './bucket_sort.py?raw';
+import cycleSortPython from './cycle_sort.py?raw';
+import combSortPython from './comb_sort.py?raw';
+import timSortPython from './timSort.py?raw';
+import bogoSortPython from './bogo_sort.py?raw';
 
 export const pythonAlgorithms = {
   bubbleSort: bubbleSortPython,
@@ -31,6 +37,12 @@ export const pythonAlgorithms = {
   heapSort: heapSortPython,
   shellSort: shellSortPython,
   radixSort: radixSortPython,
+  countingSort: countingSortPython,
+  bucketSort: bucketSortPython,
+  cycleSort: cycleSortPython,
+  combSort: combSortPython,
+  timSort: timSortPython,
+  bogoSort: bogoSortPython,
   bfs: bfsPython,
   dijkstra: dijkstraPython,
   aStar: astarPython,
@@ -51,6 +63,12 @@ export const algorithmDisplayNames = {
   heapSort: 'Heap Sort',
   shellSort: 'Shell Sort',
   radixSort: 'Radix Sort',
+  countingSort: 'Counting Sort',
+  bucketSort: 'Bucket Sort',
+  cycleSort: 'Cycle Sort',
+  combSort: 'Comb Sort',
+  timSort: 'Tim Sort',
+  bogoSort: 'Bogo Sort',
   bfs: 'Breadth-First Search (BFS)',
   dijkstra: "Dijkstra's Algorithm",
   aStar: 'A* Search',

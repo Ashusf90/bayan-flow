@@ -86,6 +86,36 @@ function SettingsPanel({
       label: t('algorithms.sorting.radixSort'),
       complexity: t('complexity.radixSort'),
     },
+    {
+      value: 'countingSort',
+      label: t('algorithms.sorting.countingSort'),
+      complexity: t('complexity.countingSort'),
+    },
+    {
+      value: 'bucketSort',
+      label: t('algorithms.sorting.bucketSort'),
+      complexity: t('complexity.bucketSort'),
+    },
+    {
+      value: 'cycleSort',
+      label: t('algorithms.sorting.cycleSort'),
+      complexity: t('complexity.cycleSort'),
+    },
+    {
+      value: 'combSort',
+      label: t('algorithms.sorting.combSort'),
+      complexity: t('complexity.combSort'),
+    },
+    {
+      value: 'timSort',
+      label: t('algorithms.sorting.timSort'),
+      complexity: t('complexity.timSort'),
+    },
+    {
+      value: 'bogoSort',
+      label: t('algorithms.sorting.bogoSort'),
+      complexity: t('complexity.bogoSort'),
+    },
   ];
 
   const pathfindingAlgorithms = [

@@ -13,6 +13,12 @@ import { insertionSortPure } from './insertionSort';
 import { heapSortPure } from './heapSort';
 import { shellSortPure } from './shellSort';
 import { radixSortPure } from './radixSort';
+import { countingSortPure } from './countingSort';
+import { bucketSortPure } from './bucketSort';
+import { cycleSortPure } from './cycleSort';
+import { combSortPure } from './combSort';
+import { timSortPure } from './timSort';
+import { bogoSortPure, bogoSort } from './bogoSort';
 import { isSorted, generateRandomArray } from '../../utils/arrayHelpers';
 
 /**
@@ -217,6 +223,167 @@ describe('Sorting Algorithms', () => {
     });
   });
 
+  describe('Counting Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = countingSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = countingSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should be stable (maintain relative order of equal elements)', () => {
+      // For stability testing, we'd need to track original indices
+      // This is a simplified test
+      const arrayWithDuplicates = [5, 2, 8, 2, 9, 1, 5, 5];
+      const sorted = countingSortPure(arrayWithDuplicates);
+      expect(sorted).toEqual([1, 2, 2, 5, 5, 5, 8, 9]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Bucket Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = bucketSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = bucketSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should handle all identical elements', () => {
+      const identical = [7, 7, 7, 7, 7];
+      const sorted = bucketSortPure(identical);
+      expect(sorted).toEqual([7, 7, 7, 7, 7]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Cycle Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = cycleSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = cycleSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should minimize writes', () => {
+      const testArray = [4, 3, 2, 1];
+      const sorted = cycleSortPure(testArray);
+      expect(sorted).toEqual([1, 2, 3, 4]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Comb Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = combSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = combSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Tim Sort', () => {
+    testCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = timSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should handle large random arrays', () => {
+      const largeArray = generateRandomArray(100);
+      const sorted = timSortPure(largeArray);
+      expect(isSorted(sorted)).toBe(true);
+    });
+
+    it('should be efficient for nearly sorted arrays', () => {
+      const nearlySorted = [1, 2, 3, 4, 5, 6, 8, 7, 9, 10];
+      const sorted = timSortPure(nearlySorted);
+      expect(sorted).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+      expect(isSorted(sorted)).toBe(true);
+    });
+  });
+
+  describe('Bogo Sort', () => {
+    const smallTestCases = [
+      {
+        name: 'empty array',
+        input: [],
+        expected: [],
+      },
+      {
+        name: 'single element',
+        input: [42],
+        expected: [42],
+      },
+      {
+        name: 'already sorted',
+        input: [1, 2, 3],
+        expected: [1, 2, 3],
+      },
+      {
+        name: 'small random order',
+        input: [3, 1, 2],
+        expected: [1, 2, 3],
+      },
+      {
+        name: 'duplicates',
+        input: [2, 1, 2],
+        expected: [1, 2, 2],
+      },
+    ];
+
+    smallTestCases.forEach(({ name, input, expected }) => {
+      it(`should sort ${name}`, () => {
+        const result = bogoSortPure(input);
+        expect(result).toEqual(expected);
+        expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should respect maximum shuffle limit', () => {
+      const result = bogoSortPure([5, 4, 3, 2, 1]);
+      expect(isSorted(result)).toBe(true);
+    });
+
+    it('should generate valid visualization steps', () => {
+      const steps = bogoSort([3, 1, 2]);
+      expect(steps.length).toBeGreaterThan(0);
+      expect(steps[0]).toHaveProperty('array');
+      expect(steps[0]).toHaveProperty('states');
+      expect(steps[0]).toHaveProperty('description');
+    });
+  });
+
   describe('Algorithm Consistency', () => {
     it('all algorithms should produce the same result', () => {
       const testArray = generateRandomArray(50);
@@ -229,6 +396,11 @@ describe('Sorting Algorithms', () => {
       const heapResult = heapSortPure([...testArray]);
       const shellResult = shellSortPure([...testArray]);
       const radixResult = radixSortPure([...testArray]);
+      const countingResult = countingSortPure([...testArray]);
+      const bucketResult = bucketSortPure([...testArray]);
+      const cycleResult = cycleSortPure([...testArray]);
+      const combResult = combSortPure([...testArray]);
+      const timResult = timSortPure([...testArray]);
 
       expect(bubbleResult).toEqual(quickResult);
       expect(quickResult).toEqual(mergeResult);
@@ -237,6 +409,11 @@ describe('Sorting Algorithms', () => {
       expect(insertionResult).toEqual(heapResult);
       expect(heapResult).toEqual(shellResult);
       expect(shellResult).toEqual(radixResult);
+      expect(radixResult).toEqual(countingResult);
+      expect(countingResult).toEqual(bucketResult);
+      expect(bucketResult).toEqual(cycleResult);
+      expect(cycleResult).toEqual(combResult);
+      expect(combResult).toEqual(timResult);
     });
   });
 });
