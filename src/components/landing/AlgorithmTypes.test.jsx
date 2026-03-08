@@ -67,13 +67,17 @@ describe('AlgorithmTypes', () => {
     it('should render sorting mode card', () => {
       renderComponent();
       // Look for the specific h3 title rather than all instances
-      expect(screen.getByRole('heading', { name: /Sorting Algorithms/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', { name: /Sorting Algorithms/i })
+      ).toBeInTheDocument();
     });
 
     it('should render pathfinding mode card', () => {
       renderComponent();
       // Look for the specific h3 title rather than all instances
-      expect(screen.getByRole('heading', { name: /Pathfinding Algorithms/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', { name: /Pathfinding Algorithms/i })
+      ).toBeInTheDocument();
     });
 
     it('should render both icons', () => {

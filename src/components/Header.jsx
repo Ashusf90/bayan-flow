@@ -96,7 +96,7 @@ function Header() {
               role="button"
               aria-label="Navigate to landing page"
               tabIndex={0}
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   handleLogoClick();

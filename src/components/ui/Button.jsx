@@ -45,13 +45,13 @@ function Button({
       >
         {/* Light mode: solid background | Dark mode: premium gradient */}
         <span className="absolute inset-0 bg-theme-primary shadow-lg group-hover:shadow-xl transition-shadow duration-200 dark:bg-gradient-to-br dark:from-blue-400 dark:via-blue-500 dark:to-blue-600 dark:shadow-blue-500/25 dark:group-hover:shadow-blue-500/40" />
-        
+
         {/* Border for clear button definition */}
         <span className="absolute inset-0 rounded-xl border-2 border-white/20 dark:border-white/30" />
-        
+
         {/* Subtle inner glow - only on actual hover */}
         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl dark:from-white/15 dark:via-white/20 dark:to-transparent" />
-        
+
         {/* Shimmer effect - only on actual hover */}
         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out rounded-xl dark:via-white/30" />
 

@@ -46,11 +46,7 @@ vi.mock('../components/ThemeToggle', () => ({
 }));
 
 vi.mock('../components/LanguageSwitcher', () => ({
-  default: () => (
-    <div data-testid="language-switcher">
-      LanguageSwitcher
-    </div>
-  ),
+  default: () => <div data-testid="language-switcher">LanguageSwitcher</div>,
 }));
 
 const renderComponent = () => {

@@ -42,7 +42,9 @@ function Roadmap() {
           <span className="text-xs sm:text-sm font-medium hidden xs:inline">
             {t('common.backToHome')}
           </span>
-          <span className="text-xs sm:text-sm font-medium xs:hidden">{t('common.back')}</span>
+          <span className="text-xs sm:text-sm font-medium xs:hidden">
+            {t('common.back')}
+          </span>
         </Link>
       </div>
 

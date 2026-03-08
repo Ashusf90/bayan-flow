@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { ArrowUpDown, Route } from 'lucide-react';
 import Container from '../ui/Container';
 import Section from '../ui/Section';
-import { 
-  ALGORITHM_TYPES, 
-  SORTING_ALGORITHMS, 
-  PATHFINDING_ALGORITHMS
+import {
+  ALGORITHM_TYPES,
+  SORTING_ALGORITHMS,
+  PATHFINDING_ALGORITHMS,
 } from '../../constants';
 
 function AlgorithmTypes() {
@@ -26,11 +26,6 @@ function AlgorithmTypes() {
         return t(`algorithms.${algorithmType}.${algoKey}`);
       })
       .join(', ');
-  };
-
-  // Get algorithm count for display
-  const getAlgorithmCount = (algorithms) => {
-    return Object.keys(algorithms).length;
   };
 
   const modes = [
@@ -68,7 +63,9 @@ function AlgorithmTypes() {
           </p>
         </motion.div>
 
-        <div className={`grid gap-8 ${modes.length === 2 ? 'md:grid-cols-2' : modes.length === 3 ? 'lg:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
+        <div
+          className={`grid gap-8 ${modes.length === 2 ? 'md:grid-cols-2' : modes.length === 3 ? 'lg:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}
+        >
           {modes.map((mode, index) => (
             <motion.div
               key={mode.title}
