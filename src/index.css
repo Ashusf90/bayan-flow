@@ -111,7 +111,11 @@
   bottom: 0;
   display: block;
   height: 16px;
-  background: linear-gradient(to bottom, transparent, var(--color-surface-elevated));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-surface-elevated)
+  );
   pointer-events: none;
   z-index: 5;
 }
