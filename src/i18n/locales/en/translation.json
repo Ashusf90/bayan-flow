@@ -366,6 +366,16 @@
       "seeRoadmap": "See the Roadmap"
     }
   },
+  "algorithmGroups": {
+    "comparisonBased": "Comparison-Based",
+    "nonComparison": "Non-Comparison",
+    "writeOptimal": "Write-Optimal",
+    "educational": "Educational",
+    "unweighted": "Unweighted",
+    "weightedOptimal": "Weighted Optimal",
+    "heuristicBased": "Heuristic-Based",
+    "specialCases": "Special Cases"
+  },
   "roadmap": {
     "hero": {
       "title": "Where We're Going",

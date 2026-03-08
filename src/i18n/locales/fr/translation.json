@@ -367,6 +367,16 @@
       "seeRoadmap": "Voir la Feuille de Route"
     }
   },
+  "algorithmGroups": {
+    "comparisonBased": "Basé sur Comparaison",
+    "nonComparison": "Non-Comparatif",
+    "writeOptimal": "Optimal en Écriture",
+    "educational": "Éducatif",
+    "unweighted": "Non Pondéré",
+    "weightedOptimal": "Pondéré Optimal",
+    "heuristicBased": "Basé sur Heuristique",
+    "specialCases": "Cas Spéciaux"
+  },
   "roadmap": {
     "hero": {
       "title": "Notre Direction",

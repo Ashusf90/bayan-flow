@@ -367,6 +367,16 @@
       "seeRoadmap": "عرض خارطة الطريق"
     }
   },
+  "algorithmGroups": {
+    "comparisonBased": "قائم على المقارنة",
+    "nonComparison": "غير مقارن",
+    "writeOptimal": "أمثل في الكتابة",
+    "educational": "تعليمي",
+    "unweighted": "غير مرجح",
+    "weightedOptimal": "مرجح أمثل",
+    "heuristicBased": "قائم على الاستدلال",
+    "specialCases": "حالات خاصة"
+  },
   "roadmap": {
     "hero": {
       "title": "إلى أين نتجه",

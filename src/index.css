@@ -85,6 +85,37 @@
   --color-scrollbar-thumb-hover: #6b7280;
 }
 
+/* Custom scrollbar for algorithm dropdown */
+.algo-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.algo-dropdown::-webkit-scrollbar-track {
+  background: var(--color-surface-elevated);
+  border-radius: 3px;
+}
+
+.algo-dropdown::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.algo-dropdown::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollbar-thumb-hover);
+}
+
+/* Fade gradient hint for scrollable content */
+.algo-dropdown::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  display: block;
+  height: 16px;
+  background: linear-gradient(to bottom, transparent, var(--color-surface-elevated));
+  pointer-events: none;
+  z-index: 5;
+}
+
 .dark {
   /* Background colors - Elevation system for depth */
   --color-bg: #0a0f1a;

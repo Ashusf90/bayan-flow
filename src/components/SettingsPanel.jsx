@@ -166,10 +166,54 @@ function SettingsPanel({
     },
   ];
 
+  // Algorithm groups for better organization
+  const sortingGroups = [
+    {
+      label: t('algorithmGroups.comparisonBased'),
+      algorithms: ['bubbleSort', 'quickSort', 'mergeSort', 'selectionSort', 'insertionSort', 'heapSort', 'shellSort', 'combSort', 'timSort']
+    },
+    {
+      label: t('algorithmGroups.nonComparison'),
+      algorithms: ['radixSort', 'countingSort', 'bucketSort']
+    },
+    {
+      label: t('algorithmGroups.writeOptimal'),
+      algorithms: ['cycleSort']
+    },
+    {
+      label: t('algorithmGroups.educational'),
+      algorithms: ['bogoSort']
+    }
+  ];
+
+  const pathfindingGroups = [
+    {
+      label: t('algorithmGroups.unweighted'),
+      algorithms: ['bfs', 'bidirectionalSearch']
+    },
+    {
+      label: t('algorithmGroups.weightedOptimal'),
+      algorithms: ['dijkstra', 'aStar', 'idaStar', 'dStarLite']
+    },
+    {
+      label: t('algorithmGroups.heuristicBased'),
+      algorithms: ['greedyBestFirstSearch', 'jumpPointSearch']
+    },
+    {
+      label: t('algorithmGroups.specialCases'),
+      algorithms: ['bellmanFord']
+    }
+  ];
+
   const algorithms =
     algorithmType === ALGORITHM_TYPES.SORTING
       ? sortingAlgorithms
       : pathfindingAlgorithms;
+
+  const algorithmGroups =
+    algorithmType === ALGORITHM_TYPES.SORTING
+      ? sortingGroups
+      : pathfindingGroups;
 
   const gridSizeOptions = [
     { value: GRID_SIZES.SMALL, label: t('gridSizes.small') },
@@ -294,89 +338,105 @@ function SettingsPanel({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute z-10 w-full mt-2 bg-surface-elevated border-2 border-[var(--color-border-strong)] rounded-lg shadow-xl overflow-hidden"
+              className="absolute z-10 w-full mt-2 bg-surface-elevated border-2 border-[var(--color-border-strong)] rounded-lg shadow-xl overflow-hidden max-h-72 overflow-y-auto algo-dropdown"
             >
-              {algorithms.map((algo, index) => (
-                <motion.button
-                  key={algo.value}
-                  onClick={() => handleAlgorithmSelect(algo.value)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className={`w-full px-4 py-3 text-left flex items-center justify-between transition-colors duration-150 hover:bg-surface-elevated ${
-                    selectedAlgorithm === algo.value
-                      ? 'bg-theme-primary-light text-theme-primary'
-                      : 'text-text-primary'
-                  }`}
-                >
-                  <div className="flex flex-col">
-                    <span className="font-medium">{algo.label}</span>
-                    <span className="text-xs text-text-secondary mt-0.5">
-                      {t('settings.time')}: {algo.complexity}
-                    </span>
+              {algorithmGroups.map((group, groupIndex) => (
+                <div key={group.label}>
+                  <div className="px-4 py-2 text-xs font-bold text-text-tertiary uppercase tracking-wider sticky top-0 bg-surface-elevated z-10 border-b border-[var(--color-border-strong)]">
+                    {group.label}
                   </div>
-                  {selectedAlgorithm === algo.value && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 500,
-                        damping: 25,
-                      }}
-                    >
-                      <Check size={18} className="text-[#3b82f6]" />
-                    </motion.div>
-                  )}
-                </motion.button>
+                  {group.algorithms.map((algoValue, index) => {
+                    const algo = algorithms.find(a => a.value === algoValue);
+                    if (!algo) return null;
+                    
+                    const itemIndex = algorithmGroups
+                      .slice(0, groupIndex)
+                      .reduce((acc, g) => acc + g.algorithms.length, 0) + index;
+                    
+                    return (
+                      <motion.button
+                        key={algo.value}
+                        onClick={() => handleAlgorithmSelect(algo.value)}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: itemIndex * 0.03 }}
+                        className={`w-full px-4 py-3 text-left flex items-center justify-between transition-colors duration-150 hover:bg-surface-elevated ${
+                          selectedAlgorithm === algo.value
+                            ? 'bg-theme-primary-light text-theme-primary'
+                            : 'text-text-primary'
+                        }`}
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-medium">{algo.label}</span>
+                          <span className="text-xs text-text-secondary mt-0.5">
+                            {t('settings.time')}: {algo.complexity}
+                          </span>
+                        </div>
+                        {selectedAlgorithm === algo.value && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{
+                              type: 'spring',
+                              stiffness: 500,
+                              damping: 25,
+                            }}
+                          >
+                            <Check size={18} className="text-[#3b82f6]" />
+                          </motion.div>
+                        )}
+                      </motion.button>
+                    );
+                  })}
+                </div>
               ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-text-primary mb-2 sm:mb-3">
-          {t('settings.controlMode')}
-        </label>
-        <div className="flex rounded-lg border-2 border-[var(--color-border-strong)] overflow-hidden bg-surface-elevated">
-          <button
-            onClick={() =>
-              !isPlaying && onModeChange(VISUALIZATION_MODES.AUTOPLAY)
-            }
-            disabled={isPlaying}
-            className={`flex-1 px-3 py-3 min-h-[44px] text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed touch-manipulation ${
-              mode === VISUALIZATION_MODES.AUTOPLAY
-                ? 'bg-theme-primary-consistent text-white shadow-md'
-                : 'bg-transparent text-text-primary hover:bg-bg cursor-pointer'
-            } ${isPlaying ? 'opacity-50' : ''}`}
-          >
-            <Play size={16} />
-            <span className="hidden sm:inline">{t('modes.autoplay')}</span>
-          </button>
-          <button
-            onClick={() =>
-              !isPlaying && onModeChange(VISUALIZATION_MODES.MANUAL)
-            }
-            disabled={isPlaying}
-            className={`flex-1 px-3 py-3 min-h-[44px] text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed touch-manipulation ${
-              mode === VISUALIZATION_MODES.MANUAL
-                ? 'bg-theme-primary-consistent text-white shadow-md'
-                : 'bg-transparent text-text-primary hover:bg-bg cursor-pointer'
-            } ${isPlaying ? 'opacity-50' : ''}`}
-          >
-            <Hand size={16} />
-            <span className="hidden sm:inline">{t('modes.manual')}</span>
-          </button>
-        </div>
-        <p className="text-xs text-text-secondary mt-2">
-          {mode === VISUALIZATION_MODES.AUTOPLAY
-            ? t('settings.autoplayDescription')
-            : t('settings.manualDescription')}
-        </p>
+    <div>
+      <label className="block text-sm font-semibold text-text-primary mb-2 sm:mb-3">
+        {t('settings.controlMode')}
+      </label>
+      <div className="flex rounded-lg border-2 border-[var(--color-border-strong)] overflow-hidden bg-surface-elevated">
+        <button
+          onClick={() =>
+            !isPlaying && onModeChange(VISUALIZATION_MODES.AUTOPLAY)
+          }
+          disabled={isPlaying}
+          className={`flex-1 px-3 py-3 min-h-[44px] text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed touch-manipulation ${
+            mode === VISUALIZATION_MODES.AUTOPLAY
+              ? 'bg-theme-primary-consistent text-white shadow-md'
+              : 'bg-transparent text-text-primary hover:bg-bg cursor-pointer'
+          } ${isPlaying ? 'opacity-50' : ''}`}
+        >
+          <Play size={16} />
+          <span className="hidden sm:inline">{t('modes.autoplay')}</span>
+        </button>
+        <button
+          onClick={() =>
+            !isPlaying && onModeChange(VISUALIZATION_MODES.MANUAL)
+          }
+          disabled={isPlaying}
+          className={`flex-1 px-3 py-3 min-h-[44px] text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed touch-manipulation ${
+            mode === VISUALIZATION_MODES.MANUAL
+              ? 'bg-theme-primary-consistent text-white shadow-md'
+              : 'bg-transparent text-text-primary hover:bg-bg cursor-pointer'
+          } ${isPlaying ? 'opacity-50' : ''}`}
+        >
+          <Hand size={16} />
+          <span className="hidden sm:inline">{t('modes.manual')}</span>
+        </button>
       </div>
+      <p className="text-xs text-text-secondary mt-2">
+        {mode === VISUALIZATION_MODES.AUTOPLAY
+          ? t('settings.autoplayDescription')
+          : t('settings.manualDescription')}
+      </p>
+    </div>
 
-      <div className={mode === VISUALIZATION_MODES.MANUAL ? 'opacity-50' : ''}>
+    <div className={mode === VISUALIZATION_MODES.MANUAL ? 'opacity-50' : ''}>
         <label className="block text-sm font-semibold text-text-primary mb-2">
           {t('settings.speed')}: {speedOptions[currentSpeedIndex]?.label}
           {mode === VISUALIZATION_MODES.MANUAL && (
