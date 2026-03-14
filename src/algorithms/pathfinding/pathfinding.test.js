@@ -601,6 +601,73 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
       const lastStep = steps[steps.length - 1];
       expect(lastStep.description.toLowerCase()).toContain('path');
     });
+
+    it('should find path in grid with walls (obstacles)', () => {
+      // 5x5 grid with wall in middle row blocking direct path
+      const gridWithWalls = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+      const wallStart = { row: 0, col: 0 };
+      const wallEnd = { row: 4, col: 4 };
+
+      const steps = jumpPointSearch(gridWithWalls, wallStart, wallEnd, 5, 5);
+
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+      const lastStep = steps[steps.length - 1];
+      expect(lastStep.description.toLowerCase()).toContain('path');
+    });
+
+    it('should handle no path found (blocked grid)', () => {
+      // Grid where start is surrounded by walls, end unreachable
+      const blockedGrid = [
+        [0, 1, 0],
+        [1, 1, 1],
+        [0, 1, 0],
+      ];
+      const blockedStart = { row: 0, col: 0 };
+      const blockedEnd = { row: 2, col: 2 };
+
+      const steps = jumpPointSearch(
+        blockedGrid,
+        blockedStart,
+        blockedEnd,
+        3,
+        3
+      );
+
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+      const lastStep = steps[steps.length - 1];
+      expect(lastStep.description).toBeTruthy();
+    });
+
+    it('should return empty steps for invalid inputs', () => {
+      const emptyGrid = Array(4)
+        .fill(null)
+        .map(() => Array(4).fill(0));
+      const validStart = { row: 0, col: 0 };
+      const validEnd = { row: 3, col: 3 };
+
+      const noStart = jumpPointSearch(emptyGrid, null, validEnd, 4, 4);
+      expect(noStart).toEqual([]);
+
+      const noEnd = jumpPointSearch(emptyGrid, validStart, null, 4, 4);
+      expect(noEnd).toEqual([]);
+
+      const outOfBoundsStart = jumpPointSearch(
+        emptyGrid,
+        { row: -1, col: 0 },
+        validEnd,
+        4,
+        4
+      );
+      expect(outOfBoundsStart).toEqual([]);
+    });
   });
 
   describe('Bellman-Ford Visualization', () => {
@@ -681,6 +748,54 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
       const steps = idaStar(grid, start, end, rows, cols);
       const lastStep = steps[steps.length - 1];
       expect(lastStep.description).toBeTruthy();
+    });
+
+    it('should find path in grid with walls (obstacles)', () => {
+      const gridWithWalls = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+      const wallStart = { row: 0, col: 0 };
+      const wallEnd = { row: 4, col: 4 };
+
+      const steps = idaStar(gridWithWalls, wallStart, wallEnd, 5, 5);
+
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+    });
+
+    it('should handle no path found (blocked grid)', () => {
+      const blockedGrid = [
+        [0, 1, 0],
+        [1, 1, 1],
+        [0, 1, 0],
+      ];
+      const blockedStart = { row: 0, col: 0 };
+      const blockedEnd = { row: 2, col: 2 };
+
+      const steps = idaStar(blockedGrid, blockedStart, blockedEnd, 3, 3);
+
+      expect(steps).toBeTruthy();
+      expect(steps.length).toBeGreaterThan(0);
+      const lastStep = steps[steps.length - 1];
+      expect(lastStep.description).toBeTruthy();
+    });
+
+    it('should return empty steps for invalid inputs', () => {
+      const emptyGrid = Array(4)
+        .fill(null)
+        .map(() => Array(4).fill(0));
+      const validStart = { row: 0, col: 0 };
+      const validEnd = { row: 3, col: 3 };
+
+      const noStart = idaStar(emptyGrid, null, validEnd, 4, 4);
+      expect(noStart).toEqual([]);
+
+      const noEnd = idaStar(emptyGrid, validStart, null, 4, 4);
+      expect(noEnd).toEqual([]);
     });
   });
 
