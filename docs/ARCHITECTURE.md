@@ -47,7 +47,7 @@ Bayan Flow is built as a single-page application (SPA) with multiple routes:
 
 **Provider Hierarchy:**
 1. **ThemeProvider**: Global theme state (light/dark mode)
-2. **BrowserRouter**: Client-side routing
+2. **BrowserRouter**: Client-side routing; **DocumentTitle** (sibling to Routes) updates `document.title` and og/twitter meta tags for SEO
 3. **i18next**: Internationalization (initialized in main.jsx)
 
 ## Routing & Pages
@@ -123,7 +123,7 @@ LandingPage
 
 VisualizerApp
 ├── Header
-├── SettingsPanel
+├── SettingsPanel (uses useAlgorithmConfig, useSettingsConfig, AlgorithmDropdown)
 ├── ArrayVisualizer / GridVisualizer
 ├── ControlPanel
 ├── FloatingActionButton
@@ -180,11 +180,15 @@ Roadmap
 
 #### **SettingsPanel** (Configuration)
 - Algorithm type toggle (sorting/pathfinding)
-- Algorithm selection dropdown
+- **AlgorithmDropdown**: Algorithm selection with grouped options (uses `useAlgorithmConfig`)
 - Control mode toggle (manual/autoplay)
 - Speed slider (autoplay only)
-- Array size / Grid size controls
+- Array size / Grid size controls (uses `useSettingsConfig`)
 - Sound toggle
+
+#### **Config Layer** (`src/config/`)
+- **useAlgorithmConfig**: Returns sortingAlgorithms, pathfindingAlgorithms, sortingGroups, pathfindingGroups (i18n-aware)
+- **useSettingsConfig**: Returns gridSizeOptions, speedOptions from constants
 
 #### **PythonCodePanel** (Code Viewer)
 - Monaco editor integration
@@ -825,10 +829,12 @@ describe('ThemeToggle', () => {
 
 ```bash
 pnpm test              # Watch mode
-pnpm test:run          # Single run
+pnpm test:run          # Single run (922 tests across 41 files)
 pnpm test:ui           # Visual UI
-pnpm test:coverage     # Coverage report
+pnpm test:coverage     # Coverage report (Codecov patch threshold 70%)
 ```
+
+**Test Setup:** `src/test/setup.js` mocks constants, tone, soundManager, gridHelpers. The constants test uses `vi.unmock()` to test the real module.
 
 ## Performance Optimizations
 
@@ -897,9 +903,9 @@ useEffect(() => {
 ### Planned Features
 
 1. **Additional Algorithms**
-   - Selection Sort, Insertion Sort, Heap Sort (already planned)
-   - DFS, Bellman-Ford, Floyd-Warshall (pathfinding)
-   - Graph algorithms, tree traversals
+   - All 14 sorting algorithms implemented (Bubble, Quick, Merge, Selection, Insertion, Heap, Shell, Radix, Counting, Bucket, Cycle, Comb, Tim, Bogo)
+   - All 9 pathfinding algorithms implemented (BFS, Dijkstra, A*, Bidirectional, Greedy BFS, JPS, Bellman-Ford, IDA*, D* Lite)
+   - Potential: DFS, Floyd-Warshall, graph algorithms, tree traversals
 
 2. **Graph Visualization Mode**
    - D3.js integration
@@ -918,17 +924,19 @@ useEffect(() => {
    - Code playground
    - Performance benchmarking
 
-5. **Recently Completed (v1.2)**
-   - ✅ 6 new sorting algorithms (Counting, Bucket, Cycle, Comb, Tim, Bogo)
-   - ✅ Expanded test coverage to 847 tests
-   - ✅ Enhanced algorithm diversity across all sorting paradigms
+5. **Recently Completed**
+   - ✅ 14 sorting algorithms (including Counting, Bucket, Cycle, Comb, Tim, Bogo)
+   - ✅ 9 pathfinding algorithms (including JPS, Bellman-Ford, IDA*, D* Lite)
+   - ✅ 922 tests across 41 files; Codecov patch threshold 70%
+   - ✅ Config layer (useAlgorithmConfig, useSettingsConfig)
+   - ✅ DocumentTitle for SEO; AlgorithmDropdown component
 
 ## Conclusion
 
 Bayan Flow is built with:
-- **Modularity**: Easy to add new algorithms and features (recently expanded to 14 sorting algorithms)
+- **Modularity**: Easy to add new algorithms and features (14 sorting, 9 pathfinding)
 - **Maintainability**: Clean separation of concerns with dual-implementation pattern
-- **Testability**: Comprehensive test coverage (847 tests passing)
+- **Testability**: Comprehensive test coverage (922 tests across 41 files)
 - **Performance**: Optimized for smooth animations
 - **Extensibility**: Ready for future enhancements
 - **Accessibility**: WCAG 2.1 AA compliant

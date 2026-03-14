@@ -7,9 +7,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-19.1-blue" alt="React" />
-  <img src="https://img.shields.io/badge/Vite-7.1-purple" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind-4.1-cyan" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/React-19.2-blue" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-7.2-purple" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind-4.x-cyan" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/license-Elastic--2.0-blue" alt="License" />
 </p>
 
@@ -27,7 +27,7 @@
 - **Algorithm Diversity**: Comprehensive coverage including comparison-based, non-comparison, write-optimal, and hybrid algorithms
 
 ### Pathfinding Mode
-- **Multiple Pathfinding Algorithms**: Visualize BFS, Dijkstra's Algorithm, and A* Search
+- **9 Pathfinding Algorithms**: BFS, Dijkstra, A*, Bidirectional Search, Greedy Best-First, Jump Point Search, Bellman-Ford, IDA*, D* Lite
 - **Grid Visualization**: Interactive grid-based pathfinding with configurable sizes (15×15, 25×25, 35×35)
 - **Random Start/End**: Automatically generates random start and end positions for each grid
 - **Visual States**: Color-coded cells showing open (queue), closed (visited), and final path
@@ -49,7 +49,7 @@
   - Choose between Manual (default) and Autoplay control modes
   - Adjust animation speed (Slow, Medium, Fast, Very Fast)
   - Toggle sound effects on/off
-- **Algorithm Analysis**: Interactive complexity panel with Big-O notation and performance graphs
+- **Algorithm Analysis**: Interactive complexity panel with Big-O notation and D3 performance graphs
 - **Python Code Examples**: View Python implementations in Monaco editor with syntax highlighting
 - **Internationalization**: Full support for English, French, and Arabic (with RTL layout)
 - **Theme System**: Light/dark mode with system preference detection and persistence
@@ -62,8 +62,8 @@
 
 ### Prerequisites
 
-- Node.js (v24 or higher)
-- pnpm (v8 or higher)
+- Node.js (v24.11.1 or higher)
+- pnpm (v8.15.9 or higher)
 - Modern browser with Web Audio API support (for sound effects)
 
 If you don't have pnpm installed:
@@ -161,10 +161,10 @@ bayan-flow/
 │   │   │   ├── bogoSort.js
 │   │   │   ├── index.js
 │   │   │   └── algorithms.test.js
-│   │   ├── pathfinding/   # Pathfinding algorithms
-│   │   │   ├── bfs.js
-│   │   │   ├── dijkstra.js
-│   │   │   ├── aStar.js
+│   │   ├── pathfinding/   # Pathfinding algorithms (9 total)
+│   │   │   ├── bfs.js, dijkstra.js, aStar.js
+│   │   │   ├── bidirectionalSearch.js, greedyBestFirstSearch.js
+│   │   │   ├── jumpPointSearch.js, bellmanFord.js, idaStar.js, dStarLite.js
 │   │   │   ├── index.js
 │   │   │   └── pathfinding.test.js
 │   │   ├── python/        # Python code examples
@@ -199,11 +199,13 @@ bayan-flow/
 │   │   │   ├── Button.jsx
 │   │   │   ├── Container.jsx
 │   │   │   └── Section.jsx
+│   │   ├── AlgorithmDropdown.jsx
 │   │   ├── ArrayBar.jsx
 │   │   ├── ArrayVisualizer.jsx
 │   │   ├── AutoHidingLegend.jsx
 │   │   ├── ComplexityPanel.jsx
 │   │   ├── ControlPanel.jsx
+│   │   ├── DocumentTitle.jsx
 │   │   ├── FloatingActionButton.jsx
 │   │   ├── Footer.jsx
 │   │   ├── GridCell.jsx
@@ -214,6 +216,7 @@ bayan-flow/
 │   │   ├── SettingsPanel.jsx
 │   │   ├── SwipeTutorial.jsx
 │   │   └── ThemeToggle.jsx
+│   ├── config/            # useAlgorithmConfig, useSettingsConfig
 │   ├── contexts/          # React contexts
 │   │   ├── ThemeContext.jsx
 │   │   └── ThemeContextDefinition.js
@@ -295,8 +298,9 @@ The `useSortingVisualization` and `usePathfindingVisualization` custom hooks man
 
 - **Pages**: Route-level components (LandingPage, VisualizerApp, Roadmap)
 - **Layout Components**: Header, Footer, Container, Section
-- **Feature Components**: ArrayVisualizer, GridVisualizer, ControlPanel
+- **Feature Components**: ArrayVisualizer, GridVisualizer, ControlPanel, AlgorithmDropdown
 - **UI Primitives**: Button, ThemeToggle, LanguageSwitcher
+- **Utilities**: DocumentTitle (SEO meta tags), config hooks (algorithmConfig, settingsConfig)
 - **Contexts**: ThemeContext for global theme state
 
 ## Extending the Project
@@ -304,8 +308,8 @@ The `useSortingVisualization` and `usePathfindingVisualization` custom hooks man
 ### Adding a New Sorting Algorithm
 
 1. Create implementation in `src/algorithms/sorting/[algorithm].js`
-2. Export in `src/algorithms/sorting/index.js`
-3. Add to dropdown in `src/components/SettingsPanel.jsx`
+2. Export in `src/algorithms/sorting/index.js` and `src/algorithms/index.js`
+3. Add to `useAlgorithmConfig` in `src/config/algorithmConfig.js` (sortingAlgorithms and sortingGroups)
 4. Add complexity data in `src/constants/index.js`
 5. Add Python implementation in `src/algorithms/python/[algorithm].py`
 6. Write tests in `src/algorithms/sorting/algorithms.test.js`
@@ -382,7 +386,7 @@ Translation files are located in `src/i18n/locales/[lang]/translation.json`.
 
 The project includes comprehensive tests for:
 
-- **Algorithm correctness**: Verify sorting produces correct results (847 tests passing)
+- **Algorithm correctness**: Verify sorting produces correct results (922 tests passing)
 - **Edge cases**: Empty arrays, single elements, duplicates
 - **Consistency**: All algorithms produce identical results
 - **Utility functions**: Array generation, grid helpers, sound manager

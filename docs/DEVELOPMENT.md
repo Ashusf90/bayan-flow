@@ -3,8 +3,8 @@
 ## Quick Start
 
 ### Prerequisites
-- Node.js v18+
-- pnpm v8+
+- Node.js v24.11.1+
+- pnpm v8.15.9+
 
 ### Setup
 ```bash
@@ -268,10 +268,11 @@ description: getAlgorithmDescription(
 src/
 ├── pages/              # Route-level components
 ├── components/
-│   ├── landing/        # Landing page specific
-│   ├── roadmap/        # Roadmap page specific
+│   ├── landing/       # Landing page specific
+│   ├── roadmap/       # Roadmap page specific
 │   ├── ui/            # Reusable primitives
 │   └── [feature].jsx  # Feature components
+├── config/            # useAlgorithmConfig, useSettingsConfig
 ├── contexts/          # React contexts
 ├── hooks/             # Custom hooks
 ├── algorithms/        # Algorithm implementations
@@ -280,7 +281,23 @@ src/
 └── constants/         # App constants
 ```
 
-### 9. Testing Approach
+### 9. Config Hooks Pattern
+
+Algorithm and settings configuration is centralized in `src/config/`:
+
+```javascript
+// algorithmConfig.js - useAlgorithmConfig()
+// Returns: sortingAlgorithms, pathfindingAlgorithms, sortingGroups, pathfindingGroups
+// Uses useTranslation for i18n-aware labels
+
+// settingsConfig.js - useSettingsConfig()
+// Returns: gridSizeOptions, speedOptions
+// Uses GRID_SIZES, ANIMATION_SPEEDS from constants
+```
+
+`SettingsPanel` uses these hooks; `AlgorithmDropdown` receives algorithms and groups as props.
+
+### 10. Testing Approach
 
 **Test Pure Functions:**
 ```javascript
@@ -311,12 +328,17 @@ describe('ThemeToggle', () => {
   it('should call onToggle when clicked', () => {
     const onToggle = vi.fn();
     render(<ThemeToggle theme="light" onToggle={onToggle} />);
-    
+
     fireEvent.click(screen.getByRole('switch'));
     expect(onToggle).toHaveBeenCalled();
   });
 });
 ```
+
+**Test Setup (`src/test/setup.js`):**
+- Mocks: constants, tone, soundManager, gridHelpers (global)
+- Use `vi.unmock('../constants')` in constants tests to test the real module
+- `renderWithI18n` from `testUtils.jsx` wraps components with I18nextProvider
 
 ## Adding New Features
 
@@ -386,16 +408,17 @@ export const pureSortingAlgorithms = {
 
 **Step 3: Add to UI**
 
-In `src/components/SettingsPanel.jsx`:
+In `src/config/algorithmConfig.js` (useAlgorithmConfig hook):
 ```javascript
 const sortingAlgorithms = [
   // ... existing
-  { 
-    value: 'insertionSort', 
+  {
+    value: 'insertionSort',
     label: t('algorithms.sorting.insertionSort'),
-    complexity: t('complexity.insertionSort')
+    complexity: t('complexity.insertionSort'),
   },
 ];
+// Also add to sortingGroups under the appropriate group
 ```
 
 **Step 4: Add Complexity Metadata**
@@ -528,7 +551,7 @@ The following algorithms were recently added using this pattern:
 
 ### Adding a New Pathfinding Algorithm
 
-Follow similar steps but use `src/algorithms/pathfinding/` directory and:
+Follow similar steps but use `src/algorithms/pathfinding/` directory. Add to `useAlgorithmConfig` in `src/config/algorithmConfig.js` (pathfindingAlgorithms and pathfindingGroups). Also:
 - Use 2D grid state instead of 1D array
 - Implement grid-based visualization
 - Add to `PATHFINDING_COMPLEXITY` in constants
@@ -873,7 +896,7 @@ playNewSound() {
 
 - [ ] Run `pnpm lint:fix`
 - [ ] Run `pnpm format`
-- [ ] Run `pnpm test:run` (ensure 847+ tests pass)
+- [ ] Run `pnpm test:run` (ensure 922+ tests pass)
 - [ ] Check console for warnings/errors
 - [ ] Test in light and dark mode
 - [ ] Test in all supported languages (EN/FR/AR)
