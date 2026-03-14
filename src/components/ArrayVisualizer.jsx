@@ -5,8 +5,7 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useMemo } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ArrayBar from './ArrayBar';
 import ComplexityPanel from './ComplexityPanel';
@@ -36,7 +35,6 @@ function ArrayVisualizer({
   mode,
 }) {
   const { t } = useTranslation();
-  const maxValue = useMemo(() => Math.max(...array, 1), [array]);
   const arrayLength = array.length;
   const [showComplexityPanel, setShowComplexityPanel] = useState(false);
   const [showSwipeTutorial, setShowSwipeTutorial] = useState(false);
@@ -129,7 +127,6 @@ function ArrayVisualizer({
                   key={`${index}-${value}`}
                   value={value}
                   state={states[index]}
-                  maxValue={maxValue}
                   index={index}
                   arrayLength={arrayLength}
                 />

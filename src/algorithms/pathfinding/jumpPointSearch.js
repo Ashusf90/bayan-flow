@@ -341,7 +341,13 @@ export function jumpPointSearch(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Jump point at (${current.row}, ${current.col}) | g=${g.toFixed(1)}, h=${h.toFixed(1)}, f=${current.f.toFixed(1)}`,
+      description: getAlgorithmDescription(ALGORITHM_STEPS.JPS_JUMP_POINT_AT, {
+        row: current.row,
+        col: current.col,
+        g: g.toFixed(1),
+        h: h.toFixed(1),
+        f: current.f.toFixed(1),
+      }),
     });
 
     if (current.row === end.row && current.col === end.col) {
@@ -495,7 +501,13 @@ export function jumpPointSearch(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Path found! Length: ${fullPath.length} cells, Cost: ${gScore[end.row][end.col].toFixed(1)}`,
+      description: getAlgorithmDescription(
+        ALGORITHM_STEPS.PATH_FOUND_WITH_COST,
+        {
+          length: fullPath.length,
+          cost: gScore[end.row][end.col].toFixed(1),
+        }
+      ),
     });
   } else {
     steps.push({

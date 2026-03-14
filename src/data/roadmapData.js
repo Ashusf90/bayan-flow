@@ -42,9 +42,9 @@ export const roadmapData = [
     date: 'Q1 2026',
     title: 'Algorithm Library Expansion (0.3.0)',
     description:
-      'Expand the algorithm set for sorting and pathfinding, improve animation clarity and performance, and add educational notes and tests to strengthen learning value.',
+      'Expand the algorithm set for sorting and pathfinding, improve animation clarity and performance, and add tests to strengthen learning value.',
     videoUrl: '',
-    status: 'in-progress',
+    status: 'completed',
   },
   {
     id: 4,

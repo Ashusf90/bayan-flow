@@ -4,6 +4,7 @@
  * See LICENSE for details.
  */
 
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { GRID_STATE_COLORS } from '../constants';
 
@@ -13,7 +14,7 @@ import { GRID_STATE_COLORS } from '../constants';
  * @param {number} col - Column index
  * @param {number} gridSize - Total grid size (for responsive sizing)
  */
-function GridCell({ state, row, col, gridSize }) {
+const GridCell = memo(function GridCell({ state, row, col, gridSize }) {
   const color = GRID_STATE_COLORS[state] || GRID_STATE_COLORS.default;
 
   const getCellSize = () => {
@@ -38,6 +39,6 @@ function GridCell({ state, row, col, gridSize }) {
       }}
     />
   );
-}
+});
 
 export default GridCell;

@@ -111,6 +111,10 @@ export function bfs(grid, start, end, rows, cols) {
         continue;
       }
 
+      if (grid[newRow][newCol] === 1) {
+        continue; // Skip walls
+      }
+
       if (visited[newRow][newCol]) {
         continue;
       }

@@ -5,6 +5,21 @@
  */
 
 import { describe, it, expect } from 'vitest';
+
+/**
+ * Asserts that pathfinding visualization steps have the required structure
+ * @param {Object[]} steps - Array of step objects from a pathfinding algorithm
+ */
+function assertPathfindingStepStructure(steps) {
+  steps.forEach(step => {
+    expect(step).toHaveProperty('grid');
+    expect(step).toHaveProperty('states');
+    expect(step).toHaveProperty('description');
+    expect(Array.isArray(step.grid)).toBe(true);
+    expect(Array.isArray(step.states)).toBe(true);
+    expect(typeof step.description).toBe('string');
+  });
+}
 import { bfsPure } from './bfs';
 import { dijkstraPure } from './dijkstra';
 import { aStarPure } from './aStar';
@@ -392,14 +407,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = bfs(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -425,11 +433,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = dijkstra(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-      });
+      assertPathfindingStepStructure(steps);
     });
   });
 
@@ -442,11 +446,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = aStar(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should include heuristic information in descriptions', () => {
@@ -468,14 +468,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = bidirectionalSearch(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -515,14 +508,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = greedyBestFirstSearch(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -559,14 +545,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = jumpPointSearch(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -679,14 +658,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = bellmanFord(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -720,14 +692,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = idaStar(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {
@@ -808,14 +773,7 @@ describe('Pathfinding Algorithms - Visualization Versions', () => {
 
     it('each step should have required properties', () => {
       const steps = dStarLite(grid, start, end, rows, cols);
-      steps.forEach(step => {
-        expect(step).toHaveProperty('grid');
-        expect(step).toHaveProperty('states');
-        expect(step).toHaveProperty('description');
-        expect(Array.isArray(step.grid)).toBe(true);
-        expect(Array.isArray(step.states)).toBe(true);
-        expect(typeof step.description).toBe('string');
-      });
+      assertPathfindingStepStructure(steps);
     });
 
     it('should mark start and end in states', () => {

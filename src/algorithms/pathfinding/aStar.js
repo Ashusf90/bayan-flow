@@ -126,7 +126,13 @@ export function aStar(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Exploring (${current.row}, ${current.col}) | g=${g.toFixed(1)}, h=${h.toFixed(1)}, f=${current.f.toFixed(1)}`,
+      description: getAlgorithmDescription(ALGORITHM_STEPS.A_STAR_EXPLORING, {
+        row: current.row,
+        col: current.col,
+        g: g.toFixed(1),
+        h: h.toFixed(1),
+        f: current.f.toFixed(1),
+      }),
     });
 
     if (current.row === end.row && current.col === end.col) {
@@ -140,6 +146,10 @@ export function aStar(grid, start, end, rows, cols) {
 
       if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols) {
         continue;
+      }
+
+      if (grid[newRow][newCol] === 1) {
+        continue; // Skip walls
       }
 
       if (visited[newRow][newCol]) {
@@ -188,7 +198,13 @@ export function aStar(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Path found! Length: ${path.length} cells, Cost: ${gScore[end.row][end.col]}`,
+      description: getAlgorithmDescription(
+        ALGORITHM_STEPS.PATH_FOUND_WITH_COST,
+        {
+          length: path.length,
+          cost: gScore[end.row][end.col],
+        }
+      ),
     });
   } else {
     steps.push({

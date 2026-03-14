@@ -5,9 +5,9 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { bubbleSortPure } from './bubbleSort';
-import { quickSortPure } from './quickSort';
-import { mergeSortPure } from './mergeSort';
+import { bubbleSort, bubbleSortPure } from './bubbleSort';
+import { quickSort, quickSortPure } from './quickSort';
+import { mergeSort, mergeSortPure } from './mergeSort';
 import { selectionSortPure } from './selectionSort';
 import { insertionSortPure } from './insertionSort';
 import { heapSortPure } from './heapSort';
@@ -74,6 +74,18 @@ describe('Sorting Algorithms', () => {
       });
     });
 
+    it('should generate valid visualization steps', () => {
+      const steps = bubbleSort([3, 1, 2]);
+      expect(steps.length).toBeGreaterThan(0);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('array');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(step.array).toHaveLength(3);
+        expect(step.states).toHaveLength(3);
+      });
+    });
+
     it('should handle large random arrays', () => {
       const largeArray = generateRandomArray(100);
       const sorted = bubbleSortPure(largeArray);
@@ -90,6 +102,18 @@ describe('Sorting Algorithms', () => {
       });
     });
 
+    it('should generate valid visualization steps', () => {
+      const steps = quickSort([3, 1, 2]);
+      expect(steps.length).toBeGreaterThan(0);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('array');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(step.array).toHaveLength(3);
+        expect(step.states).toHaveLength(3);
+      });
+    });
+
     it('should handle large random arrays', () => {
       const largeArray = generateRandomArray(100);
       const sorted = quickSortPure(largeArray);
@@ -103,6 +127,18 @@ describe('Sorting Algorithms', () => {
         const result = mergeSortPure(input);
         expect(result).toEqual(expected);
         expect(isSorted(result)).toBe(true);
+      });
+    });
+
+    it('should generate valid visualization steps', () => {
+      const steps = mergeSort([3, 1, 2]);
+      expect(steps.length).toBeGreaterThan(0);
+      steps.forEach(step => {
+        expect(step).toHaveProperty('array');
+        expect(step).toHaveProperty('states');
+        expect(step).toHaveProperty('description');
+        expect(step.array).toHaveLength(3);
+        expect(step.states).toHaveLength(3);
       });
     });
 

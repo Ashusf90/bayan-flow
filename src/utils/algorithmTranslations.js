@@ -82,9 +82,13 @@ export const ALGORITHM_STEPS = {
   BIDIRECTIONAL_PROGRESS: 'bidirectionalProgress',
   BIDIRECTIONAL_MEETING: 'bidirectionalMeeting',
   PATH_FOUND: 'pathFound',
+  PATH_FOUND_WITH_COST: 'pathFoundWithCost',
   NO_PATH: 'noPath',
   GREEDY_EXPLORING: 'greedyExploring',
+  DIJKSTRA_EXPLORING: 'dijkstraExploring',
+  A_STAR_EXPLORING: 'aStarExploring',
   JPS_JUMP_POINT_FOUND: 'jpsJumpPointFound',
+  JPS_JUMP_POINT_AT: 'jpsJumpPointAt',
   JPS_JUMPING: 'jpsJumping',
   JPS_JUMP_POINTS_DISCOVERED: 'jpsJumpPointsDiscovered',
 

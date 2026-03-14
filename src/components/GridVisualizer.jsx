@@ -6,7 +6,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import GridCell from './GridCell';
 import ComplexityPanel from './ComplexityPanel';

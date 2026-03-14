@@ -15,7 +15,6 @@ import SettingsPanel from '../components/SettingsPanel';
 import FloatingActionButton from '../components/FloatingActionButton';
 
 const PythonCodePanel = lazy(() => import('../components/PythonCodePanel'));
-const ComplexityPanel = lazy(() => import('../components/ComplexityPanel'));
 import { useSortingVisualization } from '../hooks/useSortingVisualization';
 import { usePathfindingVisualization } from '../hooks/usePathfindingVisualization';
 import { useFullScreen } from '../hooks/useFullScreen';
@@ -105,6 +104,7 @@ function App() {
         sortingVisualization.loadSteps(steps);
       }
     }
+    // algorithms is static import; sortingVisualization.loadSteps is stable via useCallback
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedAlgorithm, array, algorithmType]);
 
@@ -128,6 +128,7 @@ function App() {
         pathfindingVisualization.loadSteps(steps);
       }
     }
+    // pathfindingAlgorithms, createEmptyGrid are static; pathfindingVisualization.loadSteps is stable
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     selectedPathfindingAlgorithm,
@@ -312,7 +313,11 @@ function App() {
             {!isPythonPanelOpen && (
               <FloatingActionButton
                 onClick={() => setIsPythonPanelOpen(true)}
-                disabled={!selectedAlgorithm}
+                disabled={
+                  algorithmType === ALGORITHM_TYPES.SORTING
+                    ? !selectedAlgorithm
+                    : !selectedPathfindingAlgorithm
+                }
               />
             )}
           </motion.div>
