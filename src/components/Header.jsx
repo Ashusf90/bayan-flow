@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import ThemeToggle from './ThemeToggle';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -14,6 +15,7 @@ import { GitBranch } from 'lucide-react';
 
 function Header() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [repoData, setRepoData] = useState(null);
   const [loading, setLoading] = useState(true);
   const repoOwner = 'ayoub3bidi';
@@ -64,6 +66,10 @@ function Header() {
     );
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 w-full"
@@ -82,9 +88,20 @@ function Header() {
         >
           <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
             <motion.div
-              className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5"
+              className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 cursor-pointer"
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 300 }}
+              onClick={handleLogoClick}
+              role="button"
+              aria-label="Navigate to landing page"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleLogoClick();
+                }
+              }}
             >
               <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-linear-to-br from-blue-500 to-blue-600 rounded-lg shadow-md">
                 <svg
@@ -161,7 +178,8 @@ function Header() {
             {loading ? (
               <div className="h-8 w-12 sm:h-9 sm:w-16 md:w-[170px] bg-interactive-bg backdrop-blur-md rounded-md animate-pulse" />
             ) : (
-              repoData && (
+              repoData &&
+              repoData.stars >= 1000 && (
                 <>
                   {/* Full GitHub button - Desktop only */}
                   <motion.button

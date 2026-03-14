@@ -3,8 +3,8 @@
 ## Quick Start
 
 ### Prerequisites
-- Node.js v18+
-- pnpm v8+
+- Node.js v24.11.1+
+- pnpm v8.15.9+
 
 ### Setup
 ```bash
@@ -268,10 +268,11 @@ description: getAlgorithmDescription(
 src/
 ├── pages/              # Route-level components
 ├── components/
-│   ├── landing/        # Landing page specific
-│   ├── roadmap/        # Roadmap page specific
+│   ├── landing/       # Landing page specific
+│   ├── roadmap/       # Roadmap page specific
 │   ├── ui/            # Reusable primitives
 │   └── [feature].jsx  # Feature components
+├── config/            # useAlgorithmConfig, useSettingsConfig
 ├── contexts/          # React contexts
 ├── hooks/             # Custom hooks
 ├── algorithms/        # Algorithm implementations
@@ -280,7 +281,23 @@ src/
 └── constants/         # App constants
 ```
 
-### 9. Testing Approach
+### 9. Config Hooks Pattern
+
+Algorithm and settings configuration is centralized in `src/config/`:
+
+```javascript
+// algorithmConfig.js - useAlgorithmConfig()
+// Returns: sortingAlgorithms, pathfindingAlgorithms, sortingGroups, pathfindingGroups
+// Uses useTranslation for i18n-aware labels
+
+// settingsConfig.js - useSettingsConfig()
+// Returns: gridSizeOptions, speedOptions
+// Uses GRID_SIZES, ANIMATION_SPEEDS from constants
+```
+
+`SettingsPanel` uses these hooks; `AlgorithmDropdown` receives algorithms and groups as props.
+
+### 10. Testing Approach
 
 **Test Pure Functions:**
 ```javascript
@@ -311,12 +328,17 @@ describe('ThemeToggle', () => {
   it('should call onToggle when clicked', () => {
     const onToggle = vi.fn();
     render(<ThemeToggle theme="light" onToggle={onToggle} />);
-    
+
     fireEvent.click(screen.getByRole('switch'));
     expect(onToggle).toHaveBeenCalled();
   });
 });
 ```
+
+**Test Setup (`src/test/setup.js`):**
+- Mocks: constants, tone, soundManager, gridHelpers (global)
+- Use `vi.unmock('../constants')` in constants tests to test the real module
+- `renderWithI18n` from `testUtils.jsx` wraps components with I18nextProvider
 
 ## Adding New Features
 
@@ -386,16 +408,17 @@ export const pureSortingAlgorithms = {
 
 **Step 3: Add to UI**
 
-In `src/components/SettingsPanel.jsx`:
+In `src/config/algorithmConfig.js` (useAlgorithmConfig hook):
 ```javascript
 const sortingAlgorithms = [
   // ... existing
-  { 
-    value: 'insertionSort', 
+  {
+    value: 'insertionSort',
     label: t('algorithms.sorting.insertionSort'),
-    complexity: t('complexity.insertionSort')
+    complexity: t('complexity.insertionSort'),
   },
 ];
+// Also add to sortingGroups under the appropriate group
 ```
 
 **Step 4: Add Complexity Metadata**
@@ -487,15 +510,48 @@ describe('Insertion Sort', () => {
 });
 ```
 
-**Step 8: Test & Verify**
+**Step 8: Add Algorithm Step Constants**
+
+In `src/utils/algorithmTranslations.js`:
+```javascript
+export const ALGORITHM_STEPS = {
+  // Existing steps...
+  
+  // Add your algorithm-specific steps
+  YOUR_ALGORITHM_STEP: 'yourAlgorithmStep',
+  YOUR_OTHER_STEP: 'yourOtherStep',
+};
+```
+
+Add translations in all language files:
+```json
+{
+  "algorithmSteps": {
+    "yourAlgorithmStep": "Your step description with {{variables}}",
+    "yourOtherStep": "Another step description"
+  }
+}
+```
+
+**Step 9: Test & Verify**
 ```bash
 pnpm test:run
 pnpm dev
 ```
 
+**Example: Recently Added Algorithms**
+
+The following algorithms were recently added using this pattern:
+- **Counting Sort**: Non-comparison, O(n+k) time complexity
+- **Bucket Sort**: Distribution-based, optimal for uniform data
+- **Cycle Sort**: Write-optimal, minimizes memory writes
+- **Comb Sort**: Gap-based improvement over Bubble Sort
+- **Tim Sort**: Hybrid algorithm (Python/Java default)
+- **Bogo Sort**: Educational algorithm with shuffle limit
+
 ### Adding a New Pathfinding Algorithm
 
-Follow similar steps but use `src/algorithms/pathfinding/` directory and:
+Follow similar steps but use `src/algorithms/pathfinding/` directory. Add to `useAlgorithmConfig` in `src/config/algorithmConfig.js` (pathfindingAlgorithms and pathfindingGroups). Also:
 - Use 2D grid state instead of 1D array
 - Implement grid-based visualization
 - Add to `PATHFINDING_COMPLEXITY` in constants
@@ -840,14 +896,15 @@ playNewSound() {
 
 - [ ] Run `pnpm lint:fix`
 - [ ] Run `pnpm format`
-- [ ] Run `pnpm test:run`
+- [ ] Run `pnpm test:run` (ensure 922+ tests pass)
 - [ ] Check console for warnings/errors
 - [ ] Test in light and dark mode
-- [ ] Test in all supported languages
+- [ ] Test in all supported languages (EN/FR/AR)
 - [ ] Test on mobile (responsive design)
 - [ ] Verify accessibility (keyboard navigation, ARIA labels)
 - [ ] Check performance (no janky animations)
 - [ ] Update relevant documentation
+- [ ] For new algorithms: Verify step translations work correctly
 
 ### Code Review Checklist
 
@@ -860,8 +917,11 @@ playNewSound() {
 - [ ] Theme-aware styling
 - [ ] Internationalization support
 - [ ] Performance optimizations (memo, callback)
-- [ ] Tests for new features
+- [ ] Tests for new features (aim for 100% coverage)
 - [ ] Documentation updated
+- [ ] Algorithm step constants added for new algorithms
+- [ ] Python implementations included
+- [ ] Sound integration considered
 
 ## Conclusion
 

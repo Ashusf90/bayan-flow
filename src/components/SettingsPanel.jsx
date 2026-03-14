@@ -5,25 +5,18 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ChevronDown,
-  Check,
-  Play,
-  Hand,
-  Grid3x3,
-  BarChart3,
-  Volume2,
-  VolumeX,
-} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Play, Hand, Grid3x3, BarChart3, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import {
   ANIMATION_SPEEDS,
   VISUALIZATION_MODES,
   ALGORITHM_TYPES,
-  GRID_SIZES,
 } from '../constants';
 import { soundManager } from '../utils/soundManager';
+import { useAlgorithmConfig } from '../config/algorithmConfig';
+import { useSettingsConfig } from '../config/settingsConfig';
+import AlgorithmDropdown from './AlgorithmDropdown';
 
 function SettingsPanel({
   algorithmType,
@@ -45,61 +38,25 @@ function SettingsPanel({
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   const dropdownRef = useRef(null);
 
-  const sortingAlgorithms = [
-    {
-      value: 'bubbleSort',
-      label: t('algorithms.sorting.bubbleSort'),
-      complexity: t('complexity.bubbleSort'),
-    },
-    {
-      value: 'quickSort',
-      label: t('algorithms.sorting.quickSort'),
-      complexity: t('complexity.quickSort'),
-    },
-    {
-      value: 'mergeSort',
-      label: t('algorithms.sorting.mergeSort'),
-      complexity: t('complexity.mergeSort'),
-    },
-  ];
-
-  const pathfindingAlgorithms = [
-    {
-      value: 'bfs',
-      label: t('algorithms.pathfinding.bfs'),
-      complexity: t('complexity.bfs'),
-    },
-    {
-      value: 'dijkstra',
-      label: t('algorithms.pathfinding.dijkstra'),
-      complexity: t('complexity.dijkstra'),
-    },
-    {
-      value: 'aStar',
-      label: t('algorithms.pathfinding.aStar'),
-      complexity: t('complexity.aStar'),
-    },
-  ];
+  // Use configuration hooks
+  const {
+    sortingAlgorithms,
+    pathfindingAlgorithms,
+    sortingGroups,
+    pathfindingGroups,
+  } = useAlgorithmConfig();
+  const { gridSizeOptions, speedOptions } = useSettingsConfig();
 
   const algorithms =
     algorithmType === ALGORITHM_TYPES.SORTING
       ? sortingAlgorithms
       : pathfindingAlgorithms;
 
-  const gridSizeOptions = [
-    { value: GRID_SIZES.SMALL, label: t('gridSizes.small') },
-    { value: GRID_SIZES.MEDIUM, label: t('gridSizes.medium') },
-    { value: GRID_SIZES.LARGE, label: t('gridSizes.large') },
-  ];
+  const algorithmGroups =
+    algorithmType === ALGORITHM_TYPES.SORTING
+      ? sortingGroups
+      : pathfindingGroups;
 
-  const speedOptions = [
-    { value: ANIMATION_SPEEDS.SLOW, label: t('speeds.slow') },
-    { value: ANIMATION_SPEEDS.MEDIUM, label: t('speeds.medium') },
-    { value: ANIMATION_SPEEDS.FAST, label: t('speeds.fast') },
-    { value: ANIMATION_SPEEDS.VERY_FAST, label: t('speeds.veryFast') },
-  ];
-
-  const selectedAlgo = algorithms.find(a => a.value === selectedAlgorithm);
   const currentSpeedIndex = Math.max(
     0,
     speedOptions.findIndex(s => s.value === speed)
@@ -115,11 +72,6 @@ function SettingsPanel({
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  const handleAlgorithmSelect = value => {
-    onAlgorithmChange(value);
-    setIsDropdownOpen(false);
-  };
 
   const handleSoundToggle = async () => {
     if (isSoundEnabled) {
@@ -175,79 +127,20 @@ function SettingsPanel({
         </div>
       </div>
 
-      <div className="relative" ref={dropdownRef}>
+      <div>
         <label className="block text-sm font-semibold text-text-primary mb-2 leading-tight-consistent">
           {t('settings.algorithm')}
         </label>
-        <button
-          onClick={() => !isPlaying && setIsDropdownOpen(!isDropdownOpen)}
-          disabled={isPlaying}
-          className="w-full px-4 py-3 min-h-[44px] bg-surface-elevated border-2 border-[var(--color-border-strong)] rounded-lg text-left flex items-center justify-between transition-all duration-200 hover:border-[#3b82f6] dark:hover:border-[#60a5fa] focus:outline-none focus:ring-2 focus:ring-[#3b82f6] dark:focus:ring-[#60a5fa] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-[var(--color-border-strong)] touch-manipulation leading-consistent"
-        >
-          <div className="flex flex-col">
-            <span className="text-text-primary font-medium">
-              {selectedAlgo?.label || t('settings.selectAlgorithm')}
-            </span>
-            <span className="text-xs text-text-secondary mt-0.5">
-              {selectedAlgo?.complexity || ''}
-            </span>
-          </div>
-          <motion.div
-            animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <ChevronDown
-              size={20}
-              className={`${isDropdownOpen ? 'text-[#3b82f6]' : 'text-text-tertiary'}`}
-            />
-          </motion.div>
-        </button>
-        <AnimatePresence>
-          {isDropdownOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute z-10 w-full mt-2 bg-surface-elevated border-2 border-[var(--color-border-strong)] rounded-lg shadow-xl overflow-hidden"
-            >
-              {algorithms.map((algo, index) => (
-                <motion.button
-                  key={algo.value}
-                  onClick={() => handleAlgorithmSelect(algo.value)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className={`w-full px-4 py-3 text-left flex items-center justify-between transition-colors duration-150 hover:bg-surface-elevated ${
-                    selectedAlgorithm === algo.value
-                      ? 'bg-theme-primary-light text-theme-primary'
-                      : 'text-text-primary'
-                  }`}
-                >
-                  <div className="flex flex-col">
-                    <span className="font-medium">{algo.label}</span>
-                    <span className="text-xs text-text-secondary mt-0.5">
-                      {t('settings.time')}: {algo.complexity}
-                    </span>
-                  </div>
-                  {selectedAlgorithm === algo.value && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 500,
-                        damping: 25,
-                      }}
-                    >
-                      <Check size={18} className="text-[#3b82f6]" />
-                    </motion.div>
-                  )}
-                </motion.button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <AlgorithmDropdown
+          algorithms={algorithms}
+          algorithmGroups={algorithmGroups}
+          selectedAlgorithm={selectedAlgorithm}
+          onAlgorithmSelect={onAlgorithmChange}
+          isDropdownOpen={isDropdownOpen}
+          setIsDropdownOpen={setIsDropdownOpen}
+          isPlaying={isPlaying}
+          dropdownRef={dropdownRef}
+        />
       </div>
 
       <div>
@@ -322,9 +215,14 @@ function SettingsPanel({
 
       {/* Sound Toggle */}
       <div>
-        <label className="block text-sm font-semibold text-text-primary mb-2">
-          {t('settings.sound')}
-        </label>
+        <div className="flex items-center gap-2 mb-2">
+          <label className="block text-sm font-semibold text-text-primary">
+            {t('settings.sound')}
+          </label>
+          <span className="px-2.5 py-1 bg-amber-500/10 text-amber-500 text-xs font-semibold rounded-full border border-amber-500/20 whitespace-nowrap shadow-sm">
+            Experimental
+          </span>
+        </div>
         <button
           onClick={handleSoundToggle}
           className={`flex items-center justify-center gap-2 w-full px-4 py-3 min-h-[44px] text-sm font-medium rounded-lg transition-all duration-200 touch-manipulation ${

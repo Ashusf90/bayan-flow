@@ -78,23 +78,25 @@ describe('Button', () => {
       renderButton({ variant: 'cta' });
       const button = screen.getByRole('button');
       expect(button).toBeInTheDocument();
-      // CTA has a span with the animation class
-      const animatedSpan = button.querySelector('span[class*="animate"]');
-      expect(animatedSpan).toBeInTheDocument();
+      // CTA has multiple span elements for styling
+      const spans = button.querySelectorAll('span');
+      expect(spans.length).toBeGreaterThan(0);
     });
 
-    it('should have spinning border animation', () => {
+    it('should have proper styling structure', () => {
       renderButton({ variant: 'cta' });
       const button = screen.getByRole('button');
-      const animatedSpan = button.querySelector('span');
-      expect(animatedSpan?.className).toContain('animate');
+      const firstSpan = button.querySelector('span');
+      expect(firstSpan).toBeInTheDocument();
+      expect(firstSpan?.className).toContain('bg-theme-primary');
     });
 
-    it('should render with dark background', () => {
+    it('should render with proper structure', () => {
       renderButton({ variant: 'cta' });
       const button = screen.getByRole('button');
-      const textSpan = button.querySelector('span[class*="bg-slate"]');
-      expect(textSpan).toBeInTheDocument();
+      // Check for the content span with relative positioning
+      const contentSpan = button.querySelector('span[class*="relative"]');
+      expect(contentSpan).toBeInTheDocument();
     });
   });
 

@@ -5,6 +5,10 @@
  */
 
 import { GRID_ELEMENT_STATES } from '../../constants';
+import {
+  getAlgorithmDescription,
+  ALGORITHM_STEPS,
+} from '../../utils/algorithmTranslations';
 
 /**
  * Dijkstra's Pathfinding Algorithm
@@ -67,7 +71,7 @@ export function dijkstra(grid, start, end, rows, cols) {
   steps.push({
     grid: grid.map(row => [...row]),
     states: states.map(row => [...row]),
-    description: "Starting Dijkstra's algorithm",
+    description: 'algorithms.descriptions.dijkstra',
   });
 
   distances[start.row][start.col] = 0;
@@ -103,7 +107,11 @@ export function dijkstra(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Exploring cell (${current.row}, ${current.col}) with distance ${current.dist.toFixed(1)}`,
+      description: getAlgorithmDescription(ALGORITHM_STEPS.DIJKSTRA_EXPLORING, {
+        row: current.row,
+        col: current.col,
+        dist: current.dist.toFixed(1),
+      }),
     });
 
     if (current.row === end.row && current.col === end.col) {
@@ -117,6 +125,10 @@ export function dijkstra(grid, start, end, rows, cols) {
 
       if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols) {
         continue;
+      }
+
+      if (grid[newRow][newCol] === 1) {
+        continue; // Skip walls
       }
 
       if (visited[newRow][newCol]) {
@@ -158,13 +170,19 @@ export function dijkstra(grid, start, end, rows, cols) {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: `Path found! Length: ${path.length} cells, Total distance: ${distances[end.row][end.col]}`,
+      description: getAlgorithmDescription(
+        ALGORITHM_STEPS.PATH_FOUND_WITH_COST,
+        {
+          length: path.length,
+          cost: distances[end.row][end.col],
+        }
+      ),
     });
   } else {
     steps.push({
       grid: grid.map(row => [...row]),
       states: states.map(row => [...row]),
-      description: 'No path found',
+      description: getAlgorithmDescription(ALGORITHM_STEPS.NO_PATH),
     });
   }
 

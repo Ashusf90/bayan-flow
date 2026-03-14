@@ -4,6 +4,7 @@
  * See LICENSE for details.
  */
 
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { STATE_COLORS } from '../constants';
 
@@ -14,11 +15,10 @@ import { STATE_COLORS } from '../constants';
  *
  * @param {number} value - The numeric value of the bar
  * @param {string} state - The current state of the bar (comparing, swapping, etc.)
- * @param {number} maxValue - Maximum value in the array for height calculation
  * @param {number} index - Index of the bar in the array
  * @param {number} arrayLength - Total length of array (for label sizing)
  */
-function ArrayBar({ value, state, index, arrayLength }) {
+const ArrayBar = memo(function ArrayBar({ value, state, index, arrayLength }) {
   const color = STATE_COLORS[state];
 
   // Animation variants for swap effect
@@ -87,6 +87,6 @@ function ArrayBar({ value, state, index, arrayLength }) {
       </motion.div>
     </motion.div>
   );
-}
+});
 
 export default ArrayBar;

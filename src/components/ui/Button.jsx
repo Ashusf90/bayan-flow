@@ -32,22 +32,31 @@ function Button({
 
   const MotionComponent = motion.button;
 
-  // Render CTA variant with animated border
+  // Render CTA variant with modern professional design
   if (variant === 'cta') {
     const content = (
       <MotionComponent
-        className="relative inline-flex h-12 active:scale-95 transition-transform overflow-hidden rounded-lg p-px focus:outline-none focus:ring-2 focus:ring-theme-primary focus:ring-offset-2"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className="relative inline-flex h-12 active:scale-[0.98] transition-all duration-200 overflow-hidden rounded-xl focus:outline-none focus:ring-2 focus:ring-theme-primary/50 focus:ring-offset-2 focus:ring-offset-transparent group"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         onClick={onClick}
         {...props}
       >
-        {/* Spinning gradient border */}
-        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#2b7fff_0%,#0ea5e9_50%,#2b7fff_100%)]" />
+        {/* Light mode: solid background | Dark mode: premium gradient */}
+        <span className="absolute inset-0 bg-theme-primary shadow-lg group-hover:shadow-xl transition-shadow duration-200 dark:bg-gradient-to-br dark:from-blue-400 dark:via-blue-500 dark:to-blue-600 dark:shadow-blue-500/25 dark:group-hover:shadow-blue-500/40" />
+
+        {/* Border for clear button definition */}
+        <span className="absolute inset-0 rounded-xl border-2 border-white/20 dark:border-white/30" />
+
+        {/* Subtle inner glow - only on actual hover */}
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl dark:from-white/15 dark:via-white/20 dark:to-transparent" />
+
+        {/* Shimmer effect - only on actual hover */}
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out rounded-xl dark:via-white/30" />
 
         {/* Button content */}
-        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 dark:bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-2">
+        <span className="relative inline-flex h-full w-full cursor-pointer items-center justify-center px-7 text-sm font-semibold text-white gap-2 antialiased">
           {children}
         </span>
       </MotionComponent>

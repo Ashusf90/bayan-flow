@@ -64,9 +64,7 @@ export function bfs(grid, start, end, rows, cols) {
   steps.push({
     grid: grid.map(row => [...row]),
     states: states.map(row => [...row]),
-    description: getAlgorithmDescription(ALGORITHM_STEPS.STARTING, {
-      algorithm: 'BFS',
-    }),
+    description: 'algorithms.descriptions.bfs',
   });
 
   const queue = [start];
@@ -111,6 +109,10 @@ export function bfs(grid, start, end, rows, cols) {
 
       if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols) {
         continue;
+      }
+
+      if (grid[newRow][newCol] === 1) {
+        continue; // Skip walls
       }
 
       if (visited[newRow][newCol]) {

@@ -94,17 +94,10 @@ export function usePathfindingVisualization(
     clearAutoplayTimeout();
   }, [gridSize, clearAutoplayTimeout]);
 
-  // Initialize on mount
+  // Initialize on mount and regenerate when grid size changes
   useEffect(() => {
     generateNewGrid();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Regenerate grid when size changes
-  useEffect(() => {
-    generateNewGrid();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gridSize]);
+  }, [generateNewGrid]);
 
   const loadSteps = useCallback(
     algorithmSteps => {
@@ -126,8 +119,8 @@ export function usePathfindingVisualization(
     [clearAutoplayTimeout]
   );
 
-  const computeEffectiveDelay = baseDelay => {
-    // Use the user's selected speed directly without modification
+  const computeEffectiveDelay = (baseDelay, _gridSize, _totalSteps) => {
+    // Use the user's selected speed directly; gridSize and totalSteps reserved for future use
     // The speed constants are already well-calibrated:
     // SLOW: 8000ms, MEDIUM: 4800ms, FAST: 2400ms, VERY_FAST: 1200ms
     return baseDelay;

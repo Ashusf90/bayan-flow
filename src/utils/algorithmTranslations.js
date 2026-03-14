@@ -28,6 +28,7 @@ export const ALGORITHM_STEPS = {
 
   // Bubble Sort
   BUBBLE_PASS_COMPLETE: 'bubblePassComplete',
+  BUBBLE_EARLY_TERMINATION: 'bubbleEarlyTermination',
 
   // Quick Sort
   PIVOT_SELECTED: 'pivotSelected',
@@ -40,9 +41,98 @@ export const ALGORITHM_STEPS = {
   PLACED_REMAINING: 'placedRemaining',
   MERGED_SECTION: 'mergedSection',
 
+  // Selection Sort
+  SELECTION_FINDING_MIN: 'selectionFindingMin',
+  SELECTION_NEW_MIN: 'selectionNewMin',
+  SELECTION_PLACED: 'selectionPlaced',
+
+  // Insertion Sort
+  INSERTION_KEY: 'insertionKey',
+  INSERTION_SHIFT: 'insertionShift',
+  INSERTION_PLACED: 'insertionPlaced',
+  INSERTION_PASS_COMPLETE: 'insertionPassComplete',
+
+  // Heap Sort
+  HEAP_HEAPIFY: 'heapHeapify',
+  HEAP_EXTRACT_MAX: 'heapExtractMax',
+  HEAP_PLACED: 'heapPlaced',
+
+  // Shell Sort
+  SHELL_GAP: 'shellGap',
+  SHELL_SELECTING: 'shellSelecting',
+  SHELL_COMPARING: 'shellComparing',
+  SHELL_SHIFTING: 'shellShifting',
+  SHELL_PLACED: 'shellPlaced',
+  SHELL_GAP_COMPLETE: 'shellGapComplete',
+
+  // Comb Sort
+  COMB_GAP: 'combGap',
+  COMB_GAP_COMPLETE: 'combGapComplete',
+
+  // Tim Sort
+  TIM_RUN_DETECTED: 'timRunDetected',
+  TIM_RUN_SORTED: 'timRunSorted',
+  TIM_MERGING_RUNS: 'timMergingRuns',
+
   // Pathfinding
   EXPLORING: 'exploring',
+  EXPLORING_FORWARD: 'exploringForward',
+  EXPLORING_BACKWARD: 'exploringBackward',
   ADDED_TO_QUEUE: 'addedToQueue',
+  BIDIRECTIONAL_PROGRESS: 'bidirectionalProgress',
+  BIDIRECTIONAL_MEETING: 'bidirectionalMeeting',
   PATH_FOUND: 'pathFound',
+  PATH_FOUND_WITH_COST: 'pathFoundWithCost',
   NO_PATH: 'noPath',
+  GREEDY_EXPLORING: 'greedyExploring',
+  DIJKSTRA_EXPLORING: 'dijkstraExploring',
+  A_STAR_EXPLORING: 'aStarExploring',
+  JPS_JUMP_POINT_FOUND: 'jpsJumpPointFound',
+  JPS_JUMP_POINT_AT: 'jpsJumpPointAt',
+  JPS_JUMPING: 'jpsJumping',
+  JPS_JUMP_POINTS_DISCOVERED: 'jpsJumpPointsDiscovered',
+
+  // Radix Sort
+  RADIX_BUCKET_PUSH: 'radixBucketPush',
+  RADIX_COLLECT: 'radixCollect',
+  RADIX_PASS_COMPLETE: 'radixPassComplete',
+
+  // Counting Sort
+  COUNTING_FIND_MAX: 'countingFindMax',
+  COUNTING_COUNT: 'countingCount',
+  COUNTING_COUNT_COMPLETE: 'countingCountComplete',
+  COUNTING_CUMULATIVE_COMPLETE: 'countingCumulativeComplete',
+  COUNTING_PLACE: 'countingPlace',
+
+  // Bucket Sort
+  BUCKET_DISTRIBUTING: 'bucketDistributing',
+  BUCKET_PLACED: 'bucketPlaced',
+  BUCKET_DISTRIBUTION_COMPLETE: 'bucketDistributionComplete',
+  BUCKET_SORTED: 'bucketSorted',
+  BUCKET_MERGING: 'bucketMerging',
+
+  // Cycle Sort
+  CYCLE_START: 'cycleStart',
+  CYCLE_SKIP: 'cycleSkip',
+  CYCLE_PLACE: 'cyclePlace',
+
+  // Bellman-Ford
+  BELLMAN_ITERATION: 'bellmanIteration',
+  BELLMAN_RELAXATION: 'bellmanRelaxation',
+  BELLMAN_NO_UPDATES: 'bellmanNoUpdates',
+
+  // IDA*
+  IDA_NEW_THRESHOLD: 'idaNewThreshold',
+  IDA_VISITING: 'idaVisiting',
+  IDA_BACKTRACKING: 'idaBacktracking',
+
+  // D* Lite
+  D_STAR_LITE_EXPANSION: 'dStarLiteExpansion',
+  D_STAR_LITE_INCONSISTENT: 'dStarLiteInconsistent',
+
+  // Bogo Sort
+  BOGO_CHECKING: 'bogoChecking',
+  BOGO_SHUFFLING: 'bogoShuffling',
+  BOGO_SUCCESS: 'bogoSuccess',
+  BOGO_FAILED: 'bogoFailed',
 };

@@ -17,12 +17,16 @@ import LandingPage from './pages/LandingPage.jsx';
 import VisualizerApp from './pages/VisualizerApp.jsx';
 import Roadmap from './pages/Roadmap.jsx';
 
+// Components
+import DocumentTitle from './components/DocumentTitle.jsx';
+
 initRTL(i18n);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <BrowserRouter>
+        <DocumentTitle />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/app" element={<VisualizerApp />} />

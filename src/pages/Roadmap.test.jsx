@@ -31,14 +31,7 @@ vi.mock('../components/ThemeToggle', () => ({
 }));
 
 vi.mock('../components/LanguageSwitcher', () => ({
-  default: ({ excludeLanguages }) => (
-    <div
-      data-testid="language-switcher"
-      data-exclude={JSON.stringify(excludeLanguages)}
-    >
-      LanguageSwitcher
-    </div>
-  ),
+  default: () => <div data-testid="language-switcher">LanguageSwitcher</div>,
 }));
 
 const renderComponent = () => {
@@ -73,10 +66,8 @@ describe('Roadmap', () => {
       renderComponent();
       const languageSwitcher = screen.getByTestId('language-switcher');
       expect(languageSwitcher).toBeInTheDocument();
-      expect(languageSwitcher).toHaveAttribute(
-        'data-exclude',
-        JSON.stringify(['ar'])
-      );
+      // Arabic is now included, so no exclude attribute should be present
+      expect(languageSwitcher).not.toHaveAttribute('data-exclude');
     });
 
     it('should render back to home link', () => {
@@ -140,7 +131,7 @@ describe('Roadmap', () => {
       expect(backLink).toHaveTextContent(/back to home/i);
     });
 
-    it('should have ArrowLeft icon', () => {
+    it('should have back navigation icon', () => {
       const { container } = renderComponent();
       const svg = container.querySelector('svg');
       expect(svg).toBeInTheDocument();

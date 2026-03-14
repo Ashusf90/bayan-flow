@@ -34,7 +34,7 @@ export const roadmapData = [
     title: 'UX, Accessibility & Localization (0.2.0)',
     description:
       'Added fullscreen mode, localization (English / Français / العربية), and experimental audio cues. Applied minor visual and layout fixes to improve clarity and usability.',
-    videoUrl: '',
+    videoUrl: 'https://www.youtube.com/embed/8t4vh3ovldo',
     status: 'completed',
   },
   {
@@ -42,9 +42,9 @@ export const roadmapData = [
     date: 'Q1 2026',
     title: 'Algorithm Library Expansion (0.3.0)',
     description:
-      'Expand the algorithm set for sorting and pathfinding, improve animation clarity and performance, and add educational notes and tests to strengthen learning value.',
+      'Expand the algorithm set for sorting and pathfinding, improve animation clarity and performance, and add tests to strengthen learning value.',
     videoUrl: '',
-    status: 'in-progress',
+    status: 'completed',
   },
   {
     id: 4,

@@ -23,6 +23,11 @@ vi.mock('./merge_sort.py?raw', () => ({
     'def merge_sort(arr):\n    """Merge Sort Algorithm"""\n    return sorted(arr)',
 }));
 
+vi.mock('./counting_sort.py?raw', () => ({
+  default:
+    'def counting_sort(arr):\n    """Counting Sort Algorithm"""\n    return sorted(arr)',
+}));
+
 vi.mock('./bfs.py?raw', () => ({
   default:
     'def bfs(grid, start, end):\n    """Breadth-First Search Algorithm"""\n    return []',
@@ -36,6 +41,31 @@ vi.mock('./dijkstra.py?raw', () => ({
 vi.mock('./astar.py?raw', () => ({
   default:
     'def astar(grid, start, end):\n    """A* Search Algorithm"""\n    return []',
+}));
+
+vi.mock('./bidirectional_search.py?raw', () => ({
+  default:
+    'def bidirectional_search(grid, start, end):\n    """Bidirectional Search Algorithm"""\n    return []',
+}));
+
+vi.mock('./greedy_best_first_search.py?raw', () => ({
+  default:
+    'def greedy_best_first_search(grid, start, end):\n    """Greedy Best-First Search Algorithm"""\n    return []',
+}));
+
+vi.mock('./jump_point_search.py?raw', () => ({
+  default:
+    'def jump_point_search(grid, start, end):\n    """Jump Point Search Algorithm"""\n    return []',
+}));
+
+vi.mock('./bellman_ford.py?raw', () => ({
+  default:
+    'def bellman_ford(grid, start, end):\n    """Bellman-Ford Algorithm"""\n    return []',
+}));
+
+vi.mock('./ida_star.py?raw', () => ({
+  default:
+    'def ida_star(grid, start, end):\n    """IDA* Search Algorithm"""\n    return []',
 }));
 
 describe('Python Algorithms Index', () => {
@@ -58,6 +88,12 @@ describe('Python Algorithms Index', () => {
       expect(code).toContain('Merge Sort Algorithm');
     });
 
+    it('returns Python code for Counting Sort', () => {
+      const code = getPythonCode('countingSort');
+      expect(code).toContain('def counting_sort');
+      expect(code).toContain('Counting Sort Algorithm');
+    });
+
     it('returns Python code for BFS', () => {
       const code = getPythonCode('bfs');
       expect(code).toContain('def bfs');
@@ -74,6 +110,36 @@ describe('Python Algorithms Index', () => {
       const code = getPythonCode('aStar');
       expect(code).toContain('def astar');
       expect(code).toContain('A* Search');
+    });
+
+    it('returns Python code for Bidirectional Search', () => {
+      const code = getPythonCode('bidirectionalSearch');
+      expect(code).toContain('def bidirectional_search');
+      expect(code).toContain('Bidirectional Search');
+    });
+
+    it('returns Python code for Greedy Best-First Search', () => {
+      const code = getPythonCode('greedyBestFirstSearch');
+      expect(code).toContain('def greedy_best_first_search');
+      expect(code).toContain('Greedy Best-First Search');
+    });
+
+    it('returns Python code for Jump Point Search', () => {
+      const code = getPythonCode('jumpPointSearch');
+      expect(code).toContain('def jump_point_search');
+      expect(code).toContain('Jump Point Search');
+    });
+
+    it('returns Python code for Bellman-Ford', () => {
+      const code = getPythonCode('bellmanFord');
+      expect(code).toContain('def bellman_ford');
+      expect(code).toContain('Bellman-Ford');
+    });
+
+    it('returns Python code for IDA*', () => {
+      const code = getPythonCode('idaStar');
+      expect(code).toContain('def ida_star');
+      expect(code).toContain('IDA* Search');
     });
 
     it('returns null for unknown algorithm', () => {
@@ -108,6 +174,11 @@ describe('Python Algorithms Index', () => {
       expect(name).toBe('Merge Sort');
     });
 
+    it('returns correct display name for counting sort', () => {
+      const name = getAlgorithmDisplayName('countingSort');
+      expect(name).toBe('Counting Sort');
+    });
+
     it('returns correct display name for BFS', () => {
       const name = getAlgorithmDisplayName('bfs');
       expect(name).toBe('Breadth-First Search (BFS)');
@@ -121,6 +192,31 @@ describe('Python Algorithms Index', () => {
     it('returns correct display name for A*', () => {
       const name = getAlgorithmDisplayName('aStar');
       expect(name).toBe('A* Search');
+    });
+
+    it('returns correct display name for Bidirectional Search', () => {
+      const name = getAlgorithmDisplayName('bidirectionalSearch');
+      expect(name).toBe('Bidirectional Search');
+    });
+
+    it('returns correct display name for Greedy Best-First Search', () => {
+      const name = getAlgorithmDisplayName('greedyBestFirstSearch');
+      expect(name).toBe('Greedy Best-First Search');
+    });
+
+    it('returns correct display name for Jump Point Search', () => {
+      const name = getAlgorithmDisplayName('jumpPointSearch');
+      expect(name).toBe('Jump Point Search');
+    });
+
+    it('returns correct display name for Bellman-Ford', () => {
+      const name = getAlgorithmDisplayName('bellmanFord');
+      expect(name).toBe('Bellman-Ford Algorithm');
+    });
+
+    it('returns correct display name for IDA*', () => {
+      const name = getAlgorithmDisplayName('idaStar');
+      expect(name).toBe('Iterative Deepening A* (IDA*)');
     });
 
     it('returns algorithm name as fallback for unknown algorithm', () => {
@@ -145,9 +241,15 @@ describe('Python Algorithms Index', () => {
         'bubbleSort',
         'quickSort',
         'mergeSort',
+        'countingSort',
         'bfs',
         'dijkstra',
         'aStar',
+        'bidirectionalSearch',
+        'greedyBestFirstSearch',
+        'jumpPointSearch',
+        'bellmanFord',
+        'idaStar',
       ];
 
       supportedAlgorithms.forEach(algorithm => {

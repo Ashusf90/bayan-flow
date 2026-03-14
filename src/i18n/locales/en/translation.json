@@ -1,4 +1,8 @@
 {
+  "common": {
+    "back": "Back",
+    "backToHome": "Back to Home"
+  },
   "header": {
     "title": "Bayan Flow",
     "subtitle": "Clarity in Algorithms",
@@ -33,29 +37,80 @@
     "sorting": {
       "bubbleSort": "Bubble Sort",
       "quickSort": "Quick Sort",
-      "mergeSort": "Merge Sort"
+      "mergeSort": "Merge Sort",
+      "selectionSort": "Selection Sort",
+      "insertionSort": "Insertion Sort",
+      "heapSort": "Heap Sort",
+      "shellSort": "Shell Sort",
+      "radixSort": "Radix Sort",
+      "countingSort": "Counting Sort",
+      "bucketSort": "Bucket Sort",
+      "cycleSort": "Cycle Sort",
+      "combSort": "Comb Sort",
+      "timSort": "Tim Sort",
+      "bogoSort": "Bogo Sort"
     },
     "pathfinding": {
       "bfs": "Breadth-First Search",
       "dijkstra": "Dijkstra's Algorithm",
-      "aStar": "A* Search"
+      "aStar": "A* Search",
+      "bidirectionalSearch": "Bidirectional Search",
+      "greedyBestFirstSearch": "Greedy Best-First Search",
+      "jumpPointSearch": "Jump Point Search",
+      "bellmanFord": "Bellman-Ford",
+      "idaStar": "Iterative Deepening A* (IDA*)",
+      "dStarLite": "D* Lite"
     },
     "descriptions": {
       "bubbleSort": "Starting Bubble Sort",
       "quickSort": "Starting Quick Sort",
       "mergeSort": "Starting Merge Sort",
+      "selectionSort": "Starting Selection Sort",
+      "insertionSort": "Starting Insertion Sort",
+      "heapSort": "Starting Heap Sort",
+      "shellSort": "Starting Shell Sort",
+      "radixSort": "Starting Radix Sort",
+      "countingSort": "Starting Counting Sort",
+      "bucketSort": "Starting Bucket Sort",
+      "cycleSort": "Starting Cycle Sort",
+      "combSort": "Starting Comb Sort",
+      "timSort": "Starting Tim Sort",
+      "bogoSort": "Starting Bogo Sort",
       "bfs": "Starting Breadth-First Search",
       "dijkstra": "Starting Dijkstra's Algorithm",
-      "aStar": "Starting A* Search"
+      "aStar": "Starting A* Search",
+      "bidirectionalSearch": "Starting Bidirectional Search",
+      "greedyBestFirstSearch": "Starting Greedy Best-First Search",
+      "jumpPointSearch": "Starting Jump Point Search",
+      "bellmanFord": "Starting Bellman-Ford algorithm",
+      "idaStar": "IDA* Search",
+      "dStarLite": "Starting D* Lite Search"
     }
   },
   "complexity": {
     "bubbleSort": "O(n²)",
     "quickSort": "O(n log n)",
     "mergeSort": "O(n log n)",
+    "selectionSort": "O(n²)",
+    "insertionSort": "O(n²)",
+    "heapSort": "O(n log n)",
+    "shellSort": "O(n^1.25)",
+    "radixSort": "O(nk)",
+    "countingSort": "O(n + k)",
+    "bucketSort": "O(n + k)",
+    "cycleSort": "O(n²)",
+    "combSort": "O(n²)",
+    "timSort": "O(n log n)",
+    "bogoSort": "O(n × n!)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
-    "aStar": "O(b^d)"
+    "aStar": "O(b^d)",
+    "bidirectionalSearch": "O(b^(d/2))",
+    "greedyBestFirstSearch": "O(b^d)",
+    "jumpPointSearch": "O(E)",
+    "bellmanFord": "O(VE)",
+    "idaStar": "O(b^d)",
+    "dStarLite": "O(log V)"
   },
   "speeds": {
     "slow": "Slow",
@@ -88,7 +143,7 @@
     "noPath": "No path exists"
   },
   "complexity_panel": {
-    "title": "Algorithm Analysis",
+    "title": "Complexity Analysis",
     "timeComplexity": "Time Complexity",
     "spaceComplexity": "Space Complexity",
     "best": "Best",
@@ -97,9 +152,17 @@
     "useCases": "Use Cases",
     "description": "Description",
     "performance": "Performance Graph",
-    "linearScale": "Linear Scale",
-    "logScale": "Log Scale",
-    "close": "Close"
+    "linearScale": "Linear",
+    "logScale": "Log",
+    "toggleScale": "Toggle logarithmic scale",
+    "close": "Close",
+    "axisLabels": "X-axis: Input size • Y-axis: Operations ({{complexity}})",
+    "inputSize": "Input Size (n)",
+    "operations": "Operations ({{scale}})",
+    "linear": "linear",
+    "log": "log",
+    "hoverN": "n",
+    "hoverOps": "ops"
   },
   "swipe_tutorial": {
     "title": "Swipe to Navigate",
@@ -164,6 +227,7 @@
     "comparing": "Comparing {{a}} and {{b}}",
     "swapping": "Swapped {{a}} and {{b}}",
     "bubblePassComplete": "Pass {{pass}} complete. Element at position {{position}} is in correct position.",
+    "bubbleEarlyTermination": "Array is sorted! Early termination after {{pass}} passes (saved {{totalPasses}} total passes).",
     "pivotSelected": "Selected pivot: {{pivot}} at index {{index}}",
     "pivotPlaced": "Pivot {{pivot}} placed at correct position {{position}}",
     "dividing": "Dividing array: [{{start}}...{{mid}}] and [{{midNext}}...{{end}}]",
@@ -172,9 +236,69 @@
     "placedRemaining": "Placed remaining {{value}} at position {{position}}",
     "mergedSection": "Merged section [{{start}}...{{end}}]",
     "exploring": "Exploring cell ({{row}}, {{col}})",
+    "exploringForward": "Forward search exploring cell ({{row}}, {{col}})",
+    "exploringBackward": "Backward search exploring cell ({{row}}, {{col}})",
     "addedToQueue": "Added {{count}} cells to queue",
+    "bidirectionalProgress": "{{direction}} search progress - Forward queue: {{forwardQueue}}, Backward queue: {{backwardQueue}}",
+    "bidirectionalMeeting": "Searches met at ({{row}}, {{col}})! Path length: {{pathLength}} cells",
     "pathFound": "Path found! Length: {{length}} cells",
-    "noPath": "No path found"
+    "pathFoundWithCost": "Path found! Length: {{length}} cells, Cost: {{cost}}",
+    "noPath": "No path found",
+    "dijkstraExploring": "Exploring cell ({{row}}, {{col}}) with distance {{dist}}",
+    "aStarExploring": "Exploring ({{row}}, {{col}}) | g={{g}}, h={{h}}, f={{f}}",
+    "jpsJumpPointAt": "Jump point at ({{row}}, {{col}}) | g={{g}}, h={{h}}, f={{f}}",
+    "greedyExploring": "Exploring ({{row}}, {{col}} | h={{heuristic}})",
+    "jpsJumpPointFound": "Jump point found at ({{row}}, {{col}})",
+    "jpsJumping": "Jumping from ({{row}}, {{col}}) in direction ({{dx}}, {{dy}})",
+    "jpsJumpPointsDiscovered": "Discovered {{count}} jump point(s) in open set",
+    "selectionFindingMin": "Finding minimum in unsorted region starting at position {{position}}",
+    "selectionNewMin": "New minimum found: {{value}} at position {{position}}",
+    "selectionPlaced": "Placed {{value}} at correct position {{position}}",
+    "insertionKey": "Selecting {{value}} at position {{position}} to insert into sorted portion",
+    "insertionShift": "Shifting {{value}} from position {{from}} to {{to}}",
+    "insertionPlaced": "Inserted {{value}} at correct position {{position}}",
+    "insertionPassComplete": "Pass {{pass}} complete. First {{elements}} elements are now sorted.",
+    "heapHeapify": "Heapifying subtree rooted at index {{index}} (value: {{value}})",
+    "heapExtractMax": "Extracting maximum value {{value}} to position {{position}}",
+    "heapPlaced": "Placed {{value}} at sorted position {{position}}",
+    "shellGap": "Using Knuth's gap sequence with gap size: {{gap}} (comparing elements {{gap}} positions apart)",
+    "shellSelecting": "Selecting element {{value}} at position {{position}} for gap-{{gap}} insertion sort",
+    "shellComparing": "Comparing {{a}} (pos {{posA}}) with {{b}} across gap of {{gap}} positions",
+    "shellShifting": "Shifting {{value}} from position {{from}} to {{to}}",
+    "shellPlaced": "Placed {{value}} at its correct position {{position}} for this gap",
+    "shellGapComplete": "Completed gap-{{gap}} pass. Array is now {{gap}}-sorted, moving to smaller gap.",
+    "combGap": "Using gap size: {{gap}} (comparing elements {{gap}} positions apart)",
+    "combGapComplete": "Completed gap-{{gap}} pass. Moving to smaller gap.",
+    "timRunDetected": "Detected run from position {{start}} to {{end}} (size: {{size}})",
+    "timRunSorted": "Run sorted from position {{start}} to {{end}} using insertion sort",
+    "timMergingRuns": "Merging runs: [{{start}}...{{mid}}] and [{{mid}}...{{end}}]",
+    "radixCollect": "Collecting {{val}} from bucket {{bucket}} to position {{position}}",
+    "radixPassComplete": "Pass {{pass}} complete (processed digit position)",
+    "countingFindMax": "Found maximum value: {{max}}. Creating counting array of size {{max}} + 1.",
+    "countingCount": "Counting occurrence of {{value}}. Count array[{{value}}] = {{count}}",
+    "countingCountComplete": "Counting phase complete. Each value's occurrences have been counted.",
+    "countingCumulativeComplete": "Cumulative sum calculated. Count array now contains positions.",
+    "countingPlace": "Placing {{value}} at position {{position}} in output array",
+    "bucketDistributing": "Distributing {{value}} into bucket {{bucket}} of {{bucketCount}}",
+    "bucketPlaced": "Placed {{value}} in bucket {{bucket}}",
+    "bucketDistributionComplete": "Distribution complete: {{totalElements}} elements in {{bucketCount}} buckets",
+    "bucketSorted": "Sorted bucket {{bucket}} ({{size}} elements)",
+    "bucketMerging": "Merging {{value}} from bucket {{bucket}} to position {{position}}",
+    "cycleStart": "Starting cycle with item {{item}} at position {{position}}",
+    "cycleSkip": "Item {{item}} is already in correct position",
+    "cyclePlace": "Placed {{item}} at its correct position {{position}}",
+    "bellmanIteration": "Iteration {{iteration}}: Relaxing edges",
+    "bellmanRelaxation": "Updated distance to ({{x}}, {{y}}): {{dist}}",
+    "bellmanNoUpdates": "No updates in this iteration. Algorithm terminated early.",
+    "idaNewThreshold": "New Threshold: {{threshold}}",
+    "idaVisiting": "Visiting ({{x}}, {{y}}) | Threshold: {{threshold}}",
+    "idaBacktracking": "Backtracking from ({{x}}, {{y}})",
+    "dStarLiteExpansion": "Expanding Node ({{row}}, {{col}})",
+    "dStarLiteInconsistent": "Node ({{row}}, {{col}}) Inconsistent - Re-evaluating",
+    "bogoChecking": "Attempt {{attempt}}: Checking if array is sorted",
+    "bogoShuffling": "Attempt {{attempt}}: Randomly shuffling array",
+    "bogoSuccess": "Success! Array sorted after {{attempts}} shuffle attempts",
+    "bogoFailed": "Failed to sort after {{maxAttempts}} attempts. Bogo Sort is extremely inefficient!"
   },
   "landing": {
     "hero": {
@@ -199,8 +323,8 @@
       "description": "Bayan Flow strips away complexity to reveal the beauty of algorithms. Clean interface, clear explanations, and vivid animations help you see what's really happening."
     },
     "algorithmTypes": {
-      "heading": "Two Powerful Modes",
-      "subheading": "Explore sorting and pathfinding algorithms with interactive visualizations",
+      "heading": "Explore Algorithm Types",
+      "subheading": "Dive into different algorithm categories and see how they work step by step",
       "available": "Available Algorithms:",
       "sorting": {
         "title": "Sorting Algorithms",
@@ -210,7 +334,7 @@
       "pathfinding": {
         "title": "Pathfinding Algorithms",
         "description": "See how pathfinding algorithms navigate through grids to find the shortest path between two points.",
-        "algorithms": "BFS, Dijkstra, A* Search"
+        "algorithms": "BFS, Dijkstra, A* Search, Bidirectional Search, Greedy Best-First Search, Jump Point Search, Bellman-Ford, IDA*, D* Lite"
       }
     },
     "features": {
@@ -245,6 +369,16 @@
       "startVisualizing": "Start Visualizing",
       "seeRoadmap": "See the Roadmap"
     }
+  },
+  "algorithmGroups": {
+    "comparisonBased": "Comparison-Based",
+    "nonComparison": "Non-Comparison",
+    "writeOptimal": "Write-Optimal",
+    "educational": "Educational",
+    "unweighted": "Unweighted",
+    "weightedOptimal": "Weighted Optimal",
+    "heuristicBased": "Heuristic-Based",
+    "specialCases": "Special Cases"
   },
   "roadmap": {
     "hero": {

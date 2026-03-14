@@ -1,4 +1,8 @@
 {
+  "common": {
+    "back": "عودة",
+    "backToHome": "عودة إلى الرئيسية"
+  },
   "header": {
     "title": "بيان Flow",
     "subtitle": "الوضوح في الخوارزميات",
@@ -33,20 +37,53 @@
     "sorting": {
       "bubbleSort": "الترتيب الفقاعي",
       "quickSort": "الترتيب السريع",
-      "mergeSort": "ترتيب الدمج"
+      "mergeSort": "ترتيب الدمج",
+      "selectionSort": "الترتيب بالاختيار",
+      "insertionSort": "الترتيب بالإدراج",
+      "heapSort": "ترتيب الكومة",
+      "shellSort": "ترتيب شيل",
+      "radixSort": "ترتيب التجذير",
+      "countingSort": "الترتيب بالعد",
+      "bucketSort": "الترتيب بالدلاء",
+      "cycleSort": "الترتيب الدوري",
+      "combSort": "الترتيب المشطي",
+      "timSort": "ترتيب تيم",
+      "bogoSort": "ترتيب بوغو"
     },
     "pathfinding": {
       "bfs": "البحث بالعرض أولاً",
       "dijkstra": "خوارزمية ديكسترا",
-      "aStar": "خوارزمية A*"
+      "aStar": "خوارزمية A*",
+      "bidirectionalSearch": "البحث ثنائي الاتجاه",
+      "greedyBestFirstSearch": "البحث الجشع الأفضل أولاً",
+      "jumpPointSearch": "البحث بنقاط القفز",
+      "bellmanFord": "خوارزمية بيلمان-فورد",
+      "idaStar": "البحث بالتعميق التكراري A*",
+      "dStarLite": "D* Lite"
     },
     "descriptions": {
       "bubbleSort": "بدء الترتيب الفقاعي",
       "quickSort": "بدء الترتيب السريع",
       "mergeSort": "بدء ترتيب الدمج",
+      "selectionSort": "بدء الترتيب بالاختيار",
+      "insertionSort": "بدء الترتيب بالإدراج",
+      "heapSort": "بدء ترتيب الكومة",
+      "shellSort": "بدء ترتيب شيل",
+      "radixSort": "بدء ترتيب التجذير",
+      "countingSort": "بدء الترتيب بالعد",
+      "bucketSort": "بدء الترتيب بالدلاء",
+      "cycleSort": "بدء الترتيب الدوري",
+      "combSort": "بدء الترتيب المشطي",
+      "timSort": "بدء ترتيب تيم",
+      "bogoSort": "بدء ترتيب بوغو",
       "bfs": "بدء البحث بالعرض أولاً",
       "dijkstra": "بدء خوارزمية ديكسترا",
-      "aStar": "بدء خوارزمية A*"
+      "aStar": "بدء خوارزمية A*",
+      "bidirectionalSearch": "بدء البحث ثنائي الاتجاه",
+      "greedyBestFirstSearch": "بدء البحث الجشع الأفضل أولاً",
+      "jumpPointSearch": "بدء البحث بنقاط القفز",
+      "bellmanFord": "بدء خوارزمية بيلمان-فورد",
+      "dStarLite": "بدء خوارزمية D* Lite"
     }
   },
   "complexity": {
@@ -55,7 +92,24 @@
     "mergeSort": "O(n log n)",
     "bfs": "O(V + E)",
     "dijkstra": "O((V+E) log V)",
-    "aStar": "O(b^d)"
+    "aStar": "O(b^d)",
+    "bidirectionalSearch": "O(b^(d/2))",
+    "greedyBestFirstSearch": "O(b^d)",
+    "jumpPointSearch": "O(E)",
+    "bellmanFord": "O(VE)",
+    "idaStar": "O(b^d)",
+    "selectionSort": "O(n²)",
+    "insertionSort": "O(n²)",
+    "heapSort": "O(n log n)",
+    "shellSort": "O(n^1.25)",
+    "radixSort": "O(nk)",
+    "countingSort": "O(n + k)",
+    "bucketSort": "O(n + k)",
+    "cycleSort": "O(n²)",
+    "combSort": "O(n²)",
+    "timSort": "O(n log n)",
+    "bogoSort": "O(n × n!)",
+    "dStarLite": "O(log V)"
   },
   "speeds": {
     "slow": "بطيء",
@@ -88,7 +142,7 @@
     "noPath": "لا يوجد مسار"
   },
   "complexity_panel": {
-    "title": "تحليل الخوارزمية",
+    "title": "تحليل التعقيد",
     "timeComplexity": "التعقيد الزمني",
     "spaceComplexity": "التعقيد المكاني",
     "best": "الأفضل",
@@ -97,9 +151,17 @@
     "useCases": "حالات الاستخدام",
     "description": "الوصف",
     "performance": "رسم بياني للأداء",
-    "linearScale": "مقياس خطي",
-    "logScale": "مقياس لوغاريتمي",
-    "close": "إغلاق"
+    "linearScale": "خطي",
+    "logScale": "لوغاريتمي",
+    "toggleScale": "تبديل المقياس اللوغاريتمي",
+    "close": "إغلاق",
+    "axisLabels": "المحور السيني: حجم الإدخال • المحور الصادي: العمليات ({{complexity}})",
+    "inputSize": "حجم الإدخال (n)",
+    "operations": "العمليات ({{scale}})",
+    "linear": "خطي",
+    "log": "لوغاريتمي",
+    "hoverN": "n",
+    "hoverOps": "عمليات"
   },
   "swipe_tutorial": {
     "title": "اسحب للتنقل",
@@ -165,6 +227,7 @@
     "comparing": "مقارنة {{a}} و {{b}}",
     "swapping": "تبديل {{a}} و {{b}}",
     "bubblePassComplete": "اكتملت التمريرة {{pass}}. العنصر في الموضع {{position}} في المكان الصحيح.",
+    "bubbleEarlyTermination": "المصفوفة مرتبة! إنهاء مبكر بعد {{pass}} تمريرات (تم توفير {{totalPasses}} تمريرة إجمالية).",
     "pivotSelected": "تم اختيار المحور: {{pivot}} في الفهرس {{index}}",
     "pivotPlaced": "المحور {{pivot}} في الموضع الصحيح {{position}}",
     "dividing": "تقسيم المصفوفة: [{{start}}...{{mid}}] و [{{midNext}}...{{end}}]",
@@ -173,9 +236,150 @@
     "placedRemaining": "وضع {{value}} المتبقي في الموضع {{position}}",
     "mergedSection": "تم دمج القسم [{{start}}...{{end}}]",
     "exploring": "استكشاف الخلية ({{row}}, {{col}})",
-    "addedToQueue": "تمت إضافة {{count}} خلايا إلى قائمة الانتظار",
+    "exploringForward": "البحث الأمامي يستكشف الخلية ({{row}}, {{col}})",
+    "exploringBackward": "البحث الخلفي يستكشف الخلية ({{row}}, {{col}})",
+    "addedToQueue": "إضافة {{count}} خلايا إلى الطابور",
+    "bidirectionalProgress": "تقدم البحث {{direction}} - الطابور الأمامي: {{forwardQueue}}, الطابور الخلفي: {{backwardQueue}}",
+    "bidirectionalMeeting": "التقيت البحثان عند ({{row}}, {{col}})! طول المسار: {{pathLength}} خلية",
     "pathFound": "تم العثور على المسار! الطول: {{length}} خلية",
-    "noPath": "لم يتم العثور على مسار"
+    "pathFoundWithCost": "تم العثور على المسار! الطول: {{length}} خلية، التكلفة: {{cost}}",
+    "noPath": "لم يتم العثور على مسار",
+    "dijkstraExploring": "استكشاف الخلية ({{row}}, {{col}}) مع المسافة {{dist}}",
+    "aStarExploring": "استكشاف ({{row}}, {{col}}) | g={{g}}, h={{h}}, f={{f}}",
+    "jpsJumpPointAt": "نقطة القفز عند ({{row}}, {{col}}) | g={{g}}, h={{h}}, f={{f}}",
+    "greedyExploring": "استكشاف ({{row}}, {{col}} | h={{heuristic}})",
+    "jpsJumpPointFound": "تم العثور على نقطة القفز عند ({{row}}, {{col}})",
+    "jpsJumping": "القفز من ({{row}}, {{col}}) في الاتجاه ({{dx}}, {{dy}})",
+    "jpsJumpPointsDiscovered": "تم اكتشاف {{count}} نقطة/نقاط قفز في المجموعة المفتوحة",
+    "selectionFindingMin": "البحث عن الحد الأدنى في المنطقة غير المرتبة بدءاً من الموضع {{position}}",
+    "selectionNewMin": "تم العثور على حد أدنى جديد: {{value}} في الموضع {{position}}",
+    "selectionPlaced": "تم وضع {{value}} في الموضع الصحيح {{position}}",
+    "insertionKey": "اختيار {{value}} في الموضع {{position}} لإدراجه في الجزء المرتب",
+    "insertionShift": "نقل {{value}} من الموضع {{from}} إلى {{to}}",
+    "insertionPlaced": "تم إدراج {{value}} في الموضع الصحيح {{position}}",
+    "insertionPassComplete": "اكتملت التمريرة {{pass}}. أول {{elements}} عناصر مرتبة الآن.",
+    "heapHeapify": "إعادة ترتيب الشجرة الفرعية في الفهرس {{index}} (القيمة: {{value}})",
+    "heapExtractMax": "استخراج القيمة القصوى {{value}} إلى الموضع {{position}}",
+    "heapPlaced": "تم وضع {{value}} في الموضع المرتب {{position}}",
+    "shellGap": "استخدام تسلسل Knuth بحجم فجوة: {{gap}} (مقارنة العناصر على بعد {{gap}} موضع)",
+    "shellSelecting": "اختيار العنصر {{value}} في الموضع {{position}} للإدراج بفجوة-{{gap}}",
+    "shellComparing": "مقارنة {{a}} (موضع {{posA}}) مع {{b}} عبر فجوة {{gap}} موضع",
+    "shellShifting": "نقل {{value}} من الموضع {{from}} إلى {{to}}",
+    "shellPlaced": "تم وضع {{value}} في موضعه الصحيح {{position}} لهذه الفجوة",
+    "shellGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. المصفوفة الآن مرتبة بفجوة-{{gap}}، الانتقال إلى فجوة أصغر.",
+    "combGap": "استخدام حجم فجوة: {{gap}} (مقارنة العناصر المتباعدة بـ {{gap}} موضع)",
+    "combGapComplete": "اكتملت تمريرة الفجوة-{{gap}}. الانتقال إلى فجوة أصغر.",
+    "timRunDetected": "تم اكتشاف تسلسل من الموضع {{start}} إلى {{end}} (الحجم: {{size}})",
+    "timRunSorted": "تم ترتيب التسلسل من الموضع {{start}} إلى {{end}} باستخدام الترتيب بالإدراج",
+    "timMergingRuns": "دمج التسلسلات: [{{start}}...{{mid}}] و [{{mid}}...{{end}}]",
+    "radixBucketPush": "إضافة {{val}} إلى الدلو {{bucket}} (الرقم: {{digit}})",
+    "radixCollect": "جمع {{val}} من الدلو {{bucket}} إلى الموضع {{position}}",
+    "radixPassComplete": "اكتملت التمريرة {{pass}} (تمت معالجة موضع الرقم)",
+    "countingFindMax": "تم العثور على القيمة القصوى: {{max}}. إنشاء مصفوفة العد بحجم {{max}} + 1.",
+    "countingCount": "عد ظهور {{value}}. مصفوفة العد[{{value}}] = {{count}}",
+    "countingCountComplete": "اكتملت مرحلة العد. تم عد ظهور كل قيمة.",
+    "countingCumulativeComplete": "تم حساب المجموع التراكمي. مصفوفة العد تحتوي الآن على المواضع.",
+    "countingPlace": "وضع {{value}} في الموضع {{position}} في مصفوفة الإخراج",
+    "bucketDistributing": "توزيع {{value}} في الدلو {{bucket}} من {{bucketCount}}",
+    "bucketPlaced": "تم وضع {{value}} في الدلو {{bucket}}",
+    "bucketDistributionComplete": "اكتمل التوزيع: {{totalElements}} عناصر في {{bucketCount}} دلاء",
+    "bucketSorted": "تم ترتيب الدلو {{bucket}} ({{size}} عناصر)",
+    "bucketMerging": "دمج {{value}} من الدلو {{bucket}} إلى الموضع {{position}}",
+    "cycleStart": "بدء الدورة مع العنصر {{item}} في الموضع {{position}}",
+    "cycleSkip": "العنصر {{item}} موجود بالفعل في الموضع الصحيح",
+    "cyclePlace": "تم وضع {{item}} في موضعه الصحيح {{position}}",
+    "bellmanIteration": "تكرار {{iteration}}/{{maxIterations}} | تحديثات: {{relaxations}} | المسافة للهدف: {{distance}}",
+    "bellmanRelaxation": "تحديث المسافة للخلية ({{row}}, {{col}}) | المسافة الجديدة: {{newDist}}",
+    "bellmanNoUpdates": "لا يوجد تحديثات في هذا التكرار. إنهاء مبكر للخوارزمية.",
+    "idaNewThreshold": "عتبة جديدة: {{threshold}}",
+    "idaVisiting": "زيارة ({{x}}, {{y}}) | العتبة: {{threshold}}",
+    "idaBacktracking": "تراجع من ({{x}}, {{y}})",
+    "dStarLiteExpansion": "توسيع العقدة ({{row}}, {{col}})",
+    "dStarLiteInconsistent": "العقدة ({{row}}, {{col}}) غير متناسقة - إعادة تقييم",
+    "bogoChecking": "المحاولة {{attempt}}: التحقق من ترتيب المصفوفة",
+    "bogoShuffling": "المحاولة {{attempt}}: خلط عشوائي للمصفوفة",
+    "bogoSuccess": "نجاح! تم ترتيب المصفوفة بعد {{attempts}} محاولة خلط",
+    "bogoFailed": "فشل الترتيب بعد {{maxAttempts}} محاولة. ترتيب بوغو غير فعال للغاية!"
+  },
+  "landing": {
+    "hero": {
+      "title": "أخيراً، الخوارزميات أصبحت مفهومة",
+      "subtitle": "شاهد الخوارزميات تنبض بالحياة مع تصورات تفاعلية، خطوة بخطوة. تعلم بالسرعة التي تناسبك.",
+      "cta": "ابدأ التصور"
+    },
+    "learnYourWay": {
+      "heading": "تعلم بطريقتك",
+      "autoPlay": {
+        "title": "وضع التشغيل التلقائي",
+        "description": "اجلس وشاهد الخوارزميات تتكشف تلقائياً بالسرعة التي تفضلها. مثالي لفهم الصورة الكبيرة."
+      },
+      "manual": {
+        "title": "التحكم اليدوي",
+        "description": "تقدم خلال كل عملية يدوياً. توقف مؤقتاً، أعد التشغيل، وحلل كل قرار يتخذه الخوارزمية."
+      },
+      "tagline": "أنت تقرر سرعة تعلمك."
+    },
+    "clarity": {
+      "heading": "لا فوضى، فقط وضوح",
+      "description": "بيان فلو يزيل التعقيد ليكشف جمال الخوارزميات. واجهة نظيفة، شروحات واضحة، ورسوم متحركة حية تساعدك على رؤية ما يحدث فعلاً."
+    },
+    "algorithmTypes": {
+      "heading": "استكشف أنواع الخوارزميات",
+      "subheading": "تعمق في فئات الخوارزميات المختلفة وشاهد كيف تعمل خطوة بخطوة",
+      "available": "الخوارزميات المتاحة:",
+      "sorting": {
+        "title": "خوارزميات الترتيب",
+        "description": "شاهد كيف تنظم خوارزميات الترتيب المختلفة البيانات خطوة بخطوة. مثالي لفهم الترتيب بالمقارنة.",
+        "algorithms": "الترتيب الفقاعي، الترتيب السريع، ترتيب الدمج"
+      },
+      "pathfinding": {
+        "title": "خوارزميات إيجاد المسار",
+        "description": "شاهد كيف تتنقل خوارزميات إيجاد المسار عبر الشبكات لإيجاد أقصر مسار بين نقطتين.",
+        "algorithms": "BFS، ديكسترا، بحث A*، البحث ثنائي الاتجاه، البحث الجشع الأفضل أولاً، البحث بنقاط القفز، خوارزمية بيلمان-فورد، IDA*، D* Lite"
+      }
+    },
+    "features": {
+      "heading": "ميزات قوية",
+      "subheading": "كل ما تحتاجه لإتقان الخوارزميات",
+      "customization": {
+        "title": "قابل للتخصيص",
+        "description": "اضبط حجم المصفوفة (5-100) أو حجم الشبكة (15×15 إلى 35×35) لترى كيف تعمل الخوارزميات مع أحجام بيانات مختلفة."
+      },
+      "pythonCode": {
+        "title": "كود بايثون",
+        "description": "اطلع على تطبيقات بايثون نظيفة لكل خوارزمية. تعلم بقراءة أمثلة كود حقيقية."
+      },
+      "sound": {
+        "title": "صوت تفاعلي",
+        "description": "فعّل التغذية الراجعة الصوتية لتسمع الخوارزميات أثناء العمل.",
+        "badge": "تجريبي"
+      },
+      "fullscreen": {
+        "title": "ملء الشاشة",
+        "description": "وضع ملء الشاشة الغامر مثالي للعروض التقديمية والتدريس في الصف."
+      }
+    },
+    "roadmapCTA": {
+      "badge": "قريباً",
+      "heading": "اكتشف ما هو قادم",
+      "description": "نحن نحسن بيان فلو باستمرار مع خوارزميات جديدة وميزات وأدوات تعليمية. تحقق من خارطة الطريق لترى ما هو قادم وما نعمل عليه حالياً.",
+      "button": "عرض خارطة الطريق"
+    },
+    "footer": {
+      "quickActions": "إجراءات سريعة",
+      "startVisualizing": "بدء التصور",
+      "seeRoadmap": "عرض خارطة الطريق"
+    }
+  },
+  "algorithmGroups": {
+    "comparisonBased": "قائم على المقارنة",
+    "nonComparison": "غير مقارن",
+    "writeOptimal": "أمثل في الكتابة",
+    "educational": "تعليمي",
+    "unweighted": "غير مرجح",
+    "weightedOptimal": "مرجح أمثل",
+    "heuristicBased": "قائم على الاستدلال",
+    "specialCases": "حالات خاصة"
   },
   "roadmap": {
     "hero": {
